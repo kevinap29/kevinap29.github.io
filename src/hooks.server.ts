@@ -14,7 +14,7 @@ async function first(input: {
 			if (theme) {
 				return html.replace(/(?<=data-theme=).*(?<=")/im, `"${theme}"`);
 			} else {
-				setCookies(input.event.cookies, 'APP_THEME', 'wintry');
+				setCookies(input.event.cookies, 'APP_THEME', 'crimson');
 
 				return html;
 			}

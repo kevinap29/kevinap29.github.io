@@ -26,12 +26,15 @@
 <svelte:head>{@html `<script>(${setInitialClassState.toString()})();</script>`}</svelte:head>
 
 <div
-	class="flex justify-between items-center variant-glass-surface h-12 border-b border-b-surface-500 mx-auto px-4"
+	class="flex justify-between items-center variant-glass-surface h-12 border-b border-surface-400-500-token mx-auto px-4"
 >
 	<!-- <button class="btn variant-glass-surface" use:popup={popupTheme}>
         Theme
         <CaretDownOutline />
     </button> -->
+	<button class="btn variant-glass-surface">
+        sidebar
+    </button>
 	<LightSwitch />
 </div>
 
