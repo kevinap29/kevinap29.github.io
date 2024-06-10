@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { ListBox, ListBoxItem, popup, type PopupSettings } from "@skeletonlabs/skeleton";
+	import { ListBox, ListBoxItem, popup, type PopupSettings, LightSwitch, setInitialClassState } from "@skeletonlabs/skeleton";
     import { CaretDownOutline } from 'flowbite-svelte-icons';
     
     import type { SkeletonTheme } from '$lib/@types'
@@ -17,11 +17,14 @@
     };
 </script>
 
-<div class="variant-glass-surface h-12 border-b border-b-surface-500">
+<svelte:head>{@html `<script>(${setInitialClassState.toString()})();</script>`}</svelte:head>
+
+<div class="flex justify-between items-center variant-glass-surface h-12 border-b border-b-surface-500 mx-auto px-4">
     <button class="btn variant-glass-surface" use:popup={popupTheme}>
         Theme
         <CaretDownOutline />
     </button>
+    <LightSwitch />
 </div>
 
 <div class="card p-4 w-72 shadow-xl" data-popup="popupTheme">

@@ -1,7 +1,7 @@
 <script lang="ts">
-    
+    let yearString = new Date().getFullYear() == 2024 ?  '2024' : `2024 - ${new Date().getFullYear().toString()}`;
 </script>
 
-<div class="variant-glass-surface h-12 border-t border-t-surface-500">
-    page footer
+<div class="flex justify-center items-center variant-glass-surface h-12 border-t border-t-surface-500 mx-auto">
+    <p>© Kevin Agustiansyah {yearString}</p>
 </div>
