@@ -1,18 +1,19 @@
-import { listTheme } from '$lib/data/theme'
+// import { listTheme } from '$lib/data/theme'
 import type { LayoutServerLoad } from './$types';
 
-export const load = (async ({ cookies, fetch, url }) => {
-    let appTheme: string = '';
+export const load = (async () => {
+	// let appTheme: string = '';
 
-    try {
-        appTheme = cookies.get('APP_THEME') || 'wintry'
-    } catch (e: unknown) {
-        const error = e as Error;
+	// try {
+	//     appTheme = cookies.get('APP_THEME') || 'wintry'
+	// } catch (e: unknown) {
+	//     const error = e as Error;
 
-        appTheme = ''
-    }
+	//     appTheme = ''
+	// }
 
-    return {
-        appTheme, listTheme
-    };
+	return {
+		// appTheme,
+		//listTheme
+	};
 }) satisfies LayoutServerLoad;

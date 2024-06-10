@@ -1,3 +1,3 @@
 import { setCookies } from './@server';
 
-export { setCookies }
+export { setCookies };

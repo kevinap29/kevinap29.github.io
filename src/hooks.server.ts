@@ -1,7 +1,7 @@
-import { setCookies } from '$lib'
+import { setCookies } from '$lib';
 import { sequence } from '@sveltejs/kit/hooks';
 
-import type { Handle, RequestEvent, ResolveOptions, MaybePromise } from '@sveltejs/kit';
+import type { RequestEvent, ResolveOptions, MaybePromise } from '@sveltejs/kit';
 
 async function first(input: {
 	event: RequestEvent;
