@@ -6,5 +6,9 @@ export const prerender = true;
 export const trailingSlash = 'always';
 
 export const load = (async () => {
-	return {};
+	const loadAPI = false;
+	
+	return {
+		loadAPI
+	};
 }) satisfies LayoutServerLoad;

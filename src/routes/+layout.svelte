@@ -20,6 +20,21 @@
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+
+	import { setInitialClassState } from '@skeletonlabs/skeleton';
+	import { onMount } from 'svelte';
+
+	onMount(async () => {
+		const getLocalTranslate = localStorage.getItem('translate')
+
+		if (!getLocalTranslate) {
+			localStorage.setItem('translate', 'id')
+		}
+	});
 </script>
+
+<!-- eslint-disable -->
+<svelte:head>{@html `<script>(${setInitialClassState.toString()})();</script>`}</svelte:head>
+<!-- eslint-enable -->
 
 <slot />
