@@ -72,6 +72,8 @@ export const load = (async ({ fetch, parent }) => {
 
     return {
         pageTitleId,
-        pageTitleEn
+        pageTitleEn,
+        pageBodyId,
+        pageBodyEn,
     };
 }) satisfies PageServerLoad;
