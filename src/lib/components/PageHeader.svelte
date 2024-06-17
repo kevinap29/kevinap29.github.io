@@ -28,8 +28,8 @@
 		</svg>
 	</button>
 	<nav class="flex justify-between items-center gap-5 overflow-x-auto overflow-y-hidden">
-		<a href={urls.home} class="p-2 hover:variant-filled-primary {$page.url.href === urls.home ? 'variant-filled-primary' : 'anchor'}">Beranda</a>
-		<a href={urls.about} class="p-2 hover:variant-filled-primary {$page.url.href === urls.about ? 'variant-filled-primary' : 'anchor'}">Tentang Saya</a>
+		<a href={urls.home} class="p-2 hover:variant-glass-primary {$page.url.href === urls.home ? 'variant-filled-primary' : 'anchor'}">Beranda</a>
+		<a href={urls.about} class="p-2 hover:variant-glass-primary {$page.url.href === urls.about ? 'variant-filled-primary' : 'anchor'}">Tentang Saya</a>
 	</nav>
 	<div class="flex justify-between items-center space-x-8">
 		<LightSwitch />
