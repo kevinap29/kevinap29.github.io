@@ -1,18 +1,17 @@
 <script lang="ts">
-	import { PUBLIC_BASE_URL } from '$env/static/public'
 	import { AppShell } from '@skeletonlabs/skeleton';
 
 	import SideBar from '$lib/components/SideBar.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import PageFooter from '$lib/components/PageFooter.svelte';
 
-	// const origin = $page.url.origin;
+	const origin = "https://kevinap29.github.io";
 </script>
 
 <AppShell>
 	<!-- (header) -->
 	<svelte:fragment slot="sidebarLeft">
-		<SideBar origin={import.meta.env.PROD ? PUBLIC_BASE_URL : ''} />
+		<SideBar origin={import.meta.env.PROD ? origin : ''} />
 	</svelte:fragment>
 	<!-- (sidebarRight) -->
 	<svelte:fragment slot="pageHeader">
