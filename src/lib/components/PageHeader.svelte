@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { base } from '$app/paths'
+	import { page } from '$app/stores'
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 </script>
 
@@ -23,8 +23,8 @@
 		</svg>
 	</button>
 	<div class="flex justify-between items-center gap-5">
-		<a href={base} class="anchor">Beranda</a>
-		<a href={`${base}/about`} class="anchor">Tentang Saya</a>
+		<a href={$page.url.origin} class="anchor">Beranda</a>
+		<a href={`${$page.url.origin}/about`} class="anchor">Tentang Saya</a>
 	</div>
 	<div class="flex justify-between items-center space-x-8">
 		<LightSwitch />
