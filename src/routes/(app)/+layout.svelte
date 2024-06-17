@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores'
+	import { base } from '$app/paths'
 	import { AppShell } from '@skeletonlabs/skeleton';
 
 	import SideBar from '$lib/components/SideBar.svelte';
@@ -12,7 +13,7 @@
 <AppShell>
 	<!-- (header) -->
 	<svelte:fragment slot="sidebarLeft">
-		<SideBar origin={origin} />
+		<SideBar origin={base} />
 	</svelte:fragment>
 	<!-- (sidebarRight) -->
 	<svelte:fragment slot="pageHeader">
