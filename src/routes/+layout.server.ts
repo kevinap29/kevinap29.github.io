@@ -7,8 +7,10 @@ export const trailingSlash = 'always';
 
 export const load = (async () => {
 	const loadAPI = false;
+	const websiteName = "Kevin Agustiansyah Putra";
 
 	return {
-		loadAPI
+		loadAPI,
+		websiteName
 	};
 }) satisfies LayoutServerLoad;

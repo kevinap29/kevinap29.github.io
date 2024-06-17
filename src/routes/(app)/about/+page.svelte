@@ -1,10 +1,24 @@
+<script lang="ts">
+    import type { PageServerData } from './$types'
+
+    export let data: PageServerData
+
+    $: ({ websiteName } = data)
+</script>
+
+<svelte:head>
+    <title>About | {websiteName}</title>
+</svelte:head>
+
 <div class="container px-4 py-2">
-	<h1 class="h1 font-bold text-center">Tentang Saya</h1>
+	<section class="py-4">
+		<h1 class="h1 font-bold text-center">Tentang Saya</h1>
+	</section>
 
 	<section class="py-4">
 		<h2 class="h3 font-bold">Permulaan</h2>
 		<p>
-			Halo, nama saya <span class="font-bold">Kevin Agustiansyah</span>, saya lulusan dari
+			Saya lulusan dari
 			<span class="font-bold">STMIK Palcomtech (ITB Palcomtech)</span>
 			jurusan Sistem Informasi (S1) dari 2017-2021 dengan IPK <span class="font-bold">3.67</span>.
 			Awal saya belajar pemograman web dengan <span class="font-bold">PHP</span> dan
