@@ -1,10 +1,15 @@
 <script lang="ts">
 	import { page } from '$app/stores'
 	import { LightSwitch } from '@skeletonlabs/skeleton';
+
+	const urls = {
+		home: `${$page.url.origin}/`,
+		about: `${$page.url.origin}/about/`
+	}
 </script>
 
 <div class="flex justify-between items-center variant-glass-surface h-12 border-b border-surface-400-500-token mx-auto px-4">
-	<button type="button" class="btn variant-glass-surface">
+	<button type="button" class="lg:hidden btn variant-glass-surface" on:click>
 		<svg
 			class="w-6 h-6 text-gray-800 dark:text-white"
 			aria-hidden="true"
@@ -22,10 +27,10 @@
 			/>
 		</svg>
 	</button>
-	<div class="flex justify-between items-center gap-5">
-		<a href={$page.url.origin} class="anchor">Beranda</a>
-		<a href={`${$page.url.origin}/about`} class="anchor">Tentang Saya</a>
-	</div>
+	<nav class="flex justify-between items-center gap-5 overflow-x-auto overflow-y-hidden">
+		<a href={urls.home} class="p-2 hover:variant-filled-primary {$page.url.href === urls.home ? 'variant-filled-primary' : 'anchor'}">Beranda</a>
+		<a href={urls.about} class="p-2 hover:variant-filled-primary {$page.url.href === urls.about ? 'variant-filled-primary' : 'anchor'}">Tentang Saya</a>
+	</nav>
 	<div class="flex justify-between items-center space-x-8">
 		<LightSwitch />
 	</div>
