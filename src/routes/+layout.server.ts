@@ -7,7 +7,7 @@ export const trailingSlash = 'always';
 
 export const load = (async () => {
 	const loadAPI = false;
-	
+
 	return {
 		loadAPI
 	};

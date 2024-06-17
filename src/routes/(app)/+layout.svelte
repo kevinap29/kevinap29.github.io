@@ -1,19 +1,18 @@
 <script lang="ts">
+	import { page } from '$app/stores'
 	import { AppShell } from '@skeletonlabs/skeleton';
 
 	import SideBar from '$lib/components/SideBar.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import PageFooter from '$lib/components/PageFooter.svelte';
 
-	// import type { LayoutData } from './$types';
-
-	// export let data: LayoutData;
+	const origin = $page.url.origin;
 </script>
 
 <AppShell>
 	<!-- (header) -->
 	<svelte:fragment slot="sidebarLeft">
-		<SideBar />
+		<SideBar origin={origin} />
 	</svelte:fragment>
 	<!-- (sidebarRight) -->
 	<svelte:fragment slot="pageHeader">

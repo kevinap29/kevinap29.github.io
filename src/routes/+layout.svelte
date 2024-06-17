@@ -25,10 +25,10 @@
 	import { onMount } from 'svelte';
 
 	onMount(async () => {
-		const getLocalTranslate = localStorage.getItem('translate')
+		const getLocalTranslate = localStorage.getItem('translate');
 
 		if (!getLocalTranslate) {
-			localStorage.setItem('translate', 'id')
+			localStorage.setItem('translate', 'id');
 		}
 	});
 </script>
