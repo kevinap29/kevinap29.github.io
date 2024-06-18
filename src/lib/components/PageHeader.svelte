@@ -4,7 +4,8 @@
 
 	const urls = {
 		home: `${$page.url.origin}/`,
-		about: `${$page.url.origin}/about/`
+		about: `${$page.url.origin}/about/`,
+		// project: `${$page.url.origin}/project/`,
 	}
 </script>
 
@@ -30,16 +31,9 @@
 	<nav class="flex justify-between items-center gap-5 overflow-x-auto overflow-y-hidden">
 		<a href={urls.home} class="p-2 hover:variant-glass-primary {$page.url.href === urls.home ? 'variant-filled-primary' : 'anchor'}">Beranda</a>
 		<a href={urls.about} class="p-2 hover:variant-glass-primary {$page.url.href === urls.about ? 'variant-filled-primary' : 'anchor'}">Tentang Saya</a>
+		<!-- <a href={urls.project} class="p-2 hover:variant-glass-primary {$page.url.href === urls.project ? 'variant-filled-primary' : 'anchor'}">Project</a> -->
 	</nav>
 	<div class="flex justify-between items-center space-x-8">
 		<LightSwitch />
 	</div>
 </div>
-
-<!-- <div class="card p-4 w-72 shadow-xl" data-popup="popupTheme">
-    <ListBox>
-        {#each listTheme as theme}
-            <ListBoxItem bind:group={appTheme} name={`${theme.icon} ${theme.name}`} value={theme.value}>{`${theme.icon} ${theme.name}`}</ListBoxItem>
-        {/each}
-    </ListBox>
-</div> -->

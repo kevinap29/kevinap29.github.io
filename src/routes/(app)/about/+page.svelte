@@ -5,16 +5,16 @@
 
     export let data: PageServerData
 
-    $: ({ websiteName } = data)
+    $: ({ websiteName, imageLocation } = data)
 </script>
 
 <svelte:head>
     <title>About | {websiteName}</title>
-	<meta name="description" content="Kevin Agustiansyah Putra">
-    <meta name="keywords" content={''}>
-    <meta property="og:title" content="Kevin Agustiansyah Putra" />
-    <meta property="og:description" content="Website Portofolio Kevin Agustiansyah Putra" />
-    <meta property="og:image" content={`${$page.url.origin}/img/new-pas-foto.jpg`} />
+	<meta name="description" content={`Tentang ${websiteName}`}>
+    <meta name="keywords" content={'Kevin,Agustiansyah,Putra,Story,Experience'}>
+    <meta property="og:title" content={`About | ${websiteName}`} />
+    <meta property="og:description" content={`Tentang ${websiteName}`} />
+    <meta property="og:image" content={imageLocation} />
     <meta property="og:url" content={$page.url.href} />
     <meta property="og:type" content="website" />
 </svelte:head>

@@ -3,7 +3,7 @@
 
     import { page } from '$app/stores'
 
-    import { ListBox, ListBoxItem, ProgressBar, RadioGroup, RadioItem, popup, type PopupSettings } from '@skeletonlabs/skeleton';
+    import { ListBox, ListBoxItem, ProgressBar, popup, type PopupSettings } from '@skeletonlabs/skeleton';
 
     import { keahlianStore } from '$lib/data/store/keahlian-store'
     
@@ -24,9 +24,8 @@
         target: 'popupOrderColumnClick',
         placement: 'bottom'
     };
-                        
 
-    $: ({ websiteName } = data)
+    $: ({ websiteName, imageLocation } = data)
     $: filterKeahlian = 'default' as FilterKeahlian
     $: orderByKeahlian = 'default' as OrderBy
 
@@ -55,11 +54,11 @@
 
 <svelte:head>
     <title>{websiteName}</title>
-    <meta name="description" content="Kevin Agustiansyah Putra">
+    <meta name="description" content={`Website Portofolio ${websiteName}`}>
     <meta name="keywords" content={$keahlianStore.map(a => a.name).toString()}>
-    <meta property="og:title" content="Kevin Agustiansyah Putra" />
-    <meta property="og:description" content="Website Portofolio Kevin Agustiansyah Putra" />
-    <meta property="og:image" content={`${$page.url.origin}/img/new-pas-foto.jpg`} />
+    <meta property="og:title" content={websiteName} />
+    <meta property="og:description" content={`Website Portofolio ${websiteName}`} />
+    <meta property="og:image" content={imageLocation} />
     <meta property="og:url" content={$page.url.href} />
     <meta property="og:type" content="website" />
 </svelte:head>

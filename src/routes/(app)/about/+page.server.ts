@@ -1,9 +1,10 @@
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({ parent }) => {
-	const { websiteName } = await parent();
+	const { websiteName, imageLocation } = await parent();
 
 	return {
-		websiteName
+		websiteName,
+		imageLocation
 	};
 }) satisfies PageServerLoad;
