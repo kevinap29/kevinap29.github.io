@@ -7,8 +7,8 @@ export const trailingSlash = 'always';
 
 export const load = (async ({ url }) => {
 	const loadAPI = false;
-	const websiteName = "Kevin Agustiansyah Putra";
-	const imageLocation = `${url.origin}/img/new-pas-foto.jpg`
+	const websiteName = 'Kevin Agustiansyah Putra';
+	const imageLocation = `${url.origin}/img/new-pas-foto.jpg`;
 
 	return {
 		loadAPI,

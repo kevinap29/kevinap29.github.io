@@ -1,22 +1,22 @@
 <script lang="ts">
-    import type { PageServerData } from './$types'
+	import type { PageServerData } from './$types';
 
-	import { page } from '$app/stores'
+	import { page } from '$app/stores';
 
-    export let data: PageServerData
+	export let data: PageServerData;
 
-    $: ({ websiteName, imageLocation } = data)
+	$: ({ websiteName, imageLocation } = data);
 </script>
 
 <svelte:head>
-    <title>About | {websiteName}</title>
-	<meta name="description" content={`Tentang ${websiteName}`}>
-    <meta name="keywords" content={'Kevin,Agustiansyah,Putra,Story,Experience'}>
-    <meta property="og:title" content={`About | ${websiteName}`} />
-    <meta property="og:description" content={`Tentang ${websiteName}`} />
-    <meta property="og:image" content={imageLocation} />
-    <meta property="og:url" content={$page.url.href} />
-    <meta property="og:type" content="website" />
+	<title>About | {websiteName}</title>
+	<meta name="description" content={`Tentang ${websiteName}`} />
+	<meta name="keywords" content={'Kevin,Agustiansyah,Putra,Story,Experience'} />
+	<meta property="og:title" content={`About | ${websiteName}`} />
+	<meta property="og:description" content={`Tentang ${websiteName}`} />
+	<meta property="og:image" content={imageLocation} />
+	<meta property="og:url" content={$page.url.href} />
+	<meta property="og:type" content="website" />
 </svelte:head>
 
 <div class="container px-4 py-2">
@@ -35,7 +35,9 @@
 			belajar tentang framework untuk <span class="font-bold">PHP</span> yaitu
 			<span class="font-bold">Laravel</span>. Dengan <span class="font-bold">Laravel</span> saya
 			pernah mendapatkan pekerjaan freelance dengan membuat sebuah website Company Profile
-			<a class="anchor font-bold" href="https://www.gj-energi.co.id/" target="_blank">PT. Ginting Jaya Energi</a>.
+			<a class="anchor font-bold" href="https://www.gj-energi.co.id/" target="_blank"
+				>PT. Ginting Jaya Energi</a
+			>.
 		</p>
 	</section>
 
@@ -44,11 +46,18 @@
 		<p>
 			Setelah saya menyelesaikan skirpsi, saya mendapatkan waktu senggang untuk membuat proyek untuk
 			saya sendiri. Berawal dari melihat video youtube tentang membuat dan mempublish API di
-			<a class="anchor font-bold" href="https://www.rapidapi.com/" target="_blank">RapidAPI</a> saya mencoba membuat salah satu project API saya yaitu <a class="anchor font-bold" href="https://rapidapi.com/kevinagustiansyah298-RSbcaTc-IDi/api/top-instagram-hashtag/playground/apiendpoint_00a72704-3878-4e62-b160-62fde7e29c52" target="_blank">Top Hastags Instagram</a> dengan menggunakan <span class="font-bold">Node JS</span> dan <span class="font-bold">Express JS</span> lalu saya ubah ke <span class="font-bold">Sveltekit</span>.
+			<a class="anchor font-bold" href="https://www.rapidapi.com/" target="_blank">RapidAPI</a> saya
+			mencoba membuat salah satu project API saya yaitu
+			<a
+				class="anchor font-bold"
+				href="https://rapidapi.com/kevinagustiansyah298-RSbcaTc-IDi/api/top-instagram-hashtag/playground/apiendpoint_00a72704-3878-4e62-b160-62fde7e29c52"
+				target="_blank">Top Hastags Instagram</a
+			>
+			dengan menggunakan <span class="font-bold">Node JS</span> dan
+			<span class="font-bold">Express JS</span>
+			lalu saya ubah ke <span class="font-bold">Sveltekit</span>.
 		</p>
 
-		<p>
-
-		</p>
+		<p></p>
 	</section>
 </div>

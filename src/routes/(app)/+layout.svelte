@@ -1,9 +1,16 @@
 <script lang="ts">
-	import { AppShell, initializeStores, Drawer, getDrawerStore, type DrawerSettings } from '@skeletonlabs/skeleton';
+	import {
+		AppShell,
+		initializeStores,
+		Drawer,
+		getDrawerStore,
+		type DrawerSettings
+	} from '@skeletonlabs/skeleton';
 
 	import SideBar from '$lib/components/SideBar.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import PageFooter from '$lib/components/PageFooter.svelte';
+	import MenuDrawer from '$lib/components/MenuDrawer.svelte';
 
 	initializeStores();
 
@@ -12,13 +19,18 @@
 		id: 'sidebar',
 		width: 'w-full',
 		bgDrawer: 'variant-glass-surface'
+	};
+	const drawerMenuSetting: DrawerSettings = {
+		id: 'menu',
+		width: 'w-full',
+		bgDrawer: 'variant-glass-surface'
+	};
+
+	async function handleDrawerOpenClick(setting: DrawerSettings) {
+		drawerStore.open(setting);
 	}
 
-	async function handleSidebarOpenClick() {
-		drawerStore.open(drawerSidebarSetting)
-	}
-
-	async function handleSidebarCloseClick() {
+	async function handleDrawerCloseClick() {
 		drawerStore.close();
 	}
 </script>
@@ -26,13 +38,60 @@
 <Drawer>
 	{#if $drawerStore.id === 'sidebar'}
 		<div class="flex justify-end">
-			<button type="button" class="btn text-error-100-800-token text-xl" on:click={async () => handleSidebarCloseClick()}>
-				<svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-					<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
-				</svg>			  
+			<button
+				type="button"
+				class="btn text-error-100-800-token text-xl"
+				on:click={async () => handleDrawerCloseClick()}
+			>
+				<svg
+					class="w-6 h-6"
+					aria-hidden="true"
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					fill="none"
+					viewBox="0 0 24 24"
+				>
+					<path
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+					/>
+				</svg>
 			</button>
 		</div>
 		<SideBar />
+	{/if}
+
+	{#if $drawerStore.id === 'menu'}
+		<div class="flex justify-end">
+			<button
+				type="button"
+				class="btn text-error-100-800-token text-xl"
+				on:click={async () => handleDrawerCloseClick()}
+			>
+				<svg
+					class="w-6 h-6"
+					aria-hidden="true"
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					fill="none"
+					viewBox="0 0 24 24"
+				>
+					<path
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+					/>
+				</svg>
+			</button>
+		</div>
+		<MenuDrawer on:click={async () => handleDrawerCloseClick()} />
 	{/if}
 </Drawer>
 
@@ -45,7 +104,10 @@
 	</svelte:fragment>
 	<!-- (sidebarRight) -->
 	<svelte:fragment slot="pageHeader">
-		<PageHeader on:click={async () => await handleSidebarOpenClick()}/>
+		<PageHeader
+			on:profile={async () => await handleDrawerOpenClick(drawerSidebarSetting)}
+			on:menu={async () => await handleDrawerOpenClick(drawerMenuSetting)}
+		/>
 	</svelte:fragment>
 	<!-- Router Slot -->
 	<slot />
