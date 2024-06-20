@@ -42,6 +42,30 @@
 		placement: 'bottom'
 	};
 
+	const popupHoverColumnAlat: PopupSettings = {
+		event: 'hover',
+		target: 'popupHoverColumnAlat',
+		placement: 'top'
+	};
+
+	const popupHoverOrderAlat: PopupSettings = {
+		event: 'hover',
+		target: 'popupHoverOrderAlat',
+		placement: 'top'
+	};
+
+	const popupHoverColumnKeahlian: PopupSettings = {
+		event: 'hover',
+		target: 'popupHoverColumnKeahlian',
+		placement: 'top'
+	};
+
+	const popupHoverOrderKeahlian: PopupSettings = {
+		event: 'hover',
+		target: 'popupHoverOrderKeahlian',
+		placement: 'top'
+	};
+
 	$: ({ websiteName, imageLocation } = data);
 	$: filterKeahlian = 'default' as ColumnData;
 	$: orderByKeahlian = 'default' as OrderBy;
@@ -121,7 +145,7 @@
 		<div class="flex justify-between items-start">
 			<h3 class="h3 font-bold"># Alat</h3>
 			<div class="flex justify-between items-center gap-4">
-				<button class="btn variant-filled" use:popup={popupColumnAlatClick}>
+				<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupColumnAlatClick} use:popup={popupHoverColumnAlat}>
 					<svg
 						class="w-6 h-6"
 						aria-hidden="true"
@@ -156,7 +180,11 @@
 						>
 					</ListBox>
 				</div>
-				<button class="btn variant-filled" use:popup={popupOrderAlatClick}>
+				<div class="card p-4 bg-surface-100-800-token z-50" data-popup="popupHoverColumnAlat">
+					<p>Select Column</p>
+					<div class="arrow bg-surface-100-800-token" />
+				</div>
+				<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupOrderAlatClick} use:popup={popupHoverOrderAlat}>
 					<svg
 						class="w-6 h-6"
 						aria-hidden="true"
@@ -191,6 +219,10 @@
 						>
 					</ListBox>
 				</div>
+				<div class="card p-4 bg-surface-100-800-token z-50" data-popup="popupHoverOrderAlat">
+					<p>Order By</p>
+					<div class="arrow bg-surface-100-800-token" />
+				</div>
 			</div>
 		</div>
 
@@ -211,9 +243,9 @@
 
 	<section class="py-4 space-y-4">
 		<div class="flex justify-between items-start">
-			<h3 class="h3 font-bold"># Keahlian</h3>
+			<h3 class="h3 font-bold"># Teknologi</h3>
 			<div class="flex justify-between items-center gap-4">
-				<button class="btn variant-filled" use:popup={popupColumnKeahlianClick}>
+				<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupColumnKeahlianClick} use:popup={popupHoverColumnKeahlian}>
 					<svg
 						class="w-6 h-6"
 						aria-hidden="true"
@@ -248,7 +280,11 @@
 						>
 					</ListBox>
 				</div>
-				<button class="btn variant-filled" use:popup={popupOrderKeahlianClick}>
+				<div class="card p-4 bg-surface-100-800-token z-50" data-popup="popupHoverColumnKeahlian">
+					<p>Select Column</p>
+					<div class="arrow bg-surface-100-800-token" />
+				</div>
+				<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupOrderKeahlianClick} use:popup={popupHoverOrderKeahlian}>
 					<svg
 						class="w-6 h-6"
 						aria-hidden="true"
@@ -282,6 +318,10 @@
 							on:change={handleFilterKeahlianChange}>Descending</ListBoxItem
 						>
 					</ListBox>
+				</div>
+				<div class="card p-4 bg-surface-100-800-token z-50" data-popup="popupHoverOrderKeahlian">
+					<p>Order By</p>
+					<div class="arrow bg-surface-100-800-token" />
 				</div>
 			</div>
 		</div>
