@@ -1,7 +1,9 @@
 // import { listTheme } from '$lib/data/theme'
 import type { LayoutServerLoad } from './$types';
 
-export const load = (async () => {
+export const load = (async ({ parent }) => {
+	const dataParent = await parent()
+	const navUrls = dataParent.navUrls
 	// let appTheme: string = '';
 
 	// try {
@@ -13,7 +15,6 @@ export const load = (async () => {
 	// }
 
 	return {
-		// appTheme,
-		//listTheme
+		navUrls
 	};
 }) satisfies LayoutServerLoad;

@@ -3,12 +3,11 @@
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { createEventDispatcher } from 'svelte';
 
+	import type { NavUrl } from '$routes/types'
+
+	export let urls: NavUrl[]
+	
 	const dispatch = createEventDispatcher();
-	const urls = [
-		{ url: `${$page.url.origin}/`, title: 'Beranda' },
-		{ url: `${$page.url.origin}/about/`, title: 'Tentang Saya' }
-		// { url: `${$page.url.origin}/project/`, title: 'Projek' },
-	];
 </script>
 
 <div

@@ -1,11 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import type { NavUrl } from '$routes/types';
 
-	const urls = [
-		{ url: `${$page.url.origin}/`, title: 'Beranda' },
-		{ url: `${$page.url.origin}/about/`, title: 'Tentang Saya' }
-		// { url: `${$page.url.origin}/project/`, title: 'Projek' },
-	];
+	export let urls: NavUrl[]
+	
 </script>
 
 <nav class="grid grid-rows-1 p-8 text-center space-y-4">

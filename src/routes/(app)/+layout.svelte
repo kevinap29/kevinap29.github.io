@@ -12,6 +12,12 @@
 	import PageFooter from '$lib/components/PageFooter.svelte';
 	import MenuDrawer from '$lib/components/MenuDrawer.svelte';
 
+	import type { LayoutServerData } from './$types'
+
+	export let data: LayoutServerData
+
+	$: ({ navUrls } = data)
+
 	initializeStores();
 
 	const drawerStore = getDrawerStore();
@@ -91,7 +97,7 @@
 				</svg>
 			</button>
 		</div>
-		<MenuDrawer on:click={async () => handleDrawerCloseClick()} />
+		<MenuDrawer urls={navUrls} on:click={async () => handleDrawerCloseClick()} />
 	{/if}
 </Drawer>
 
@@ -105,6 +111,7 @@
 	<!-- (sidebarRight) -->
 	<svelte:fragment slot="pageHeader">
 		<PageHeader
+			urls={navUrls}
 			on:profile={async () => await handleDrawerOpenClick(drawerSidebarSetting)}
 			on:menu={async () => await handleDrawerOpenClick(drawerMenuSetting)}
 		/>
