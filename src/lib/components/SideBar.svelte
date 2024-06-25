@@ -28,7 +28,7 @@
 
 	<div class="">
 		<h5 class="h5 text-center font-bold mb-4 variant-filled-primary">
-			Contact & <br />Social Media
+			Kontak & <br />Media Sosial
 		</h5>
 		<ul class="list mx-2 py-2">
 			<li class="card-hover rounded-none p-2 my-2">
