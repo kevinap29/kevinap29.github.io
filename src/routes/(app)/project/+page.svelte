@@ -18,3 +18,7 @@
 	<meta property="og:url" content={$page.url.href} />
 	<meta property="og:type" content="website" />
 </svelte:head>
+
+<div class="container px-4 py-2 space-y-4">
+	
+</div>
