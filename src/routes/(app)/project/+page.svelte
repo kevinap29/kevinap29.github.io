@@ -2,6 +2,7 @@
 	import type { PageServerData } from './$types';
 
 	import { page } from '$app/stores';
+	import { projectStore } from '$lib/data/store/project-store'
 
 	export let data: PageServerData;
 
@@ -20,53 +21,28 @@
 </svelte:head>
 
 <div class="container px-4 py-2 space-y-4">
-	
-	<section class="grid grid-cols-2 md:grid-cols-4 gap-2">
-		<!-- <div class="grid gap-4">
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" />
-			</div>
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1597077962467-be16edcc6a43?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY2MzZ8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1591775161903-497839a443c1?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY3MzR8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
-		</div> -->
-		<!-- <div class="grid gap-4">
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1617296539691-67feaadf389e?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY3NjF8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1542835435-4fa357baa00b?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY3NzN8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1553184570-557b84a3a308?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY2NTF8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
+	<section class="py-4">
+		<div class="text-center space-y-5">
+			<h1 class="h1 font-bold">Projek</h1>
+			<p>
+				Projek yang pernah saya buat, terdiri dari projek yang tersedia untuk publik atau privasi 
+			</p>
 		</div>
-		<div class="grid gap-4">
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1603855873822-0931a843ee3a?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY3ODJ8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1509130446053-899ae7358ce6?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY2NjF8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1508931133503-b1944a4ecdd5?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY3OTV8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
-		</div>
-		<div class="grid gap-4">
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1633053663400-655b31fb88ac?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY4MDV8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1578170222009-c7893aa20afd?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY4MTZ8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
-			<div>
-				<img class="h-auto max-w-full rounded-lg" src="https://images.unsplash.com/photo-1610220941077-1ec123e7c043?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzY4NjV8&ixlib=rb-4.0.3&w=300&h=300&auto=format&fit=max" alt="" />
-			</div>
-		</div> -->
-
 	</section>
 
+	<section class="grid grid-cols-1 md:grid-cols-3 gap-4 py-4">
+		{#each $projectStore as project}
+			<a href={project.url} class="card card-hover overflow-hidden" target="_blank">
+				<header>
+					<img src={`${$page.url.origin}/${project.image}`} class="bg-black/50 w-full aspect-[21/9]" alt={project.name}>
+				</header>
+				<section class="p-4 space-y-5">
+					<h1 class="h3 font-bold">{project.name}</h1>
+					<p class="">
+						{@html project.desc}
+					</p>
+				</section>
+			</a>
+		{/each}
+	</section>
 </div>
