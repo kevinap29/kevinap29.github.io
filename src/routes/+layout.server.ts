@@ -10,16 +10,16 @@ export const load = (async ({ url }) => {
 	const loadAPI = false;
 	const websiteName = 'Kevin Agustiansyah Putra';
 	const imageLocation = `${url.origin}/img/new-pas-foto.jpg`;
-	const navUrls: NavUrl[] = [
-		{ url: `${url.origin}/`, title: 'Beranda' },
-		{ url: `${url.origin}/about/`, title: 'Tentang Saya' },
-		{ url: `${url.origin}/project/`, title: 'Projek' },
-	];
+	// const navUrls: NavUrl[] = [
+	// 	{ url: `${url.origin}/`, title: 'Beranda' },
+	// 	{ url: `${url.origin}/about/`, title: 'Tentang Saya' },
+	// 	{ url: `${url.origin}/project/`, title: 'Projek' },
+	// ];
 
 	return {
 		loadAPI,
 		websiteName,
 		imageLocation,
-		navUrls
+		// navUrls
 	};
 }) satisfies LayoutServerLoad;

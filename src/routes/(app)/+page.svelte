@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PageServerData } from './$types';
+	// import type { PageServerData } from './$types';
 
 	import { page } from '$app/stores';
 
@@ -13,8 +13,11 @@
 
 	import { keahlianStore, alatStore } from '$lib/data/store/keahlian-store';
 
-	export let data: PageServerData;
+	// export let data: PageServerData;
 
+	const websiteName = 'Kevin Agustiansyah Putra';
+	const imageLocation = `${$page.url.origin}/img/new-pas-foto.jpg`;
+	
 	type ColumnData = 'name' | 'value' | 'default';
 	type OrderBy = 'asc' | 'desc' | 'default';
 
@@ -66,7 +69,7 @@
 		placement: 'top'
 	};
 
-	$: ({ websiteName, imageLocation } = data);
+	// $: ({ websiteName, imageLocation } = data);
 	$: filterKeahlian = 'default' as ColumnData;
 	$: orderByKeahlian = 'default' as OrderBy;
 	$: filterAlat = 'default' as ColumnData;
@@ -118,7 +121,7 @@
 <svelte:head>
 	<title>{websiteName}</title>
 	<meta name="description" content={`Website Portofolio ${websiteName}`} />
-	<meta name="keywords" content={$keahlianStore.map((a) => a.name).toString()} />
+	<meta name="keywords" content={`Kevin,Agustiansyah,Putra,${$keahlianStore.map((a) => a.name).toString()}`} />
 	<meta property="og:title" content={websiteName} />
 	<meta property="og:description" content={`Website Portofolio ${websiteName}`} />
 	<meta property="og:image" content={imageLocation} />

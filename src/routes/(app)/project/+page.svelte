@@ -1,18 +1,19 @@
 <script lang="ts">
-	import type { PageServerData } from './$types';
+	// import type { PageServerData } from './$types';
 
 	import { page } from '$app/stores';
 	import { projectStore } from '$lib/data/store/project-store'
 
-	export let data: PageServerData;
-
-	$: ({ websiteName, imageLocation } = data);
+	// export let data: PageServerData;
+	const websiteName = 'Kevin Agustiansyah Putra';
+	const imageLocation = `${$page.url.origin}/img/new-pas-foto.jpg`;
+	// $: ({ websiteName, imageLocation } = data);
 </script>
 
 <svelte:head>
 	<title>Project | {websiteName}</title>
 	<meta name="description" content={`Projek-projek ${websiteName}`} />
-	<meta name="keywords" content={''} />
+	<meta name="keywords" content={`Kevin,Agustiansyah,Putra,project`} />
 	<meta property="og:title" content={`Project | ${websiteName}`} />
 	<meta property="og:description" content="Website Portofolio Kevin Agustiansyah Putra" />
 	<meta property="og:image" content={imageLocation} />

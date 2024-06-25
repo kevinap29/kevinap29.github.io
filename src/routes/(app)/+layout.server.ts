@@ -3,7 +3,7 @@ import type { LayoutServerLoad } from './$types';
 
 export const load = (async ({ parent }) => {
 	const dataParent = await parent()
-	const navUrls = dataParent.navUrls
+	// const navUrls = dataParent.navUrls
 	// let appTheme: string = '';
 
 	// try {
@@ -15,6 +15,6 @@ export const load = (async ({ parent }) => {
 	// }
 
 	return {
-		navUrls
+		// navUrls
 	};
 }) satisfies LayoutServerLoad;

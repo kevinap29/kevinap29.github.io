@@ -1,11 +1,14 @@
 <script lang="ts">
-	import type { PageServerData } from './$types';
+	// import type { PageServerData } from './$types';
 
 	import { page } from '$app/stores';
 
-	export let data: PageServerData;
+	// export let data: PageServerData;
 
-	$: ({ websiteName, imageLocation } = data);
+	const websiteName = 'Kevin Agustiansyah Putra';
+	const imageLocation = `${$page.url.origin}/img/new-pas-foto.jpg`;
+
+	// $: ({ websiteName, imageLocation } = data);
 </script>
 
 <svelte:head>
