@@ -53,7 +53,7 @@
 			mencoba membuat salah satu project API saya yaitu
 			<a
 				class="anchor font-bold"
-				href="https://rapidapi.com/kevinagustiansyah298-RSbcaTc-IDi/api/top-instagram-hashtag/playground/apiendpoint_00a72704-3878-4e62-b160-62fde7e29c52"
+				href="https://rapidapi.com/kevinagustiansyah298-RSbcaTc-IDi/api/top-instagram-hashtag"
 				target="_blank">Top Hastags Instagram</a
 			>
 			dengan menggunakan <span class="font-bold">Node JS</span> dan
