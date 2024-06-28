@@ -12,7 +12,7 @@
 	import PageFooter from '$lib/components/PageFooter.svelte';
 	import MenuDrawer from '$lib/components/MenuDrawer.svelte';
 
-	import { page } from '$app/stores'
+	import { page } from '$app/stores';
 
 	// import type { LayoutServerData } from './$types'
 
@@ -23,14 +23,14 @@
 	initializeStores();
 
 	interface NavUrl {
-		url: string
-		title: string
+		url: string;
+		title: string;
 	}
 
 	const navUrls: NavUrl[] = [
 		{ url: `${$page.url.origin}/`, title: 'Beranda' },
 		{ url: `${$page.url.origin}/about/`, title: 'Tentang Saya' },
-		{ url: `${$page.url.origin}/project/`, title: 'Projek' },
+		{ url: `${$page.url.origin}/project/`, title: 'Projek' }
 	];
 	const drawerStore = getDrawerStore();
 	const drawerSidebarSetting: DrawerSettings = {

@@ -1,7 +1,8 @@
 export async function GET() {
-    const APP_HOST = `https://kevinap29.github.io` 
+	const APP_HOST = `https://kevinap29.github.io`;
 
-    return new Response(`<?xml version="1.0" encoding="UTF-8" ?>
+	return new Response(
+		`<?xml version="1.0" encoding="UTF-8" ?>
         <urlset			
             xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"			
             xmlns:xhtml="https://www.w3.org/1999/xhtml"			
@@ -26,8 +27,9 @@ export async function GET() {
                 <changefreq>monthly</changefreq>
                 <priority>0.8</priority>
             </url>
-        </urlset>`.trim(),		
-    {
-        headers: { 'Content-Type': 'application/xml' }
-    });
+        </urlset>`.trim(),
+		{
+			headers: { 'Content-Type': 'application/xml' }
+		}
+	);
 }

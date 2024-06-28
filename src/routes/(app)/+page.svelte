@@ -17,7 +17,7 @@
 
 	const websiteName = 'Kevin Agustiansyah Putra';
 	const imageLocation = `${$page.url.origin}/img/new-pas-foto.jpg`;
-	
+
 	type ColumnData = 'name' | 'value' | 'default';
 	type OrderBy = 'asc' | 'desc' | 'default';
 
@@ -121,7 +121,10 @@
 <svelte:head>
 	<title>{websiteName}</title>
 	<meta name="description" content={`Website Portofolio ${websiteName}`} />
-	<meta name="keywords" content={`Kevin,Agustiansyah,Putra,${$keahlianStore.map((a) => a.name).toString()}`} />
+	<meta
+		name="keywords"
+		content={`Kevin,Agustiansyah,Putra,${$keahlianStore.map((a) => a.name).toString()}`}
+	/>
 	<meta property="og:title" content={websiteName} />
 	<meta property="og:description" content={`Website Portofolio ${websiteName}`} />
 	<meta property="og:image" content={imageLocation} />
@@ -148,7 +151,11 @@
 		<div class="flex justify-between items-start">
 			<h3 class="h3 font-bold"># Alat</h3>
 			<div class="flex justify-between items-center gap-4">
-				<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupColumnAlatClick} use:popup={popupHoverColumnAlat}>
+				<button
+					class="btn variant-filled [&>*]:pointer-events-none"
+					use:popup={popupColumnAlatClick}
+					use:popup={popupHoverColumnAlat}
+				>
 					<svg
 						class="w-6 h-6"
 						aria-hidden="true"
@@ -187,7 +194,11 @@
 					<p>Select Column</p>
 					<div class="arrow bg-surface-100-800-token" />
 				</div>
-				<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupOrderAlatClick} use:popup={popupHoverOrderAlat}>
+				<button
+					class="btn variant-filled [&>*]:pointer-events-none"
+					use:popup={popupOrderAlatClick}
+					use:popup={popupHoverOrderAlat}
+				>
 					<svg
 						class="w-6 h-6"
 						aria-hidden="true"
@@ -248,7 +259,11 @@
 		<div class="flex justify-between items-start">
 			<h3 class="h3 font-bold"># Teknologi</h3>
 			<div class="flex justify-between items-center gap-4">
-				<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupColumnKeahlianClick} use:popup={popupHoverColumnKeahlian}>
+				<button
+					class="btn variant-filled [&>*]:pointer-events-none"
+					use:popup={popupColumnKeahlianClick}
+					use:popup={popupHoverColumnKeahlian}
+				>
 					<svg
 						class="w-6 h-6"
 						aria-hidden="true"
@@ -287,7 +302,11 @@
 					<p>Select Column</p>
 					<div class="arrow bg-surface-100-800-token" />
 				</div>
-				<button class="btn variant-filled [&>*]:pointer-events-none" use:popup={popupOrderKeahlianClick} use:popup={popupHoverOrderKeahlian}>
+				<button
+					class="btn variant-filled [&>*]:pointer-events-none"
+					use:popup={popupOrderKeahlianClick}
+					use:popup={popupHoverOrderKeahlian}
+				>
 					<svg
 						class="w-6 h-6"
 						aria-hidden="true"

@@ -2,8 +2,7 @@
 	import { page } from '$app/stores';
 	import type { NavUrl } from '$routes/types';
 
-	export let urls: NavUrl[]
-	
+	export let urls: NavUrl[];
 </script>
 
 <nav class="grid grid-rows-1 p-8 text-center space-y-4">

@@ -2,7 +2,7 @@
 	// import type { PageServerData } from './$types';
 
 	import { page } from '$app/stores';
-	import { projectStore } from '$lib/data/store/project-store'
+	import { projectStore } from '$lib/data/store/project-store';
 
 	// export let data: PageServerData;
 	const websiteName = 'Kevin Agustiansyah Putra';
@@ -26,7 +26,7 @@
 		<div class="text-center space-y-5">
 			<h1 class="h1 font-bold">Projek</h1>
 			<p>
-				Projek yang pernah saya buat, terdiri dari projek yang tersedia untuk publik atau privasi 
+				Projek yang pernah saya buat, terdiri dari projek yang tersedia untuk publik atau privasi
 			</p>
 		</div>
 	</section>
@@ -35,7 +35,11 @@
 		{#each $projectStore as project}
 			<a href={project.url} class="card card-hover overflow-hidden" target="_blank">
 				<header>
-					<img src={`${$page.url.origin}/${project.image}`} class="bg-black/50 w-full aspect-[21/9]" alt={project.name}>
+					<img
+						src={`${$page.url.origin}/${project.image}`}
+						class="bg-black/50 w-full aspect-[21/9]"
+						alt={project.name}
+					/>
 				</header>
 				<section class="p-4 space-y-5">
 					<h1 class="h3 font-bold">{project.name}</h1>

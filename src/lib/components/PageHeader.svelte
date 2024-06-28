@@ -3,10 +3,10 @@
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 	import { createEventDispatcher } from 'svelte';
 
-	import type { NavUrl } from '$routes/types'
+	import type { NavUrl } from '$routes/types';
 
-	export let urls: NavUrl[]
-	
+	export let urls: NavUrl[];
+
 	const dispatch = createEventDispatcher();
 </script>
 

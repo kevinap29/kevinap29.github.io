@@ -1,5 +1,4 @@
 import type { LayoutServerLoad } from './$types';
-import type { NavUrl } from '$routes/types'
 
 // This can be false if you're using a fallback (i.e. SPA mode)
 export const prerender = true;
@@ -19,7 +18,7 @@ export const load = (async ({ url }) => {
 	return {
 		loadAPI,
 		websiteName,
-		imageLocation,
+		imageLocation
 		// navUrls
 	};
 }) satisfies LayoutServerLoad;
