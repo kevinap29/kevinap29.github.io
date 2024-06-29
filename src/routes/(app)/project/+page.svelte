@@ -33,21 +33,55 @@
 
 	<section class="grid grid-cols-1 md:grid-cols-3 gap-4 py-4">
 		{#each $projectStore as project}
-			<a href={project.url} class="card card-hover overflow-hidden" target="_blank">
-				<header>
-					<img
-						src={`${$page.url.origin}/${project.image}`}
-						class="bg-black/50 w-full aspect-[21/9]"
-						alt={project.name}
-					/>
-				</header>
-				<section class="p-4 space-y-5">
-					<h1 class="h3 font-bold">{project.name}</h1>
-					<p class="">
-						{@html project.desc}
-					</p>
-				</section>
-			</a>
+			{#if project.url === "#"}
+				<div class="card card-hover overflow-hidden" >
+					<header>
+						<img
+							src={`${$page.url.origin}/${project.image}`}
+							class="bg-black/50 w-full aspect-[21/9]"
+							alt={project.name}
+						/>
+					</header>
+					<section class="p-4 space-y-5">
+						<h1 class="h3 font-bold">{project.name}</h1>
+						<p class="">
+							{@html project.desc}
+						</p>
+					</section>
+					<!-- <footer class="grid grid-cols-2 p-4 place-content-baseline">
+						<h3>Di buat: </h3>
+						<span>{project.dateCreated.toLocaleDateString()}</span>
+						<h3>Sampai: </h3>
+						<span>{typeof project.dateFinished !== 'string' ? project.dateFinished.toLocaleDateString() : project.dateFinished}</span>
+						<h3>Type: </h3>
+						<span>{project.type}</span>
+					</footer> -->
+				</div>
+			{:else}
+				<a href={project.url} class="card card-hover overflow-hidden" target="_blank">
+					<header>
+						<img
+							src={`${$page.url.origin}/${project.image}`}
+							class="bg-black/50 w-full aspect-[21/9]"
+							alt={project.name}
+						/>
+					</header>
+					<section class="p-4 space-y-5">
+						<h1 class="h3 font-bold">{project.name}</h1>
+						<p class="">
+							{@html project.desc}
+						</p>
+					</section>
+					<!-- <footer class="grid grid-cols-2 p-4 place-content-baseline">
+						<h3>Di buat: </h3>
+						<span>{project.dateCreated.toLocaleDateString()}</span>
+						<h3>Sampai: </h3>
+						<span>{typeof project.dateFinished !== 'string' ? project.dateFinished.toLocaleDateString() : project.dateFinished}</span>
+						<h3>Type: </h3>
+						<span>{project.type}</span>
+					</footer> -->
+				</a>
+			{/if}
 		{/each}
 	</section>
 </div>

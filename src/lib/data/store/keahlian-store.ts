@@ -32,7 +32,9 @@ const listOfKeahlian: INameAndValue[] = [
 	{ name: 'MAUI Hybrin Blazor', value: 76 },
 	{ name: 'REST API', value: 89 },
 	{ name: 'Hangfire', value: 84 },
-	{ name: 'Ocelot API Gateway', value: 86 }
+	{ name: 'Ocelot API Gateway', value: 86 },
+	{ name: 'Linq', value: 87 },
+	{ name: 'PWA (Progressive Web Application)', value: 78 },
 ];
 
 const listOfAlat: INameAndValue[] = [
