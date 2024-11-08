@@ -35,6 +35,7 @@ const listOfKeahlian: INameAndValue[] = [
 	{ name: 'Ocelot API Gateway', value: 86 },
 	{ name: 'Linq', value: 87 },
 	{ name: 'PWA (Progressive Web Application)', value: 78 },
+	{ name: 'Power BI', value: 76 },
 ];
 
 const listOfAlat: INameAndValue[] = [
@@ -47,7 +48,8 @@ const listOfAlat: INameAndValue[] = [
 	{ name: 'SQL Server Management Studio 18', value: 82 },
 	{ name: 'SQL Server Management Studio 20', value: 80 },
 	{ name: 'Git', value: 81 },
-	{ name: 'Github', value: 83 }
+	{ name: 'Github', value: 83 },
+	{ name: 'Power Query M', value: 73 },
 ];
 
 function generateStore<T>(data: T) {
