@@ -1,3 +1,1 @@
-import { setCookies } from './@server';
-
-export { setCookies };
+// place files you want to import through the `$lib` alias in this folder.

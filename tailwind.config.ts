@@ -1,60 +1,23 @@
-import { join } from 'path';
-import type { Config } from 'tailwindcss';
+import containerQueries from '@tailwindcss/container-queries';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
-import { skeleton } from '@skeletonlabs/tw-plugin';
-import { customTheme } from './custom-theme';
+import type { Config } from 'tailwindcss';
+
+import { skeleton, contentPath } from '@skeletonlabs/skeleton/plugin';
+import * as themes from '@skeletonlabs/skeleton/themes';
 
 export default {
-	darkMode: 'class',
 	content: [
-		'./src/**/*.{html,js,svelte,ts}',
-		join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
-	],
+        './src/**/*.{html,js,svelte,ts}',
+        contentPath(import.meta.url, 'svelte')
+    ],
+
 	theme: {
 		extend: {}
 	},
-	plugins: [
-		forms,
-		typography,
-		skeleton({
-			themes: {
-				preset: [
-					{
-						name: 'skeleton',
-						enhancements: true
-					},
-					{
-						name: 'wintry',
-						enhancements: true
-					},
-					{
-						name: 'modern',
-						enhancements: true
-					},
-					{
-						name: 'hamlindigo',
-						enhancements: true
-					},
-					{
-						name: 'rocket',
-						enhancements: true
-					},
-					{
-						name: 'gold-nouveau',
-						enhancements: true
-					},
-					{
-						name: 'vintage',
-						enhancements: true
-					},
-					{
-						name: 'crimson',
-						enhancements: true
-					}
-				],
-				custom: [customTheme]
-			}
-		})
-	]
+
+	plugins: [typography, forms, containerQueries, skeleton({
+		// NOTE: each theme included will be added to your CSS bundle
+		themes: [ themes.cerberus, themes.rose ]
+	})]
 } satisfies Config;
