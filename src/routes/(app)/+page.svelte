@@ -152,6 +152,7 @@
 			<h3 class="h3 font-bold"># Alat</h3>
 			<div class="flex justify-between items-center gap-4">
 				<button
+					aria-label="Column"
 					class="btn variant-filled [&>*]:pointer-events-none"
 					use:popup={popupColumnAlatClick}
 					use:popup={popupHoverColumnAlat}
@@ -195,6 +196,7 @@
 					<div class="arrow bg-surface-100-800-token" />
 				</div>
 				<button
+					aria-label="Order By"
 					class="btn variant-filled [&>*]:pointer-events-none"
 					use:popup={popupOrderAlatClick}
 					use:popup={popupHoverOrderAlat}
@@ -260,6 +262,7 @@
 			<h3 class="h3 font-bold"># Teknologi</h3>
 			<div class="flex justify-between items-center gap-4">
 				<button
+					aria-label="Column"
 					class="btn variant-filled [&>*]:pointer-events-none"
 					use:popup={popupColumnKeahlianClick}
 					use:popup={popupHoverColumnKeahlian}
@@ -303,6 +306,7 @@
 					<div class="arrow bg-surface-100-800-token" />
 				</div>
 				<button
+					aria-label="Order By"
 					class="btn variant-filled [&>*]:pointer-events-none"
 					use:popup={popupOrderKeahlianClick}
 					use:popup={popupHoverOrderKeahlian}
