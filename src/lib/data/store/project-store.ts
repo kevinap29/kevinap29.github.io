@@ -76,11 +76,20 @@ const projects: ProjectData[] = [
 		dateFinished: 'Sekarang',
 		type: 'public'
 	},
+	{
+		url: `https://rapidapi.com/kevinagustiansyah298-RSbcaTc-IDi/api/decode-nik-dan-kk`,
+		image: `img/decode-nik-kk.png`,
+		name: `Decode NIK & KK API`,
+		desc: `Sebuah publik <span class="font-bold">API</span> yang bisa dipakai oleh semua developer yang membutuhkan dan saya publish ke <a class="anchor font-bold" href="https://www.rapidapi.com/" target="_blank">RapidAPI</a> dibuat dengan <span class="font-bold">Node JS, Sveltekit</span>.`,
+		dateCreated: new Date(2021, 11, 6, 0, 0, 0),
+		dateFinished: 'Sekarang',
+		type: 'public'
+	},
 ];
 
 function getProjects() {
 	const { subscribe } = writable(projects);
-
+	
 	return {
 		subscribe
 	};
