@@ -23,7 +23,10 @@ const config = {
 		},
 		alias: {
 			$routes: 'src/routes'
-		}
+		},
+		prerender: {
+			entries: ['*']
+		},
 	}
 };
 export default config;
