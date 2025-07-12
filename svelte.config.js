@@ -26,7 +26,7 @@ const config = {
 		},
 		prerender: {
 			entries: ['*']
-		},
+		}
 	}
 };
 export default config;

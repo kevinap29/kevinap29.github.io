@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: 'main'
+    branches: ['main']
 
 jobs:
   build_site:
@@ -31,6 +31,9 @@ jobs:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
           npm run build
+      
+      - name: Generate sitemap
+        run: node scripts/generate-sitemap.js
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
