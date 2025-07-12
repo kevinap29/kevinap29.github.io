@@ -1,7 +1,9 @@
 import { setCookies } from '$lib';
 import { sequence } from '@sveltejs/kit/hooks';
 
-import type { RequestEvent, ResolveOptions, MaybePromise } from '@sveltejs/kit';
+import type { RequestEvent, ResolveOptions } from '@sveltejs/kit';
+
+type MaybePromise<T> = T | Promise<T>;
 
 async function first(input: {
 	event: RequestEvent;
