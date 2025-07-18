@@ -32,11 +32,11 @@ jobs:
         run: |
           npm run build
 
-      - name: Generate sitemap
-        run: npm run generate:sitemap
+      # - name: Generate sitemap
+      #   run: npm run generate:sitemap
 
-      - name: Generate pdf
-        run: npm run generate:pdf
+      # - name: Generate pdf
+      #   run: npm run generate:pdf
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
