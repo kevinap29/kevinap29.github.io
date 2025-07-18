@@ -32,14 +32,17 @@ jobs:
         run: |
           npm run build
 
-      # - name: Generate sitemap
-      #   run: node scripts/generate-sitemap.js
+      - name: Generate sitemap
+        run: npm run generate:sitemap
 
-      # - name: Upload Artifacts
-      #   uses: actions/upload-pages-artifact@v3
-      #   with:
-      #     # this should match the `pages` option in your adapter-static options
-      #     path: 'build/'
+      - name: Generate pdf
+        run: npm run generate:pdf
+
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # this should match the `pages` option in your adapter-static options
+          path: 'build/'
 
   deploy:
     needs: build_site
