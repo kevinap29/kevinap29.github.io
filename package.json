@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "vite dev --host",
 		"dev:open": "vite dev --host --open",
-		"build": "vite build && node scripts/generate-sitemap.js",
+		"build": "vite build && npm run generate:sitemap && npm run generate:pdf",
 		"preview": "vite preview --host --open",
 		"build:preview": "npm run build && npm run preview",
 		"test": "npm run test:integration && npm run test:unit",

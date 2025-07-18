@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { LightSwitch } from '@skeletonlabs/skeleton';
+	import { LightSwitch,popup,type PopupSettings } from '@skeletonlabs/skeleton';
 	import { createEventDispatcher } from 'svelte';
 
 	import type { NavUrl } from '$routes/types';
@@ -8,6 +8,12 @@
 	export let urls: NavUrl[];
 
 	const dispatch = createEventDispatcher();
+
+	const popUpDownloadResume : PopupSettings = {
+		event: 'hover',
+		target: 'popupHoverDownloadResume',
+		placement: 'bottom'
+	};
 </script>
 
 <div
@@ -70,6 +76,22 @@
 		</nav>
 	</div>
 	<div class="flex justify-between items-center space-x-8">
-		<LightSwitch />
+		<div class="flex justify-between items-center space-x-8">
+			<a href="{$page.url.origin}/portofolio_kevin_agustiansyah.pdf" class="btn variant-glass-surface " target="_blank"
+				use:popup={popUpDownloadResume}
+			>
+				<svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M14 2H6C5.44772 2 5 2.44772 5 3V21C5 21.5523 5.44772 22 6 22H18C18.5523 22 19 21.5523 19 21V8L14 2Z" stroke="currentColor" stroke-width="2"/>
+					<path d="M14 2V8H19" stroke="currentColor" stroke-width="2"/>
+					<path d="M12 13V17M12 17L10 15M12 17L14 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</a>
+			<div class="card p-4 bg-surface-100-800-token z-50" data-popup="popupHoverDownloadResume">
+				<p>Download Resume</p>
+			</div>
+		</div>
+		<div class="flex justify-between items-center space-x-8">
+			<LightSwitch />
+		</div>
 	</div>
 </div>

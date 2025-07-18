@@ -50,7 +50,7 @@ const generateCombinedPDF = async () => {
 	const mergedBytes = await finalPDF.save();
 	fs.writeFileSync(`static/${FILE_NAME}`, mergedBytes);
 
-	console.log(`✅ Combined PDF saved to: pdfs/${FILE_NAME}`);
+	console.log(`✅ Combined PDF saved to: static/${FILE_NAME}`);
 };
 
 generateCombinedPDF();
