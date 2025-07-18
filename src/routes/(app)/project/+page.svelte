@@ -33,8 +33,8 @@
 
 	<section class="grid grid-cols-1 md:grid-cols-3 gap-4 py-4">
 		{#each $projectStore as project}
-			{#if project.url === "#"}
-				<div class="card card-hover overflow-hidden" >
+			{#if project.url === '#'}
+				<div class="card card-hover overflow-hidden">
 					<header>
 						<img
 							src={`${$page.url.origin}/${project.image}`}

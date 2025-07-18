@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-type ProjectDataType = 'public' | 'private'
+type ProjectDataType = 'public' | 'private';
 
 export interface ProjectData {
 	url: string;
@@ -9,7 +9,7 @@ export interface ProjectData {
 	desc: string;
 	dateCreated: Date;
 	dateFinished: Date | 'Sekarang';
-	type: ProjectDataType
+	type: ProjectDataType;
 }
 
 const projects: ProjectData[] = [
@@ -84,12 +84,12 @@ const projects: ProjectData[] = [
 		dateCreated: new Date(2021, 11, 6, 0, 0, 0),
 		dateFinished: 'Sekarang',
 		type: 'public'
-	},
+	}
 ];
 
 function getProjects() {
 	const { subscribe } = writable(projects);
-	
+
 	return {
 		subscribe
 	};
