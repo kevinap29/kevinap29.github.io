@@ -15,7 +15,9 @@
 		"format": "prettier --write .",
 		"format:lint": "npm run format && npm run lint",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"generate:sitemap": "node scripts/generate-sitemap.js",
+		"generate:pdf": "node scripts/generate-pdfs-from-sitemap.js"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
@@ -51,6 +53,9 @@
 	"type": "module",
 	"dependencies": {
 		"@floating-ui/dom": "1.6.5",
-		"highlight.js": "11.9.0"
+		"highlight.js": "11.9.0",
+		"pdf-lib": "^1.17.1",
+		"puppeteer": "^24.14.0",
+		"xml2js": "^0.6.2"
 	}
 }

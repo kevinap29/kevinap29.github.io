@@ -31,7 +31,7 @@ jobs:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
           npm run build
-      
+
       - name: Generate sitemap
         run: node scripts/generate-sitemap.js
 
