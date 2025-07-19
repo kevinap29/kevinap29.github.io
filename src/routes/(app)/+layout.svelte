@@ -12,7 +12,10 @@
 	import PageFooter from '$lib/components/PageFooter.svelte';
 	import MenuDrawer from '$lib/components/MenuDrawer.svelte';
 
+	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
+	import { supabase } from '$lib/data/supabase';
+	import { browser } from '$app/environment';
 
 	// import type { LayoutServerData } from './$types'
 
@@ -51,6 +54,18 @@
 	async function handleDrawerCloseClick() {
 		drawerStore.close();
 	}
+
+	async function incrementPageView(link: string) {
+		await supabase.rpc('increment_page_counter', { link });
+	}
+
+	afterNavigate(async () => {
+		// if (!browser || import.meta.env.DEV) return; // ⛔ Skip on dev or SSR
+
+		const url = $page.url.origin + $page.url.pathname;
+		console.log(url);
+		await incrementPageView(url);
+	});
 </script>
 
 <Drawer>

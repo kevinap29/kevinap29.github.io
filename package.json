@@ -17,7 +17,11 @@
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
 		"generate:sitemap": "node scripts/generate-sitemap.js",
-		"generate:pdf": "node scripts/generate-pdfs-from-sitemap.js"
+		"generate:pdf": "node scripts/generate-pdfs-from-sitemap.js",
+		"supabase:login": "npx supabase login",
+		"supabase:login:debug": "npx supabase login --debug",
+		"supabase:generate:types": "npx supabase gen types --lang=typescript --project-id \"auatpkbnhsrofnascfjl\" --schema public > src/lib/types/supabase-types.ts"
+
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
@@ -53,6 +57,7 @@
 	"type": "module",
 	"dependencies": {
 		"@floating-ui/dom": "1.6.5",
+		"@supabase/supabase-js": "^2.52.0",
 		"highlight.js": "11.9.0",
 		"pdf-lib": "^1.17.1",
 		"puppeteer": "^24.14.0",

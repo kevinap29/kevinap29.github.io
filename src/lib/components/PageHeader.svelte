@@ -4,6 +4,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	import type { NavUrl } from '$routes/types';
+	import PageCounterBadge from './PageCounterBadge.svelte';
 
 	export let urls: NavUrl[];
 
@@ -65,13 +66,15 @@
 	<div class="hidden lg:block">
 		<nav class="flex justify-between items-center gap-5 overflow-x-auto overflow-y-hidden">
 			{#each urls as url}
-				<a
-					href={url.url}
-					class="p-2 hover:variant-glass-primary {$page.url.href === url.url
-						? 'variant-filled-primary'
-						: 'anchor'}"
-					on:click>{url.title}</a
-				>
+				<PageCounterBadge link={url.url}>
+					<a
+						href={url.url}
+						class="p-2 hover:variant-glass-primary {$page.url.href === url.url
+							? 'variant-filled-primary'
+							: 'anchor'}"
+						on:click>{url.title}</a
+					>
+				</PageCounterBadge>
 			{/each}
 		</nav>
 	</div>
