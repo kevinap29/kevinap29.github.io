@@ -60,7 +60,7 @@
 	}
 
 	afterNavigate(async () => {
-		// if (!browser || import.meta.env.DEV) return; // ⛔ Skip on dev or SSR
+		if (!browser || import.meta.env.DEV) return; // ⛔ Skip on dev or SSR
 
 		const url = $page.url.origin + $page.url.pathname;
 		console.log(url);
