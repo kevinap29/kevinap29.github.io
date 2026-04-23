@@ -19,7 +19,7 @@ const config = {
 			fallback: '404.html'
 		}),
 		paths: {
-			base: ''
+			base: process.env.NODE_ENV === 'production' ? process.env.BASE_PATH : ''
 		},
 		alias: {
 			$routes: 'src/routes'

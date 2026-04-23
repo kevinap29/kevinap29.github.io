@@ -3,8 +3,6 @@
 		new Date().getFullYear() == 2024 ? '2024' : `2024 - ${new Date().getFullYear().toString()}`;
 </script>
 
-<div
-	class="flex justify-center items-center variant-glass-surface h-12 border-t border-surface-400-500-token mx-auto"
->
-	<p class="text-surface-600-300-token">© Kevin Agustiansyah - {yearString}</p>
-</div>
+<footer class="flex justify-center items-center h-16 border-t mt-auto">
+	<p class="text-sm text-muted-foreground">© Kevin Agustiansyah - {yearString}</p>
+</footer>

@@ -1,18 +1,23 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
+	import { Button } from "$lib/components/ui/button";
 	import type { NavUrl } from '$routes/types';
 
-	export let urls: NavUrl[];
+	let { urls, onclick } = $props<{
+		urls: NavUrl[];
+		onclick?: () => void;
+	}>();
 </script>
 
-<nav class="grid grid-rows-1 p-8 text-center space-y-4">
+<nav class="flex flex-col gap-4 p-8 items-center">
 	{#each urls as url}
-		<a
+		<Button 
+			variant={page.url.href === url.url ? "secondary" : "ghost"} 
 			href={url.url}
-			class="p-2 hover:variant-glass-primary {$page.url.href === url.url
-				? 'variant-filled-primary'
-				: 'anchor'}"
-			on:click>{url.title}</a
+			class="w-full text-lg"
+			onclick={onclick}
 		>
+			{url.title}
+		</Button>
 	{/each}
 </nav>
