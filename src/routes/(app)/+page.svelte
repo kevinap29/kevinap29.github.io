@@ -3,6 +3,7 @@
 	import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
 	import { Button } from "$lib/components/ui/button";
 	import { Progress } from "$lib/components/ui/progress";
+	import * as m from '$lib/paraglide/messages.js';
 	
 	import { skillStore } from '$lib/data/store/keahlian-store.svelte';
 	import type { NameAndValue } from '$lib/data/schema';
@@ -61,13 +62,13 @@
 
 <svelte:head>
 	<title>{websiteName}</title>
-	<meta name="description" content={`Website Portofolio ${websiteName}`} />
+	<meta name="description" content={m.meta_description({ name: websiteName })} />
 	<meta
 		name="keywords"
 		content={`Kevin,Agustiansyah,Putra,${skillStore.keahlian.map((a) => a.name).join(',')}`}
 	/>
 	<meta property="og:title" content={websiteName} />
-	<meta property="og:description" content={`Website Portofolio ${websiteName}`} />
+	<meta property="og:description" content={m.meta_description({ name: websiteName })} />
 	<meta property="og:image" content={imageLocation} />
 	<meta property="og:url" content={page.url.href} />
 	<meta property="og:type" content="website" />
@@ -76,22 +77,21 @@
 <div class="max-w-4xl mx-auto px-4 py-12 space-y-16">
 	<section class="text-center space-y-6">
 		<div class="space-y-2">
-			<h2 class="text-lg font-medium text-primary tracking-wide uppercase">Hai, Nama Saya</h2>
+			<h2 class="text-lg font-medium text-primary tracking-wide uppercase">{m.hello_name()}</h2>
 			<h1 class="text-4xl font-extrabold tracking-tight lg:text-6xl">
 				Kevin Agustiansyah Putra
 			</h1>
 		</div>
 		<p class="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-			Saya sangat antusias dengan dunia pemograman web hingga cross platform. <br />
-			Tools yang saya gemari saat membangun sebuah website seperti:
-			<span class="font-bold text-foreground">Node.JS, Javascript, Typescript, .NET, C#, Mysql, Sql Server</span>
-			dan masih banyak lagi.
+			{m.hero_description()} <br />
+			<span class="font-bold text-foreground">{m.hero_tools()}</span>
+			{m.hero_tools_suffix()}
 		</p>
 	</section>
 
 	<section class="py-4 space-y-4">
 		<div class="flex justify-between items-start">
-			<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight"># Alat</h3>
+			<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">{m.section_tools()}</h3>
 			<div class="flex justify-between items-center gap-4">
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger>
@@ -104,7 +104,7 @@
 						{/snippet}
 					</DropdownMenu.Trigger>
 					<DropdownMenu.Content>
-						<DropdownMenu.Label>Select Column</DropdownMenu.Label>
+						<DropdownMenu.Label>{m.select_column()}</DropdownMenu.Label>
 						<DropdownMenu.Separator />
 						<DropdownMenu.RadioGroup bind:value={filterAlat}>
 							<DropdownMenu.RadioItem value="name" onclick={handleFilterAlatChange}>Name</DropdownMenu.RadioItem>
@@ -124,11 +124,11 @@
 						{/snippet}
 					</DropdownMenu.Trigger>
 					<DropdownMenu.Content>
-						<DropdownMenu.Label>Order By</DropdownMenu.Label>
+						<DropdownMenu.Label>{m.order_by()}</DropdownMenu.Label>
 						<DropdownMenu.Separator />
 						<DropdownMenu.RadioGroup bind:value={orderByAlat}>
-							<DropdownMenu.RadioItem value="asc" onclick={handleFilterAlatChange}>Ascending</DropdownMenu.RadioItem>
-							<DropdownMenu.RadioItem value="desc" onclick={handleFilterAlatChange}>Descending</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem value="asc" onclick={handleFilterAlatChange}>{m.ascending()}</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem value="desc" onclick={handleFilterAlatChange}>{m.descending()}</DropdownMenu.RadioItem>
 						</DropdownMenu.RadioGroup>
 					</DropdownMenu.Content>
 				</DropdownMenu.Root>
@@ -150,7 +150,7 @@
 
 	<section class="py-4 space-y-4">
 		<div class="flex justify-between items-start">
-			<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight"># Teknologi</h3>
+			<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">{m.section_technology()}</h3>
 			<div class="flex justify-between items-center gap-4">
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger>

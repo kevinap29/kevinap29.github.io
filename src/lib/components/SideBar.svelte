@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import * as Avatar from "$lib/components/ui/avatar";
+	import * as m from '$lib/paraglide/messages.js';
 </script>
 
 <div class="space-y-6 overflow-y-auto h-full p-4">
@@ -28,7 +29,7 @@
 
 	<div class="space-y-4">
 		<h3 class="text-lg font-semibold px-2 py-1 bg-primary text-primary-foreground rounded-none text-center font-heading">
-			Kontak & Media Sosial
+			{m.sidebar_contact_social()}
 		</h3>
 		<ul class="space-y-2">
 			<li>

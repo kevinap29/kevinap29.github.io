@@ -1,5 +1,7 @@
 <script lang="ts">
 	import '../app.css';
+	import { onMount } from 'svelte';
+	import { i18n } from '$lib/i18n.svelte';
 
 	// Highlight JS
 	import hljs from 'highlight.js/lib/core';
@@ -16,12 +18,8 @@
 
 	let { children } = $props();
 
-	$effect(() => {
-		const getLocalTranslate = localStorage.getItem('translate');
-
-		if (!getLocalTranslate) {
-			localStorage.setItem('translate', 'id');
-		}
+	onMount(() => {
+		i18n.init();
 	});
 </script>
 

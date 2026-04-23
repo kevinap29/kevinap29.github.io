@@ -10,15 +10,17 @@
 	import { House, CircleUser, Briefcase, FileText } from '@lucide/svelte';
 
 	import { page } from '$app/state';
+	import * as m from '$lib/paraglide/messages.js';
 
 	let { children } = $props();
 
-	const navUrls: NavUrl[] = [
-		{ url: `${page.url.origin}/`, title: 'Beranda', icon: House },
-		{ url: `${page.url.origin}/about/`, title: 'Tentang Saya', icon: CircleUser },
-		{ url: `${page.url.origin}/project/`, title: 'Projek', icon: Briefcase },
-		{ url: `${page.url.origin}/resume/`, title: 'Resume', icon: FileText }
-	];
+	// Reactive nav labels with icons — updates automatically when language changes
+	let navUrls = $derived<NavUrl[]>([
+		{ url: `${page.url.origin}/`, title: m.nav_home(), icon: House },
+		{ url: `${page.url.origin}/about/`, title: m.nav_about(), icon: CircleUser },
+		{ url: `${page.url.origin}/project/`, title: m.nav_project(), icon: Briefcase },
+		{ url: `${page.url.origin}/resume/`, title: m.nav_resume(), icon: FileText }
+	]);
 
 	let isSidebarOpen = $state(false);
 	let isMenuOpen = $state(false);

@@ -3,9 +3,10 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev --host",
+		"paraglide:compile": "paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide",
+		"dev": "npm run paraglide:compile && vite dev --host",
 		"dev:open": "vite dev --host --open",
-		"build": "vite build",
+		"build": "npm run paraglide:compile && vite build",
 		"preview": "vite preview --host --open",
 		"build:preview": "npm run build && npm run preview",
 		"test": "npm run test:integration && npm run test:unit",
@@ -61,6 +62,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@inlang/paraglide-js": "^2.16.0",
+		"@inlang/paraglide-sveltekit": "^0.16.1",
 		"fast-xml-parser": "^5.7.1",
 		"highlight.js": "11.9.0",
 		"mode-watcher": "^1.1.0",

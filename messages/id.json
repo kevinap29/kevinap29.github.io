@@ -1,0 +1,22 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"hello_name": "Hai, Nama Saya",
+	"hero_title": "Kevin Agustiansyah Putra",
+	"hero_description": "Saya sangat antusias dengan dunia pemograman web hingga cross platform. Tools yang saya gemari saat membangun sebuah website seperti:",
+	"hero_tools": "Node.JS, Javascript, Typescript, .NET, C#, Mysql, Sql Server",
+	"hero_tools_suffix": "dan masih banyak lagi.",
+	"section_tools": "# Alat",
+	"section_technology": "# Teknologi",
+	"nav_home": "Beranda",
+	"nav_about": "Tentang Saya",
+	"nav_project": "Projek",
+	"nav_resume": "Resume",
+	"sidebar_contact_social": "Kontak & Media Sosial",
+	"footer_copyright": "© Kevin Agustiansyah - {year}",
+	"lang_switch": "EN",
+	"select_column": "Pilih Kolom",
+	"order_by": "Urutkan",
+	"ascending": "Naik",
+	"descending": "Turun",
+	"meta_description": "Website Portofolio {name}"
+}

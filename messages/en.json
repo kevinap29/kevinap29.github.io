@@ -1,0 +1,22 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"hello_name": "Hello, my name is",
+	"hero_title": "Kevin Agustiansyah Putra",
+	"hero_description": "I'm very enthusiastic about the world of web programming to cross-platform. Tools I love when building a website include:",
+	"hero_tools": "Node.JS, Javascript, Typescript, .NET, C#, Mysql, Sql Server",
+	"hero_tools_suffix": "and much more.",
+	"section_tools": "# Tools",
+	"section_technology": "# Technology",
+	"nav_home": "Home",
+	"nav_about": "About Me",
+	"nav_project": "Projects",
+	"nav_resume": "Resume",
+	"sidebar_contact_social": "Contact & Social Media",
+	"footer_copyright": "© Kevin Agustiansyah - {year}",
+	"lang_switch": "ID",
+	"select_column": "Select Column",
+	"order_by": "Order By",
+	"ascending": "Ascending",
+	"descending": "Descending",
+	"meta_description": "Portfolio Website of {name}"
+}
