@@ -10,8 +10,16 @@ const SITEMAP_PATH = './static/sitemap.xml';
 const getRoutesFromSitemap = async () => {
 	const xml = fs.readFileSync(SITEMAP_PATH, 'utf-8');
 	const parsed = await parseStringPromise(xml);
-	const urls = parsed.urlset.url.map((u) => new URL(u.loc[0]));
-	return urls;
+	// Filter to only include the resume for a professional single-page PDF
+	const routes = parsed.urlset.url
+		.map((u) => new URL(u.loc[0]))
+		.filter((url) => url.pathname.includes('resume'));
+	
+	// If running locally, point to localhost
+	return routes.map((url) => {
+		const localUrl = new URL(url.pathname, 'http://localhost:5173');
+		return localUrl.toString();
+	});
 };
 
 const generateCombinedPDF = async () => {
@@ -20,6 +28,8 @@ const generateCombinedPDF = async () => {
 
 	const browser = await puppeteer.launch();
 	const page = await browser.newPage();
+	// Force light mode for consistent PDF rendering
+	await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);
 	const pdfBuffers = [];
 
 	for (const route of routes) {
@@ -28,6 +38,11 @@ const generateCombinedPDF = async () => {
             waitUntil: 'load',
             timeout: 120000 // 2 minutes timeout 
         });
+
+		// Remove dark class if present to ensure white background
+		await page.evaluate(() => {
+			document.documentElement.classList.remove('dark');
+		});
 
 		const buffer = await page.pdf({
 			format: 'A4',

@@ -1,13 +1,11 @@
 <script lang="ts">
-	// import type { PageServerData } from './$types';
+	import { page } from '$app/state';
+	import { projectsData } from '$lib/data/store/project-store.svelte';
+	import * as Card from "$lib/components/ui/card";
+	import { Button } from "$lib/components/ui/button";
 
-	import { page } from '$app/stores';
-	import { projectStore } from '$lib/data/store/project-store';
-
-	// export let data: PageServerData;
 	const websiteName = 'Kevin Agustiansyah Putra';
-	const imageLocation = `${$page.url.origin}/img/new-pas-foto.jpg`;
-	// $: ({ websiteName, imageLocation } = data);
+	const imageLocation = `/img/new-pas-foto.jpg`;
 </script>
 
 <svelte:head>
@@ -17,71 +15,59 @@
 	<meta property="og:title" content={`Project | ${websiteName}`} />
 	<meta property="og:description" content="Website Portofolio Kevin Agustiansyah Putra" />
 	<meta property="og:image" content={imageLocation} />
-	<meta property="og:url" content={$page.url.href} />
+	<meta property="og:url" content={page.url.href} />
 	<meta property="og:type" content="website" />
 </svelte:head>
 
-<div class="container px-4 py-2 space-y-4">
-	<section class="py-4">
-		<div class="text-center space-y-5">
-			<h1 class="h1 font-bold">Projek</h1>
-			<p>
-				Projek yang pernah saya buat, terdiri dari projek yang tersedia untuk publik atau privasi
-			</p>
-		</div>
+<div class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+	<section class="text-center space-y-4">
+		<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">Projek</h1>
+		<p class="text-xl text-muted-foreground">
+			Kumpulan projek yang pernah saya kerjakan, baik open-source maupun profesional.
+		</p>
 	</section>
 
-	<section class="grid grid-cols-1 md:grid-cols-3 gap-4 py-4">
-		{#each $projectStore as project}
-			{#if project.url === '#'}
-				<div class="card card-hover overflow-hidden">
-					<header>
-						<img
-							src={`${$page.url.origin}/${project.image}`}
-							class="bg-black/50 w-full aspect-[21/9]"
-							alt={project.name}
-						/>
-					</header>
-					<section class="p-4 space-y-5">
-						<h1 class="h3 font-bold">{project.name}</h1>
-						<p class="">
-							{@html project.desc}
-						</p>
-					</section>
-					<!-- <footer class="grid grid-cols-2 p-4 place-content-baseline">
-						<h3>Di buat: </h3>
-						<span>{project.dateCreated.toLocaleDateString()}</span>
-						<h3>Sampai: </h3>
-						<span>{typeof project.dateFinished !== 'string' ? project.dateFinished.toLocaleDateString() : project.dateFinished}</span>
-						<h3>Type: </h3>
-						<span>{project.type}</span>
-					</footer> -->
+	<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+		{#each projectsData as project}
+			<Card.Root class="overflow-hidden flex flex-col group h-full transition-all hover:shadow-lg">
+				<div class="relative aspect-video overflow-hidden">
+					<img
+						src={`${page.url.origin}/${project.image}`}
+						class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+						alt={project.name}
+					/>
+					<div class="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/0"></div>
 				</div>
-			{:else}
-				<a href={project.url} class="card card-hover overflow-hidden" target="_blank">
-					<header>
-						<img
-							src={`${$page.url.origin}/${project.image}`}
-							class="bg-black/50 w-full aspect-[21/9]"
-							alt={project.name}
-						/>
-					</header>
-					<section class="p-4 space-y-5">
-						<h1 class="h3 font-bold">{project.name}</h1>
-						<p class="">
-							{@html project.desc}
-						</p>
-					</section>
-					<!-- <footer class="grid grid-cols-2 p-4 place-content-baseline">
-						<h3>Di buat: </h3>
-						<span>{project.dateCreated.toLocaleDateString()}</span>
-						<h3>Sampai: </h3>
-						<span>{typeof project.dateFinished !== 'string' ? project.dateFinished.toLocaleDateString() : project.dateFinished}</span>
-						<h3>Type: </h3>
-						<span>{project.type}</span>
-					</footer> -->
-				</a>
-			{/if}
+				<Card.Header>
+					<div class="flex justify-between items-start">
+						<Card.Title class="text-xl">{project.name}</Card.Title>
+						<span class="text-xs font-medium px-2 py-1 rounded-full bg-secondary text-secondary-foreground uppercase tracking-wider">
+							{project.type}
+						</span>
+					</div>
+					<Card.Description class="text-xs text-muted-foreground">
+						{project.dateCreated.toLocaleDateString('id-ID', { year: 'numeric', month: 'long' })} 
+						- 
+						{typeof project.dateFinished === 'string' ? project.dateFinished : project.dateFinished.toLocaleDateString('id-ID', { year: 'numeric', month: 'long' })}
+					</Card.Description>
+				</Card.Header>
+				<Card.Content class="flex-grow">
+					<div class="text-sm leading-relaxed text-muted-foreground">
+						{@html project.desc}
+					</div>
+				</Card.Content>
+				<Card.Footer class="pt-4 border-t bg-muted/30">
+					{#if project.url !== '#'}
+						<Button href={project.url} target="_blank" class="w-full" variant="outline">
+							Lihat Projek
+						</Button>
+					{:else}
+						<Button disabled class="w-full" variant="ghost">
+							Privat
+						</Button>
+					{/if}
+				</Card.Footer>
+			</Card.Root>
 		{/each}
 	</section>
 </div>

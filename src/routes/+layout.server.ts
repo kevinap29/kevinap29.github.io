@@ -8,7 +8,7 @@ export const trailingSlash = 'always';
 export const load = (async ({ url }) => {
 	const loadAPI = false;
 	const websiteName = 'Kevin Agustiansyah Putra';
-	const imageLocation = `${url.origin}/img/new-pas-foto.jpg`;
+	const imageLocation = `/img/new-pas-foto.jpg`;
 	// const navUrls: NavUrl[] = [
 	// 	{ url: `${url.origin}/`, title: 'Beranda' },
 	// 	{ url: `${url.origin}/about/`, title: 'Tentang Saya' },
