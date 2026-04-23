@@ -6,6 +6,8 @@
 
 	const websiteName = 'Kevin Agustiansyah Putra';
 	const imageLocation = `/img/new-pas-foto.jpg`;
+
+	const sortedProjects = projectsData.slice().sort((a, b) => b.dateCreated.getTime() - a.dateCreated.getTime());
 </script>
 
 <svelte:head>
@@ -28,7 +30,7 @@
 	</section>
 
 	<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-		{#each projectsData as project}
+		{#each sortedProjects as project}
 			<Card.Root class="overflow-hidden flex flex-col group h-full transition-all hover:shadow-lg">
 				<div class="relative aspect-video overflow-hidden">
 					<img
