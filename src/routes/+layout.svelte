@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.css';
-	import { onMount } from 'svelte';
 
 	// Highlight JS
 	import hljs from 'highlight.js/lib/core';
@@ -17,7 +16,7 @@
 
 	let { children } = $props();
 
-	onMount(async () => {
+	$effect(() => {
 		const getLocalTranslate = localStorage.getItem('translate');
 
 		if (!getLocalTranslate) {

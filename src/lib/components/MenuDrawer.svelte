@@ -14,9 +14,12 @@
 		<Button 
 			variant={page.url.href === url.url ? "secondary" : "ghost"} 
 			href={url.url}
-			class="w-full text-lg"
+			class="w-full text-lg justify-start gap-4 px-6"
 			onclick={onclick}
 		>
+			{#if url.icon}
+				<url.icon class="size-6" />
+			{/if}
 			{url.title}
 		</Button>
 	{/each}

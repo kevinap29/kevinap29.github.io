@@ -35,6 +35,9 @@
 					class={page.url.href === url.url ? "" : "text-foreground/80 hover:text-foreground"}
 					href={url.url}
 				>
+					{#if url.icon}
+						<url.icon class="mr-2 size-4" />
+					{/if}
 					{url.title}
 				</Button>
 			{/each}

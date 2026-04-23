@@ -7,7 +7,7 @@
 	const websiteName = 'Kevin Agustiansyah Putra';
 	const imageLocation = `/img/new-pas-foto.jpg`;
 
-	const sortedProjects = projectsData.slice().sort((a, b) => b.dateCreated.getTime() - a.dateCreated.getTime());
+	const sortedProjects = $derived(projectsData.slice().sort((a, b) => b.dateCreated.getTime() - a.dateCreated.getTime()));
 </script>
 
 <svelte:head>
