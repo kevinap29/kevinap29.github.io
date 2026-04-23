@@ -6,21 +6,18 @@
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import PageFooter from '$lib/components/PageFooter.svelte';
 	import MenuDrawer from '$lib/components/MenuDrawer.svelte';
+	import type { NavUrl } from '$routes/types';
+	import { House, CircleUser, Briefcase, FileText } from '@lucide/svelte';
 
 	import { page } from '$app/state';
 
 	let { children } = $props();
 
-	interface NavUrl {
-		url: string;
-		title: string;
-	}
-
 	const navUrls: NavUrl[] = [
-		{ url: `${page.url.origin}/`, title: 'Beranda' },
-		{ url: `${page.url.origin}/about/`, title: 'Tentang Saya' },
-		{ url: `${page.url.origin}/project/`, title: 'Projek' },
-		{ url: `${page.url.origin}/resume/`, title: 'Resume' }
+		{ url: `${page.url.origin}/`, title: 'Beranda', icon: House },
+		{ url: `${page.url.origin}/about/`, title: 'Tentang Saya', icon: CircleUser },
+		{ url: `${page.url.origin}/project/`, title: 'Projek', icon: Briefcase },
+		{ url: `${page.url.origin}/resume/`, title: 'Resume', icon: FileText }
 	];
 
 	let isSidebarOpen = $state(false);
