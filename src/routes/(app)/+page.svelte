@@ -21,7 +21,9 @@
 		{ name: 'Tailwind CSS', value: 90 },
 		{ name: 'Flutter', value: 75 },
 		{ name: 'Dart', value: 75 },
-		{ name: 'Laravel', value: 75 }
+		{ name: 'Laravel', value: 75 },
+		{ name: 'MAUI Hybrid Blazor', value: 85 },
+		{ name: 'MudBlazor', value: 80 }
 	];
 
 	const alatData: NameAndValue[] = [

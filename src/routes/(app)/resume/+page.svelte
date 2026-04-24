@@ -15,11 +15,13 @@
 
 	const keahlian = [
 		'Node.JS', 'Javascript', 'Typescript', '.NET', 'C#', 'Mysql', 'Sql Server',
-		'Sveltekit', 'Bootstrap', 'Tailwind CSS', 'Flutter', 'Dart', 'Laravel'
+		'Sveltekit', 'Bootstrap', 'Tailwind CSS', 'Flutter', 'Dart', 'Laravel',
+		'MAUI Hybrid Blazor', 'MudBlazor'
 	];
 
 	const alat = [
-		'Git', 'Github', 'Vercel', 'Hangfire', 'Crystal Report', 'REST API', 'Linq', 'EFCore'
+		'Git', 'Github', 'Vercel', 'Hangfire', 'Crystal Report', 'REST API', 'Linq', 'EFCore',
+		'Blazor Blueprint'
 	];
 
 	// Experience Data (Reactive & Localized)
