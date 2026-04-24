@@ -6,7 +6,7 @@
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import PageFooter from '$lib/components/PageFooter.svelte';
 	import MenuDrawer from '$lib/components/MenuDrawer.svelte';
-	import type { NavUrl } from '$routes/types';
+	import type { NavUrl } from '$lib/types/nav';
 	import { House, CircleUser, Briefcase, FileText } from '@lucide/svelte';
 
 	import { page } from '$app/state';
@@ -14,7 +14,9 @@
 	import { i18n } from '$lib/i18n.svelte';
 	import { onMount } from 'svelte';
 
-	let { children } = $props();
+	import type { Snippet } from 'svelte';
+
+	let { children }: { children: Snippet } = $props();
 
 	onMount(() => {
 		i18n.init();

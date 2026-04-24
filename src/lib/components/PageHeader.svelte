@@ -4,13 +4,15 @@
 	import { Button } from "$lib/components/ui/button";
 	import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 	
-	import type { NavUrl } from '$routes/types';
+	import type { NavUrl } from '$lib/types/nav';
 
-	let { urls, onmenu, onprofile } = $props<{
+	interface Props {
 		urls: NavUrl[];
 		onmenu?: () => void;
 		onprofile?: () => void;
-	}>();
+	}
+
+	let { urls, onmenu, onprofile }: Props = $props();
 
 </script>
 

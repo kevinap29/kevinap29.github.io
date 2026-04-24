@@ -1,12 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { Button } from "$lib/components/ui/button";
-	import type { NavUrl } from '$routes/types';
+	import type { NavUrl } from '$lib/types/nav';
 
-	let { urls, onclick } = $props<{
+	interface Props {
 		urls: NavUrl[];
 		onclick?: () => void;
-	}>();
+	}
+
+	let { urls, onclick }: Props = $props();
 </script>
 
 <nav class="flex flex-col gap-4 p-8 items-center">
