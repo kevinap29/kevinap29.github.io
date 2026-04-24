@@ -91,13 +91,13 @@
 
 <svelte:head>
 	<title>{websiteName}</title>
-	<meta name="description" content={m.meta_description({ name: websiteName })} />
+	<meta name="description" content={m.meta_description({ name: websiteName }, { locale: i18n.current })} />
 	<meta
 		name="keywords"
 		content={`Kevin,Agustiansyah,Putra,${keahlianData.map((a: NameAndValue) => a.name).join(',')}`}
 	/>
 	<meta property="og:title" content={websiteName} />
-	<meta property="og:description" content={m.meta_description({ name: websiteName })} />
+	<meta property="og:description" content={m.meta_description({ name: websiteName }, { locale: i18n.current })} />
 	<meta property="og:image" content={imageLocation} />
 	<meta property="og:url" content={page.url.href} />
 	<meta property="og:type" content="website" />
@@ -106,21 +106,21 @@
 <div class="max-w-4xl mx-auto px-4 py-12 space-y-16">
 	<section class="text-center space-y-6">
 		<div class="space-y-2">
-			<h2 class="text-lg font-medium text-primary tracking-wide uppercase">{m.hello_name()}</h2>
+			<h2 class="text-lg font-medium text-primary tracking-wide uppercase">{m.hello_name({}, { locale: i18n.current })}</h2>
 			<h1 class="text-4xl font-extrabold tracking-tight lg:text-6xl">
 				Kevin Agustiansyah Putra
 			</h1>
 		</div>
 		<p class="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-			{m.hero_description()} <br />
-			<span class="font-bold text-foreground">{m.hero_tools()}</span>
-			{m.hero_tools_suffix()}
+			{m.hero_description({}, { locale: i18n.current })} <br />
+			<span class="font-bold text-foreground">{m.hero_tools({}, { locale: i18n.current })}</span>
+			{m.hero_tools_suffix({}, { locale: i18n.current })}
 		</p>
 	</section>
 
 	<section class="py-4 space-y-4">
 		<div class="flex justify-between items-start">
-			<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">{m.section_tools()}</h3>
+			<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">{m.section_tools({}, { locale: i18n.current })}</h3>
 			<div class="flex justify-between items-center gap-4">
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger>
@@ -153,11 +153,11 @@
 						{/snippet}
 					</DropdownMenu.Trigger>
 					<DropdownMenu.Content>
-						<DropdownMenu.Label>{m.order_by()}</DropdownMenu.Label>
+						<DropdownMenu.Label>{m.order_by({}, { locale: i18n.current })}</DropdownMenu.Label>
 						<DropdownMenu.Separator />
 						<DropdownMenu.RadioGroup bind:value={orderByAlat}>
-							<DropdownMenu.RadioItem value="asc" onclick={handleFilterAlatChange}>{m.ascending()}</DropdownMenu.RadioItem>
-							<DropdownMenu.RadioItem value="desc" onclick={handleFilterAlatChange}>{m.descending()}</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem value="asc" onclick={handleFilterAlatChange}>{m.ascending({}, { locale: i18n.current })}</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem value="desc" onclick={handleFilterAlatChange}>{m.descending({}, { locale: i18n.current })}</DropdownMenu.RadioItem>
 						</DropdownMenu.RadioGroup>
 					</DropdownMenu.Content>
 				</DropdownMenu.Root>
@@ -179,7 +179,7 @@
 
 	<section class="py-4 space-y-4">
 		<div class="flex justify-between items-start">
-			<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">{m.section_technology()}</h3>
+			<h3 class="scroll-m-20 text-2xl font-semibold tracking-tight">{m.section_technology({}, { locale: i18n.current })}</h3>
 			<div class="flex justify-between items-center gap-4">
 				<DropdownMenu.Root>
 					<DropdownMenu.Trigger>
@@ -212,11 +212,11 @@
 						{/snippet}
 					</DropdownMenu.Trigger>
 					<DropdownMenu.Content>
-						<DropdownMenu.Label>{m.order_by()}</DropdownMenu.Label>
+						<DropdownMenu.Label>{m.order_by({}, { locale: i18n.current })}</DropdownMenu.Label>
 						<DropdownMenu.Separator />
 						<DropdownMenu.RadioGroup bind:value={orderByKeahlian}>
-							<DropdownMenu.RadioItem value="asc" onclick={handleFilterKeahlianChange}>{m.ascending()}</DropdownMenu.RadioItem>
-							<DropdownMenu.RadioItem value="desc" onclick={handleFilterKeahlianChange}>{m.descending()}</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem value="asc" onclick={handleFilterKeahlianChange}>{m.ascending({}, { locale: i18n.current })}</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem value="desc" onclick={handleFilterKeahlianChange}>{m.descending({}, { locale: i18n.current })}</DropdownMenu.RadioItem>
 						</DropdownMenu.RadioGroup>
 					</DropdownMenu.Content>
 				</DropdownMenu.Root>

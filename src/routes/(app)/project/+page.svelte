@@ -15,11 +15,11 @@
 </script>
 
 <svelte:head>
-	<title>{m.nav_project()} | {websiteName}</title>
-	<meta name="description" content={m.project_intro()} />
+	<title>{m.nav_project({}, { locale: i18n.current })} | {websiteName}</title>
+	<meta name="description" content={m.project_intro({}, { locale: i18n.current })} />
 	<meta name="keywords" content={`Kevin,Agustiansyah,Putra,project`} />
-	<meta property="og:title" content={`${m.nav_project()} | ${websiteName}`} />
-	<meta property="og:description" content={m.project_intro()} />
+	<meta property="og:title" content={`${m.nav_project({}, { locale: i18n.current })} | ${websiteName}`} />
+	<meta property="og:description" content={m.project_intro({}, { locale: i18n.current })} />
 	<meta property="og:image" content={imageLocation} />
 	<meta property="og:url" content={page.url.href} />
 	<meta property="og:type" content="website" />
@@ -27,9 +27,9 @@
 
 <div class="max-w-7xl mx-auto px-4 py-8 space-y-12">
 	<section class="text-center space-y-4">
-		<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">{m.project_title()}</h1>
+		<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">{m.project_title({}, { locale: i18n.current })}</h1>
 		<p class="text-xl text-muted-foreground">
-			{m.project_intro()}
+			{m.project_intro({}, { locale: i18n.current })}
 		</p>
 	</section>
 
@@ -55,7 +55,7 @@
 						{formatDate(project.dateCreated)} 
 						- 
 						{#if project.dateFinished === 'Sekarang'}
-							{m.present()}
+							{m.present({}, { locale: i18n.current })}
 						{:else if typeof project.dateFinished === 'string'}
 							{project.dateFinished}
 						{:else}
@@ -65,13 +65,13 @@
 				</Card.Header>
 				<Card.Content class="grow">
 					<div class="text-sm leading-relaxed text-muted-foreground">
-						{@html (m as any)[project.descKey]()}
+						{@html (m as any)[project.descKey]({}, { locale: i18n.current })}
 					</div>
 				</Card.Content>
 				<Card.Footer class="pt-4 border-t bg-muted/30">
 					{#if project.url !== '#'}
 						<Button href={project.url} target="_blank" class="w-full" variant="outline">
-							{m.project_view_btn()}
+							{m.project_view_btn({}, { locale: i18n.current })}
 						</Button>
 					{:else}
 						<Button disabled class="w-full" variant="ghost">

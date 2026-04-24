@@ -5,6 +5,7 @@
  * localStorage persistence for GitHub Pages (no server-side routing needed).
  */
 import { setLocale, getLocale, locales } from '$lib/paraglide/runtime.js';
+import { m } from '$lib/paraglide/messages';
 
 export type AvailableLanguageTag = (typeof locales)[number];
 
@@ -50,11 +51,23 @@ export const i18n = (() => {
 		}
 	}
 
+	function t(key: string) {
+		// Create a strong dependency on the current language rune.
+		// This ensures Svelte's reactivity system tracks this call.
+		const _ = current;
+		const message = (m as any)[key];
+		if (typeof message === 'function') {
+			return message();
+		}
+		return key;
+	}
+
 	return {
 		get current() {
 			return current;
 		},
 		init,
-		switchTo
+		switchTo,
+		t
 	};
 })();

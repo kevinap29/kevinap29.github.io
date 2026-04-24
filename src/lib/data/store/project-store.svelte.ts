@@ -1,5 +1,4 @@
 import { ListOfProjectDataSchema, type ProjectData } from '../schema';
-import * as m from '$lib/paraglide/messages';
 
 const initialProjects: ProjectData[] = [
 	{

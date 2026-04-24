@@ -12,8 +12,13 @@
 	import { page } from '$app/state';
 	import * as m from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
+	import { onMount } from 'svelte';
 
 	let { children } = $props();
+
+	onMount(() => {
+		i18n.init();
+	});
 
 	// Reactive nav labels with icons — updates automatically when language changes
 	let navUrls = $derived.by<NavUrl[]>(() => {
