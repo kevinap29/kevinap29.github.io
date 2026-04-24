@@ -4,7 +4,7 @@
 	import { projectsData } from '$lib/data/store/project-store.svelte';
 	import { Button } from "$lib/components/ui/button";
 	import * as m from '$lib/paraglide/messages';
-	import { FileDown } from 'lucide-svelte';
+	import { FileDown } from '@lucide/svelte';
 
 	const name = 'Kevin Agustiansyah';
 	const title = 'Fullstack Developer';

@@ -4,6 +4,7 @@
 	import { Button } from "$lib/components/ui/button";
 	import { Progress } from "$lib/components/ui/progress";
 	import * as m from '$lib/paraglide/messages';
+	import { i18n } from '$lib/i18n.svelte';
 	
 	import type { NameAndValue } from '$lib/data/schema';
 
