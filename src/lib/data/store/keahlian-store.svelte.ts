@@ -61,24 +61,3 @@ class SkillStore {
 }
 
 export const skillStore = new SkillStore();
-
-// For backward compatibility while refactoring
-export const keahlianStore = {
-	subscribe: (cb: any) => {
-		const unsub = $effect.root(() => {
-			$effect(() => cb(skillStore.keahlian));
-		});
-		return unsub;
-	},
-	update: (data: NameAndValue[]) => skillStore.updateKeahlian(data)
-};
-
-export const alatStore = {
-	subscribe: (cb: any) => {
-		const unsub = $effect.root(() => {
-			$effect(() => cb(skillStore.alat));
-		});
-		return unsub;
-	},
-	update: (data: NameAndValue[]) => skillStore.updateAlat(data)
-};
