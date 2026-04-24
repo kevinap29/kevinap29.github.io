@@ -14,13 +14,19 @@ export const ProjectDataSchema = z.object({
 	url: z.string(),
 	image: z.string(),
 	name: z.string(),
-	desc: z.string().optional(),
 	descKey: z.string() as z.ZodType<MessageKey>,
 	dateCreated: z.date(),
 	dateFinished: z.union([z.date(), z.literal('Sekarang')]),
 	type: z.enum(['public', 'private']),
+	tags: z.array(z.string()),
+	slug: z.string().optional(),
 });
 
 export const ListOfProjectDataSchema = z.array(ProjectDataSchema);
 
 export type ProjectData = z.infer<typeof ProjectDataSchema>;
+export interface ProjectMetadata {
+	tech_stack?: string[];
+	problem?: string;
+	[key: string]: unknown;
+}

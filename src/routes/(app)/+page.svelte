@@ -3,7 +3,7 @@
 	import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
 	import { Button } from "$lib/components/ui/button";
 	import { Progress } from "$lib/components/ui/progress";
-	import * as m from '$lib/paraglide/messages';
+	import { m } from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
 	
 	import type { NameAndValue } from '$lib/data/schema';
@@ -37,8 +37,9 @@
 		{ name: 'EFCore', value: 80 }
 	];
 
-	const websiteName = 'Kevin Agustiansyah Putra';
-	const imageLocation = `/img/new-pas-foto.jpg`;
+	let { data } = $props();
+	let websiteName = $derived(data.websiteName);
+	let imageLocation = $derived(data.imageLocation);
 
 	type ColumnData = 'name' | 'value' | 'default';
 	type OrderBy = 'asc' | 'desc' | 'default';
@@ -139,8 +140,8 @@
 						<DropdownMenu.Label>{m.select_column()}</DropdownMenu.Label>
 						<DropdownMenu.Separator />
 						<DropdownMenu.RadioGroup bind:value={filterAlat}>
-							<DropdownMenu.RadioItem value="name" onclick={handleFilterAlatChange}>Name</DropdownMenu.RadioItem>
-							<DropdownMenu.RadioItem value="value" onclick={handleFilterAlatChange}>Value</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem value="name" onclick={handleFilterAlatChange}>{m.label_name()}</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem value="value" onclick={handleFilterAlatChange}>{m.label_value()}</DropdownMenu.RadioItem>
 						</DropdownMenu.RadioGroup>
 					</DropdownMenu.Content>
 				</DropdownMenu.Root>
@@ -198,8 +199,8 @@
 						<DropdownMenu.Label>{m.select_column()}</DropdownMenu.Label>
 						<DropdownMenu.Separator />
 						<DropdownMenu.RadioGroup bind:value={filterKeahlian}>
-							<DropdownMenu.RadioItem value="name" onclick={handleFilterKeahlianChange}>{m.nav_about()}</DropdownMenu.RadioItem>
-							<DropdownMenu.RadioItem value="value" onclick={handleFilterKeahlianChange}>Value</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem value="name" onclick={handleFilterKeahlianChange}>{m.label_name()}</DropdownMenu.RadioItem>
+							<DropdownMenu.RadioItem value="value" onclick={handleFilterKeahlianChange}>{m.label_value()}</DropdownMenu.RadioItem>
 						</DropdownMenu.RadioGroup>
 					</DropdownMenu.Content>
 				</DropdownMenu.Root>

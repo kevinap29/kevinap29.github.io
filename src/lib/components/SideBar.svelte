@@ -1,18 +1,26 @@
 <script lang="ts">
 	import * as Avatar from "$lib/components/ui/avatar";
-	import * as m from '$lib/paraglide/messages.js';
+	import { m } from '$lib/paraglide/messages.js';
 	import { i18n } from '$lib/i18n.svelte';
+	import { page } from '$app/state';
+
+	const websiteName = $derived(page.data.websiteName);
+	const jobTitle = $derived(page.data.jobTitle);
+	const email = $derived(page.data.email);
+	const phone = $derived(page.data.phone);
+	const socials = $derived(page.data.socials);
+	const imageLocation = $derived(page.data.imageLocation);
 </script>
 
 <div class="space-y-6 overflow-y-auto h-full p-4">
 	<div class="flex flex-col items-center gap-4">
 		<Avatar.Root class="size-32 border-2 border-primary shadow-lg transition-transform hover:scale-105">
-			<Avatar.Image src="/img/new-pas-foto.jpg" alt="Kevin Agustiansyah" />
+			<Avatar.Image src={imageLocation} alt={websiteName} />
 			<Avatar.Fallback>KA</Avatar.Fallback>
 		</Avatar.Root>
 		<div class="text-center space-y-1">
-			<h2 class="text-2xl font-bold tracking-tight font-heading">Kevin Agustiansyah</h2>
-			<p class="text-sm font-medium uppercase tracking-wider text-primary">Fullstack Developer</p>
+			<h2 class="text-2xl font-bold tracking-tight font-heading">{websiteName}</h2>
+			<p class="text-sm font-medium uppercase tracking-wider text-primary">{jobTitle}</p>
 			
 			<div class="pt-2 flex flex-col gap-0.5">
 				<p class="text-muted-foreground text-[10px] uppercase tracking-widest font-medium">
@@ -34,7 +42,7 @@
 		<ul class="space-y-2">
 			<li>
 				<a 
-					href="https://github.com/kevinap29" 
+					href={socials?.github} 
 					target="_blank" 
 					class="flex items-center gap-3 p-3 rounded-none hover:bg-accent transition-colors"
 				>
@@ -49,7 +57,7 @@
 			</li>
 			<li>
 				<a 
-					href="https://www.linkedin.com/in/kevin-agustiansyah-9206041a3/" 
+					href={socials?.linkedin} 
 					target="_blank" 
 					class="flex items-center gap-3 p-3 rounded-none hover:bg-accent transition-colors"
 				>
@@ -65,7 +73,7 @@
 			</li>
 			<li>
 				<a 
-					href="mailto:kevinagustiansyah298@gmail.com" 
+					href={`mailto:${email}`} 
 					target="_blank" 
 					class="flex items-center gap-3 p-3 rounded-none hover:bg-accent transition-colors"
 				>
@@ -74,13 +82,13 @@
 					</svg>
 					<div>
 						<p class="font-bold">Email</p>
-						<p class="text-sm text-muted-foreground text-wrap break-all">kevinagustiansyah298@gmail.com</p>
+						<p class="text-sm text-muted-foreground text-wrap break-all">{email}</p>
 					</div>
 				</a>
 			</li>
 			<li>
 				<a 
-					href="https://wa.me/62895410069696" 
+					href={socials?.whatsapp} 
 					target="_blank" 
 					class="flex items-center gap-3 p-3 rounded-none hover:bg-accent transition-colors"
 				>
@@ -90,7 +98,7 @@
 					</svg>
 					<div>
 						<p class="font-bold">Whatsapp</p>
-						<p class="text-sm text-muted-foreground">+62 895 4100 69696</p>
+						<p class="text-sm text-muted-foreground">{phone}</p>
 					</div>
 				</a>
 			</li>

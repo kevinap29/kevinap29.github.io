@@ -5,20 +5,24 @@ export const prerender = true;
 // You must ensure SvelteKit's trailingSlash option is set appropriately for your environment. If your host does not render /a.html upon receiving a request for /a then you will need to set trailingSlash: 'always' in your root layout to create /a/index.html instead.
 export const trailingSlash = 'always';
 
-export const load = (async ({ url }) => {
-	const loadAPI = false;
+export const load = (() => {
 	const websiteName = 'Kevin Agustiansyah Putra';
 	const imageLocation = `/img/new-pas-foto.jpg`;
-	// const navUrls: NavUrl[] = [
-	// 	{ url: `${url.origin}/`, title: 'Beranda' },
-	// 	{ url: `${url.origin}/about/`, title: 'Tentang Saya' },
-	// 	{ url: `${url.origin}/project/`, title: 'Projek' },
-	// ];
+	const jobTitle = 'Fullstack Developer';
+	const email = 'kevinagustiansyah298@gmail.com';
+	const phone = '+62 895 4100 69696';
+	const socials = {
+		github: 'https://github.com/kevinap29',
+		linkedin: 'https://www.linkedin.com/in/kevin-agustiansyah-9206041a3/',
+		whatsapp: 'https://wa.me/62895410069696'
+	};
 
 	return {
-		loadAPI,
 		websiteName,
-		imageLocation
-		// navUrls
+		imageLocation,
+		jobTitle,
+		email,
+		phone,
+		socials
 	};
 }) satisfies LayoutServerLoad;

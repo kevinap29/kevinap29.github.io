@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import * as m from '$lib/paraglide/messages';
+	import { m } from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
 
-	const websiteName = 'Kevin Agustiansyah Putra';
-	const imageLocation = `/img/new-pas-foto.jpg`;
+	let { data } = $props();
+	let websiteName = $derived(data.websiteName);
+	let imageLocation = $derived(data.imageLocation);
 </script>
 
 <svelte:head>

@@ -9,8 +9,7 @@
 	import type { NavUrl } from '$lib/types/nav';
 	import { House, CircleUser, Briefcase, FileText } from '@lucide/svelte';
 
-	import { page } from '$app/state';
-	import * as m from '$lib/paraglide/messages';
+	import { m } from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
 	import { onMount } from 'svelte';
 

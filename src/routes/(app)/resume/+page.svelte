@@ -1,17 +1,17 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import { i18n } from '$lib/i18n.svelte';
 	import { projectsData } from '$lib/data/store/project-store.svelte';
 	import { Button } from "$lib/components/ui/button";
-	import * as m from '$lib/paraglide/messages';
+	import { m } from '$lib/paraglide/messages';
 	import type { MessageFunction } from '$lib/types/messages';
 	import { FileDown } from '@lucide/svelte';
 
-	const name = 'Kevin Agustiansyah';
-	const title = 'Fullstack Developer';
-	const email = 'kevinagustiansyah298@gmail.com';
-	const phone = '+62 895 4100 69696';
-	const websiteName = 'Kevin Agustiansyah Putra';
+	let { data } = $props();
+	let name = $derived(data.websiteName);
+	let title = $derived(data.jobTitle);
+	let email = $derived(data.email);
+	let phone = $derived(data.phone);
+	let websiteName = $derived(data.websiteName);
 
 	const keahlian = [
 		'Node.JS', 'Javascript', 'Typescript', '.NET', 'C#', 'Mysql', 'Sql Server',

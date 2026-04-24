@@ -6,6 +6,7 @@
  */
 import { setLocale, locales } from '$lib/paraglide/runtime.js';
 import { m } from '$lib/paraglide/messages';
+import type { MessageFunction } from './types/messages';
 
 export type AvailableLanguageTag = (typeof locales)[number];
 
@@ -55,7 +56,7 @@ export const i18n = (() => {
 		// Create a strong dependency on the current language rune.
 		// This ensures Svelte's reactivity system tracks this call.
 		const _ = current;
-		const message = (m as Record<string, unknown>)[key];
+		const message = (m as unknown as Record<string, unknown>)[key];
 		if (typeof message === 'function') {
 			return (message as () => string)();
 		}
