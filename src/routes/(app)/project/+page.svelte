@@ -3,19 +3,23 @@
 	import { projectsData } from '$lib/data/store/project-store.svelte';
 	import * as Card from "$lib/components/ui/card";
 	import { Button } from "$lib/components/ui/button";
+	import * as m from '$lib/paraglide/messages';
+	import { i18n } from '$lib/i18n.svelte';
 
 	const websiteName = 'Kevin Agustiansyah Putra';
 	const imageLocation = `/img/new-pas-foto.jpg`;
 
-	const sortedProjects = $derived(projectsData.slice().sort((a, b) => b.dateCreated.getTime() - a.dateCreated.getTime()));
+	const sortedProjects = $derived(projectsData.all.slice().sort((a, b) => b.dateCreated.getTime() - a.dateCreated.getTime()));
+	
+	const formatDate = (date: Date) => date.toLocaleDateString(i18n.current === 'id' ? 'id-ID' : 'en-US', { year: 'numeric', month: 'long' });
 </script>
 
 <svelte:head>
-	<title>Project | {websiteName}</title>
-	<meta name="description" content={`Projek-projek ${websiteName}`} />
+	<title>{m.nav_project()} | {websiteName}</title>
+	<meta name="description" content={m.project_intro()} />
 	<meta name="keywords" content={`Kevin,Agustiansyah,Putra,project`} />
-	<meta property="og:title" content={`Project | ${websiteName}`} />
-	<meta property="og:description" content="Website Portofolio Kevin Agustiansyah Putra" />
+	<meta property="og:title" content={`${m.nav_project()} | ${websiteName}`} />
+	<meta property="og:description" content={m.project_intro()} />
 	<meta property="og:image" content={imageLocation} />
 	<meta property="og:url" content={page.url.href} />
 	<meta property="og:type" content="website" />
@@ -23,9 +27,9 @@
 
 <div class="max-w-7xl mx-auto px-4 py-8 space-y-12">
 	<section class="text-center space-y-4">
-		<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">Projek</h1>
+		<h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">{m.project_title()}</h1>
 		<p class="text-xl text-muted-foreground">
-			Kumpulan projek yang pernah saya kerjakan, baik open-source maupun profesional.
+			{m.project_intro()}
 		</p>
 	</section>
 
@@ -48,24 +52,30 @@
 						</span>
 					</div>
 					<Card.Description class="text-xs text-muted-foreground">
-						{project.dateCreated.toLocaleDateString('id-ID', { year: 'numeric', month: 'long' })} 
+						{formatDate(project.dateCreated)} 
 						- 
-						{typeof project.dateFinished === 'string' ? project.dateFinished : project.dateFinished.toLocaleDateString('id-ID', { year: 'numeric', month: 'long' })}
+						{#if project.dateFinished === 'Sekarang'}
+							{m.present()}
+						{:else if typeof project.dateFinished === 'string'}
+							{project.dateFinished}
+						{:else}
+							{formatDate(project.dateFinished)}
+						{/if}
 					</Card.Description>
 				</Card.Header>
-				<Card.Content class="flex-grow">
+				<Card.Content class="grow">
 					<div class="text-sm leading-relaxed text-muted-foreground">
-						{@html project.desc}
+						{@html (m as any)[project.descKey]()}
 					</div>
 				</Card.Content>
 				<Card.Footer class="pt-4 border-t bg-muted/30">
 					{#if project.url !== '#'}
 						<Button href={project.url} target="_blank" class="w-full" variant="outline">
-							Lihat Projek
+							{m.project_view_btn()}
 						</Button>
 					{:else}
 						<Button disabled class="w-full" variant="ghost">
-							Privat
+							{m.project_private_btn()}
 						</Button>
 					{/if}
 				</Card.Footer>

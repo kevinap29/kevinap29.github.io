@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { skillStore } from '$lib/data/store/keahlian-store.svelte';
+	import { i18n } from '$lib/i18n.svelte';
 	import { projectsData } from '$lib/data/store/project-store.svelte';
 	import { Button } from "$lib/components/ui/button";
+	import * as m from '$lib/paraglide/messages';
 
 	const name = 'Kevin Agustiansyah';
 	const title = 'Fullstack Developer';
@@ -12,37 +13,46 @@
 	const github = 'github.com/kevinap29';
 	const linkedin = 'linkedin.com/in/kevin-agustiansyah-9206041a3';
 
-	// Experience Data (Hardcoded based on About page for precision)
-	const experience = [
+	const keahlian = [
+		'Node.JS', 'Javascript', 'Typescript', '.NET', 'C#', 'Mysql', 'Sql Server',
+		'Sveltekit', 'Bootstrap', 'Tailwind CSS', 'Flutter', 'Dart', 'Laravel'
+	];
+
+	const alat = [
+		'Git', 'Github', 'Vercel', 'Hangfire', 'Crystal Report', 'REST API', 'Linq', 'EFCore'
+	];
+
+	// Experience Data (Reactive & Localized)
+	const experience = $derived([
 		{
 			company: 'PT. Ciptapapan Dinamika',
 			role: 'Web Programmer',
-			period: '2022 - Sekarang',
-			desc: 'Bertanggung jawab dalam pengembangan dan pemeliharaan sistem ERP perusahaan menggunakan ASP.NET, SQL Server, dan Microservices berbasis .NET Core. Mengelola cron jobs dengan Hangfire dan integrasi API.'
+			period: i18n.current === 'id' ? '2022 - Sekarang' : '2022 - Present',
+			desc: m.resume_exp_ciptapapan_desc()
 		},
 		{
 			company: 'PT. Astra Motor Palembang',
 			role: 'Admin CRM',
 			period: '2021 - 2022',
-			desc: 'Mengelola database konsumen Honda Sumatera Selatan, melakukan pengolahan data menggunakan Excel untuk strategi retensi dan lead generation.'
+			desc: m.resume_exp_astra_desc()
 		},
 		{
 			company: 'Freelance',
 			role: 'Web Developer',
 			period: '2021',
-			desc: 'Mengembangkan website Company Profile untuk PT. Ginting Jaya Energi menggunakan Laravel dan MySQL.'
+			desc: m.resume_exp_freelance_desc()
 		}
-	];
+	]);
 
-	// Education Data
-	const education = [
+	// Education Data (Reactive & Localized)
+	const education = $derived([
 		{
 			school: 'STMIK Palcomtech (ITB Palcomtech)',
-			degree: 'S1 Sistem Informasi',
+			degree: i18n.current === 'id' ? 'S1 Sistem Informasi' : 'Bachelor of Information Systems',
 			period: '2017 - 2021',
-			desc: 'Lulus dengan IPK 3.67. Fokus pada pengembangan sistem informasi dan teknologi web.'
+			desc: m.resume_edu_desc()
 		}
-	];
+	]);
 
 	function handlePrint() {
 		window.print();
@@ -50,7 +60,7 @@
 </script>
 
 <svelte:head>
-	<title>Resume | {name}</title>
+	<title>{m.nav_resume()} | {name}</title>
 	<meta name="robots" content="noindex" />
 </svelte:head>
 
@@ -59,14 +69,14 @@
 	<div class="no-print flex justify-end mb-4">
 		<Button onclick={handlePrint} variant="default" class="gap-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-none px-6">
 			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-			GENERATE PDF
+			{m.resume_generate_pdf()}
 		</Button>
 	</div>
 
 	<!-- Header Section -->
 	<header class="flex flex-col sm:grid sm:grid-cols-3 gap-4 sm:gap-6 items-start sm:items-end border-b-4 border-black pb-4 mb-6">
 		<div class="sm:col-span-2 space-y-1 w-full">
-			<h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter leading-none italic break-words">{name}</h1>
+			<h1 class="text-3xl sm:text-4xl font-black uppercase tracking-tighter leading-none italic wrap-break-word">{name}</h1>
 			<div class="flex items-center gap-3">
 				<p class="text-base sm:text-lg font-bold text-primary tracking-[0.2em] uppercase">{title}</p>
 				<div class="h-px flex-1 bg-black/10"></div>
@@ -91,11 +101,9 @@
 	<!-- Summary -->
 	<section class="mb-8">
 		<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-			<h2 class="text-lg font-black uppercase tracking-widest bg-black text-white px-3 py-0.5">Profil</h2>
+			<h2 class="text-lg font-black uppercase tracking-widest bg-black text-white px-3 py-0.5">{m.resume_profile()}</h2>
 			<p class="text-[12px] leading-relaxed font-medium text-gray-700">
-				Pengembang Fullstack berpengalaman dengan keahlian di ekosistem **.NET** dan **Typescript**. 
-				Terbukti sukses mentransformasi kebutuhan bisnis menjadi sistem ERP yang skalabel. 
-				Fokus pada performa kode, arsitektur microservices, dan intuitif UI.
+				{m.resume_summary()}
 			</p>
 		</div>
 	</section>
@@ -104,28 +112,28 @@
 		<!-- Left Column: Skills & Education -->
 		<aside class="flex flex-col space-y-8">
 			<section class="space-y-4">
-				<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2">Tech Stack</h2>
+				<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2">{m.resume_tech_stack()}</h2>
 				<div class="flex flex-wrap gap-1">
-					{#each skillStore.keahlian as skill}
-						<span class="text-[9px] font-bold uppercase px-1.5 py-0.5 border border-black">{skill.name}</span>
+					{#each keahlian as skill}
+						<span class="text-[9px] font-bold uppercase px-1.5 py-0.5 border border-black">{skill}</span>
 					{/each}
 				</div>
 			</section>
 
 			<section class="space-y-4">
-				<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2">Infrastructure</h2>
+				<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2">{m.resume_infrastructure()}</h2>
 				<div class="flex flex-wrap gap-1">
-					{#each skillStore.alat as tool}
-						<span class="text-[9px] font-bold uppercase px-1.5 py-0.5 bg-black text-white">{tool.name}</span>
+					{#each alat as tool}
+						<span class="text-[9px] font-bold uppercase px-1.5 py-0.5 bg-black text-white">{tool}</span>
 					{/each}
 				</div>
 			</section>
 
 			<section class="space-y-4">
-				<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2">Education</h2>
+				<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2">{m.resume_education()}</h2>
 				{#each education as edu}
 					<div class="space-y-1 relative pl-3 border-l border-gray-200">
-						<div class="absolute -left-[3.5px] top-1 size-1.5 rounded-full bg-black"></div>
+						<div class="absolute left-[-3.5px] top-1 size-1.5 rounded-full bg-black"></div>
 						<h3 class="font-bold text-[11px] leading-tight">{edu.school}</h3>
 						<div class="flex justify-between items-center text-[8.5px] font-black text-gray-400 uppercase">
 							<span>{edu.degree}</span>
@@ -139,11 +147,11 @@
 		<!-- Right Column: Experience & Projects -->
 		<main class="sm:col-span-2 space-y-8">
 			<section class="space-y-6">
-				<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2">Experience</h2>
+				<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2">{m.resume_experience()}</h2>
 				<div class="space-y-6">
 					{#each experience as exp}
 						<div class="space-y-2 relative pl-4 border-l-2 border-black/5">
-							<div class="absolute -left-[6px] top-1 size-2.5 border-2 border-black bg-white"></div>
+							<div class="absolute left-[-6px] top-1 size-2.5 border-2 border-black bg-white"></div>
 							<div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-2 sm:gap-0">
 								<h3 class="font-black text-lg leading-none uppercase tracking-tight">{exp.role}</h3>
 								<span class="text-[9px] font-black text-white bg-black px-1.5 py-0.5 uppercase tracking-widest">{exp.period}</span>
@@ -158,9 +166,9 @@
 			</section>
 
 			<section class="space-y-6">
-				<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2">Projects</h2>
+				<h2 class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2">{m.resume_projects()}</h2>
 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
-					{#each projectsData.filter(p => p.type === 'public').sort((a, b) => b.dateCreated.getTime() - a.dateCreated.getTime()).slice(0, 6) as project}
+					{#each projectsData.all.filter(p => p.type === 'public').sort((a, b) => b.dateCreated.getTime() - a.dateCreated.getTime()).slice(0, 6) as project}
 						<div class="space-y-1">
 							<div class="flex items-center justify-between">
 								<h3 class="font-black text-[10px] uppercase tracking-tight">{project.name}</h3>
@@ -169,7 +177,7 @@
 								{/if}
 							</div>
 							<p class="text-[10px] leading-snug text-gray-500 line-clamp-3">
-								{@html project.desc.replace(/<span class="font-bold">/g, '<span class="font-black text-black">')}
+								{@html (m as any)[project.descKey]().replace(/<span class="font-bold">/g, '<span class="font-black text-black">')}
 							</p>
 						</div>
 					{/each}
