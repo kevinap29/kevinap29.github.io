@@ -10,15 +10,22 @@
 	import { House, CircleUser, Briefcase, FileText } from '@lucide/svelte';
 
 	import { page } from '$app/state';
+	import * as m from '$lib/paraglide/messages';
+	import { i18n } from '$lib/i18n.svelte';
 
 	let { children } = $props();
 
-	const navUrls: NavUrl[] = [
-		{ url: `${page.url.origin}/`, title: 'Beranda', icon: House },
-		{ url: `${page.url.origin}/about/`, title: 'Tentang Saya', icon: CircleUser },
-		{ url: `${page.url.origin}/project/`, title: 'Projek', icon: Briefcase },
-		{ url: `${page.url.origin}/resume/`, title: 'Resume', icon: FileText }
-	];
+	// Reactive nav labels with icons — updates automatically when language changes
+	let navUrls = $derived.by<NavUrl[]>(() => {
+		// Use i18n.current to ensure this derived state updates on language change
+		const currentLang = i18n.current;
+		return [
+			{ url: `/`, title: m.nav_home(), icon: House },
+			{ url: `/about`, title: m.nav_about(), icon: CircleUser },
+			{ url: `/project`, title: m.nav_project(), icon: Briefcase },
+			{ url: `/resume`, title: m.nav_resume(), icon: FileText }
+		];
+	});
 
 	let isSidebarOpen = $state(false);
 	let isMenuOpen = $state(false);
@@ -62,7 +69,9 @@
 			</div>
 			
 			<main class="flex-1 container mx-auto px-4 py-8">
-				{@render children()}
+				{#key i18n.current}
+					{@render children()}
+				{/key}
 			</main>
 
 			<div class="no-print">

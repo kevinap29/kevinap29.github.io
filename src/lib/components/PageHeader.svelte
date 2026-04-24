@@ -2,6 +2,7 @@
 	import { page } from '$app/state';
 	import { toggleMode } from "mode-watcher";
 	import { Button } from "$lib/components/ui/button";
+	import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 	
 	import type { NavUrl } from '$routes/types';
 
@@ -44,7 +45,8 @@
 		</nav>
 	</div>
 
-	<div class="flex items-center gap-4">
+	<div class="flex items-center gap-2">
+		<LanguageSwitcher />
 		<Button variant="ghost" size="icon" onclick={toggleMode} aria-label="Toggle Theme">
 			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0">
 				<circle cx="12" cy="12" r="4" />
@@ -56,3 +58,4 @@
 		</Button>
 	</div>
 </div>
+
