@@ -102,8 +102,6 @@ const initialProjects: ProjectData[] = [
 	}
 ];
 
-import { i18n } from '$lib/i18n.svelte';
-
 export const projectsData = {
 	get all() {
 		// Return raw data. Components will handle the translation 

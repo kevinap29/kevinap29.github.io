@@ -4,7 +4,7 @@
  * Provides a reactive language store using $state rune, with
  * localStorage persistence for GitHub Pages (no server-side routing needed).
  */
-import { setLocale, getLocale, locales } from '$lib/paraglide/runtime.js';
+import { setLocale, locales } from '$lib/paraglide/runtime.js';
 import { m } from '$lib/paraglide/messages';
 
 export type AvailableLanguageTag = (typeof locales)[number];

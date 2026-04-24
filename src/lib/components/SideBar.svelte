@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import * as Avatar from "$lib/components/ui/avatar";
 	import * as m from '$lib/paraglide/messages.js';
 	import { i18n } from '$lib/i18n.svelte';

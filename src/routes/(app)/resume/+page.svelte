@@ -11,7 +11,6 @@
 	const title = 'Fullstack Developer';
 	const email = 'kevinagustiansyah298@gmail.com';
 	const phone = '+62 895 4100 69696';
-	const location = 'Palembang, Indonesia';
 	const websiteName = 'Kevin Agustiansyah Putra';
 
 	const keahlian = [
@@ -217,7 +216,7 @@
 			margin: 0.5cm;
 			size: A4;
 		}
-		.no-print {
+		:global(.no-print) {
 			display: none !important;
 		}
 	}
