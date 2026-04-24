@@ -1,6 +1,5 @@
 <script lang="ts">
 	import '../app.css';
-	import { onMount } from 'svelte';
 	import { i18n } from '$lib/i18n.svelte';
 
 	// Highlight JS
@@ -18,7 +17,7 @@
 
 	let { children } = $props();
 
-	onMount(() => {
+	$effect(() => {
 		i18n.init();
 	});
 </script>
