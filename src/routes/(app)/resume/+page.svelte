@@ -4,6 +4,7 @@
 	import { projectsData } from '$lib/data/store/project-store.svelte';
 	import { Button } from "$lib/components/ui/button";
 	import * as m from '$lib/paraglide/messages';
+	import type { MessageFunction } from '$lib/types/messages';
 	import { FileDown } from '@lucide/svelte';
 
 	const name = 'Kevin Agustiansyah';
@@ -180,7 +181,7 @@
 								{/if}
 							</div>
 							<p class="text-[10px] leading-snug text-gray-500 line-clamp-3">
-								{@html (m as any)[project.descKey]({}, { locale: i18n.current }).replace(/<span class="font-bold">/g, '<span class="font-black text-black">')}
+								{@html (m as unknown as Record<string, MessageFunction>)[project.descKey]({}, { locale: i18n.current }).replace(/<span class="font-bold">/g, '<span class="font-black text-black">')}
 							</p>
 						</div>
 					{/each}

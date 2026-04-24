@@ -5,6 +5,7 @@
 	import { Button } from "$lib/components/ui/button";
 	import * as m from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
+	import type { MessageFunction } from '$lib/types/messages';
 
 	const websiteName = 'Kevin Agustiansyah Putra';
 	const imageLocation = `/img/new-pas-foto.jpg`;
@@ -65,7 +66,7 @@
 				</Card.Header>
 				<Card.Content class="grow">
 					<div class="text-sm leading-relaxed text-muted-foreground">
-						{@html (m as any)[project.descKey]({}, { locale: i18n.current })}
+						{@html (m as unknown as Record<string, MessageFunction>)[project.descKey]({}, { locale: i18n.current })}
 					</div>
 				</Card.Content>
 				<Card.Footer class="pt-4 border-t bg-muted/30">

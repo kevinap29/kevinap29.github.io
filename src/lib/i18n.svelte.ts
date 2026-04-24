@@ -55,9 +55,9 @@ export const i18n = (() => {
 		// Create a strong dependency on the current language rune.
 		// This ensures Svelte's reactivity system tracks this call.
 		const _ = current;
-		const message = (m as any)[key];
+		const message = (m as Record<string, unknown>)[key];
 		if (typeof message === 'function') {
-			return message();
+			return (message as () => string)();
 		}
 		return key;
 	}

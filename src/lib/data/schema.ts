@@ -1,4 +1,5 @@
 import { z } from "zod";
+import type { MessageKey } from "../types/messages";
 
 export const NameAndValueSchema = z.object({
 	name: z.string().min(1),
@@ -14,7 +15,7 @@ export const ProjectDataSchema = z.object({
 	image: z.string(),
 	name: z.string(),
 	desc: z.string().optional(),
-	descKey: z.string(),
+	descKey: z.string() as z.ZodType<MessageKey>,
 	dateCreated: z.date(),
 	dateFinished: z.union([z.date(), z.literal('Sekarang')]),
 	type: z.enum(['public', 'private']),
