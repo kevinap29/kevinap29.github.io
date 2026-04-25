@@ -7,6 +7,8 @@ on:
 jobs:
   build_site:
     runs-on: ubuntu-latest
+    env:
+      PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_ACCESS_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,8 +36,6 @@ jobs:
 
       - name: build
         run: npm run build
-        env:
-          PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_ACCESS_KEY }}
 
       # - name: Generate sitemap
       #   run: npm run generate:sitemap
