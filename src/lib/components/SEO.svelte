@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { page } from '$app/state';
 
 	let {
@@ -18,6 +19,7 @@
 	}>();
 
 	const fullTitle = $derived(title ? `${title} | ${websiteName}` : websiteName);
+	const imageUrl = $derived(image ? (image.startsWith('http') ? image : `${base}${image}`) : null);
 </script>
 
 <svelte:head>
@@ -30,8 +32,8 @@
 		<meta name="keywords" content={keywords} />
 	{/if}
 	<meta property="og:title" content={fullTitle} />
-	{#if image}
-		<meta property="og:image" content={image} />
+	{#if imageUrl}
+		<meta property="og:image" content={imageUrl} />
 	{/if}
 	<meta property="og:url" content={page.url.href} />
 	<meta property="og:type" content={type} />

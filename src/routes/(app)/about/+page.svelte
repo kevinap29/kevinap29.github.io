@@ -114,7 +114,7 @@
 				>
 					<div class="relative pl-6 border-l-2 border-primary/20 space-y-2">
 						<div
-							class="absolute -left-[9px] top-1 size-4 bg-primary border-4 border-background"
+							class="absolute left-[-9px] top-1 size-4 bg-primary border-4 border-background"
 						></div>
 						<p>
 							{@html m.about_work_p1({}, { locale: i18n.current })}
@@ -123,7 +123,7 @@
 
 					<div class="relative pl-6 border-l-2 border-primary/20 space-y-2">
 						<div
-							class="absolute -left-[9px] top-1 size-4 bg-primary border-4 border-background"
+							class="absolute left-[-9px] top-1 size-4 bg-primary border-4 border-background"
 						></div>
 						<p>
 							{@html m.about_work_p2({}, { locale: i18n.current })}
@@ -132,7 +132,7 @@
 
 					<div class="relative pl-6 border-l-2 border-primary/20 space-y-2">
 						<div
-							class="absolute -left-[9px] top-1 size-4 bg-primary border-4 border-background"
+							class="absolute left-[-9px] top-1 size-4 bg-primary border-4 border-background"
 						></div>
 						<p>
 							{@html m.about_work_p3({}, { locale: i18n.current })}

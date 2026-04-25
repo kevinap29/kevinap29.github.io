@@ -77,7 +77,7 @@
 					class="aspect-video rounded-none overflow-hidden border border-border/50 shadow-2xl relative group"
 				>
 					<img
-						src={`${base}/${project.image}`}
+						src={`${base}${project.image}`}
 						alt={project.name}
 						class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
 					/>

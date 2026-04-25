@@ -92,7 +92,7 @@
 					>
 						<div class="relative aspect-video overflow-hidden">
 							<img
-								src={`${base}/${project.image}`}
+								src={`${base}${project.image}`}
 								class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
 								alt={project.name}
 							/>

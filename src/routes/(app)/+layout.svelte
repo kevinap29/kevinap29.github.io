@@ -14,14 +14,13 @@
 
 	import { m } from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
-	import { onMount } from 'svelte';
 	import { onNavigate } from '$app/navigation';
 
 	import type { Snippet } from 'svelte';
 
 	let { children }: { children: Snippet } = $props();
 
-	onMount(() => {
+	$effect(() => {
 		i18n.init();
 	});
 
