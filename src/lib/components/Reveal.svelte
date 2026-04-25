@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount, type Snippet } from 'svelte';
+	import { type Snippet } from 'svelte';
 
 	interface Props {
 		children: Snippet;
@@ -26,7 +26,7 @@
 	let visible = $state(false);
 	let element = $state<HTMLElement>();
 
-	onMount(() => {
+	$effect(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				if (entries[0].isIntersecting) {

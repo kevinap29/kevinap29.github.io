@@ -11,11 +11,7 @@
 	import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle } from '@lucide/svelte';
 	import Reveal from '$lib/components/Reveal.svelte';
 	import PageHero from '$lib/components/PageHero.svelte';
-	import * as env from '$env/static/public';
-
-	// Type-safe environment variable access with fallback
-	const PUBLIC_WEB3FORMS_ACCESS_KEY =
-		(env as Record<string, string | undefined>)['PUBLIC_WEB3FORMS_ACCESS_KEY'] || '';
+	import { PUBLIC_WEB3FORMS_ACCESS_KEY } from '$env/static/public';
 
 	let { data } = $props();
 	const { email, phone, websiteName } = $derived(data);
