@@ -8,19 +8,19 @@
 	import { GitHub } from '$lib/components/icons';
 
 	let { data } = $props();
-	let journalsInfo = $derived(data.journalsInfo);
-	let localizedJournals = $derived(data.localizedJournals[i18n.current] || []);
-	let websiteName = $derived(data.websiteName);
-	let imageLocation = $derived(data.imageLocation);
+	const journalsInfo = $derived(data.journalsInfo);
+	const localizedJournals = $derived(data.localizedJournals[i18n.current] || []);
+	const websiteName = $derived(data.websiteName);
+	const imageLocation = $derived(data.imageLocation);
+
+	const journalMap = $derived(new Map(localizedJournals.map((j) => [j.slug, j])));
 
 	function getJournalContent(slug: string) {
-		const match = localizedJournals.find((j) => j.slug === slug);
-		return match ? match.html : '<p>Content missing.</p>';
+		return journalMap.get(slug)?.html || '<p>Content missing.</p>';
 	}
 
 	function getTitle(slug: string) {
-		const match = localizedJournals.find((j) => j.slug === slug);
-		return match?.metadata?.title || slug;
+		return journalMap.get(slug)?.metadata?.title || slug;
 	}
 </script>
 
