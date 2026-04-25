@@ -2,7 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import { ArrowUp } from '@lucide/svelte';
 	import { cn } from '$lib/utils';
-	import { Button } from "$lib/components/ui/button";
+	import { Button } from '$lib/components/ui/button';
 
 	/**
 	 * Props for the ScrollToTop component.
@@ -19,10 +19,7 @@
 		class?: string;
 	}
 
-	let { 
-		threshold = 300, 
-		class: className 
-	}: ScrollToTopProps = $props();
+	let { threshold = 300, class: className }: ScrollToTopProps = $props();
 
 	let scrollY = $state(0);
 
@@ -49,15 +46,15 @@
 
 		// Initial sync
 		updateScroll();
-		
+
 		window.addEventListener('scroll', updateScroll, { passive: true });
 		return () => window.removeEventListener('scroll', updateScroll);
 	});
 </script>
 
 {#if isVisible}
-	<div 
-		class={cn("fixed bottom-8 right-8 z-50", className)}
+	<div
+		class={cn('fixed bottom-8 right-8 z-50', className)}
 		transition:fly={{ y: 20, duration: 400 }}
 	>
 		<Button
@@ -65,10 +62,10 @@
 			size="icon"
 			onclick={scrollToTop}
 			class={cn(
-				"size-12 shadow-2xl transition-all duration-300",
-				"bg-background/80 backdrop-blur-md border border-primary/20 text-primary",
-				"hover:bg-primary hover:text-primary-foreground hover:scale-110 active:scale-95 hover:shadow-primary/30",
-				"rounded-none"
+				'size-12 shadow-2xl transition-all duration-300',
+				'bg-background/80 backdrop-blur-md border border-primary/20 text-primary',
+				'hover:bg-primary hover:text-primary-foreground hover:scale-110 active:scale-95 hover:shadow-primary/30',
+				'rounded-none'
 			)}
 			aria-label="Scroll to top"
 		>

@@ -21,13 +21,14 @@ export const load: PageServerLoad = async ({ params }) => {
 			import: 'default',
 			eager: true
 		});
-		
+
 		for (const lang of languages) {
 			// Try [slug].[lang].md first, then fallback to [slug].md if it's the default (en)
 			const path = `/src/lib/data/projects/${params.slug}.${lang}.md`;
 			const fallbackPath = `/src/lib/data/projects/${params.slug}.md`;
-			
-			const rawContent = (modules[path] || (lang === 'en' ? modules[fallbackPath] : null)) as string;
+
+			const rawContent = (modules[path] ||
+				(lang === 'en' ? modules[fallbackPath] : null)) as string;
 
 			if (rawContent) {
 				const { data, content } = matter(rawContent);

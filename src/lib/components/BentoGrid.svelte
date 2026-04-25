@@ -1,19 +1,18 @@
 <script lang="ts">
-	import { cn } from "$lib/utils";
-	import type { Snippet } from "svelte";
+	import { cn } from '$lib/utils';
+	import type { Snippet } from 'svelte';
 
-	let { 
+	let {
 		class: className,
-		children 
+		children
 	}: {
 		class?: string;
 		children: Snippet;
 	} = $props();
 </script>
 
-<div class={cn(
-	"grid auto-rows-[12rem] grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6",
-	className
-)}>
+<div
+	class={cn('grid auto-rows-[12rem] grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6', className)}
+>
 	{@render children()}
 </div>

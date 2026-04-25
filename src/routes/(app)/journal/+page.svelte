@@ -14,33 +14,35 @@
 	let imageLocation = $derived(data.imageLocation);
 
 	function getJournalContent(slug: string) {
-		const match = localizedJournals.find(j => j.slug === slug);
+		const match = localizedJournals.find((j) => j.slug === slug);
 		return match ? match.html : '<p>Content missing.</p>';
 	}
 
 	function getTitle(slug: string) {
-		const match = localizedJournals.find(j => j.slug === slug);
+		const match = localizedJournals.find((j) => j.slug === slug);
 		return match?.metadata?.title || slug;
 	}
 </script>
 
-<SEO 
-	title={m.nav_journal({}, { locale: i18n.current })} 
+<SEO
+	title={m.nav_journal({}, { locale: i18n.current })}
 	description={m.journal_intro({}, { locale: i18n.current })}
 	image={imageLocation}
 	{websiteName}
 />
 
 <div class="max-w-4xl mx-auto px-4 py-8 space-y-12">
-	<PageHero 
-		title={m.journal_title({}, { locale: i18n.current })} 
-		description={m.journal_intro({}, { locale: i18n.current })} 
+	<PageHero
+		title={m.journal_title({}, { locale: i18n.current })}
+		description={m.journal_intro({}, { locale: i18n.current })}
 	/>
 
 	<section class="relative">
 		{#if journalsInfo.length === 0}
 			<Reveal delay={500} y={20}>
-				<div class="text-center py-20 text-muted-foreground bg-muted/20 border border-dashed p-8 rounded-none">
+				<div
+					class="text-center py-20 text-muted-foreground bg-muted/20 border border-dashed p-8 rounded-none"
+				>
 					<GitHub class="size-12 mx-auto mb-4 opacity-20" />
 					<p class="font-bold">{m.journal_empty({}, { locale: i18n.current })}</p>
 				</div>
@@ -51,11 +53,11 @@
 
 			<div class="space-y-12 relative">
 				{#each journalsInfo as journal, i}
-					<TimelineItem 
-						{journal} 
-						index={i} 
-						title={getTitle(journal.slug)} 
-						htmlContent={getJournalContent(journal.slug)} 
+					<TimelineItem
+						{journal}
+						index={i}
+						title={getTitle(journal.slug)}
+						htmlContent={getJournalContent(journal.slug)}
 					/>
 				{/each}
 			</div>

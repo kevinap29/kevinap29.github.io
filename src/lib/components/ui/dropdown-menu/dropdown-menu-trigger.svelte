@@ -1,7 +1,12 @@
 <script lang="ts">
-	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+	import { DropdownMenu as DropdownMenuPrimitive } from 'bits-ui';
 
-	let { ref = $bindable(null), child: childProp, children, ...restProps }: DropdownMenuPrimitive.TriggerProps = $props();
+	let {
+		ref = $bindable(null),
+		child: childProp,
+		children,
+		...restProps
+	}: DropdownMenuPrimitive.TriggerProps = $props();
 </script>
 
 {#if childProp}

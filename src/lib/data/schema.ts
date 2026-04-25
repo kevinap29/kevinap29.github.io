@@ -1,6 +1,6 @@
-import { z } from "zod";
+import { z } from 'zod';
 
-export type MessageKey = keyof typeof import("../paraglide/messages").m;
+export type MessageKey = keyof typeof import('../paraglide/messages').m;
 
 export const ProjectDataSchema = z.object({
 	url: z.string(),
@@ -11,7 +11,7 @@ export const ProjectDataSchema = z.object({
 	dateFinished: z.union([z.date(), z.literal('Sekarang')]),
 	type: z.enum(['public', 'private']),
 	tags: z.array(z.string()),
-	slug: z.string().optional(),
+	slug: z.string().optional()
 });
 
 export const ListOfProjectDataSchema = z.array(ProjectDataSchema);

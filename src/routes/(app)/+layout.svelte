@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { ModeWatcher } from "mode-watcher";
-	import * as Sheet from "$lib/components/ui/sheet";
-	
+	import { ModeWatcher } from 'mode-watcher';
+	import * as Sheet from '$lib/components/ui/sheet';
+
 	import SideBar from '$lib/components/SideBar.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import PageFooter from '$lib/components/PageFooter.svelte';
@@ -89,11 +89,11 @@
 			<div class="no-print">
 				<PageHeader
 					urls={navUrls}
-					onprofile={() => isSidebarOpen = true}
-					onmenu={() => isMenuOpen = true}
+					onprofile={() => (isSidebarOpen = true)}
+					onmenu={() => (isMenuOpen = true)}
 				/>
 			</div>
-			
+
 			<main class="flex-1 container mx-auto px-4 py-8 overflow-x-hidden">
 				{#key page.url.pathname}
 					{#key i18n.current}

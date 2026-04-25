@@ -6,4 +6,7 @@ export type MessageOptions = {
 	locale?: string;
 };
 
-export type MessageFunction = (params?: Record<string, unknown>, options?: MessageOptions) => string;
+export type MessageFunction = (
+	params?: Record<string, unknown>,
+	options?: MessageOptions
+) => string;

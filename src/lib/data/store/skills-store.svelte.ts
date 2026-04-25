@@ -1,13 +1,13 @@
 import { m } from '$lib/paraglide/messages';
-import { 
-	Server, 
-	Database, 
-	Layout, 
-	Palette, 
-	Cpu, 
-	GitBranch, 
-	Cloud, 
-	Zap, 
+import {
+	Server,
+	Database,
+	Layout,
+	Palette,
+	Cpu,
+	GitBranch,
+	Cloud,
+	Zap,
 	FileCode,
 	Layers,
 	Globe,

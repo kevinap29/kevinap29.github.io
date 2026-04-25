@@ -1,15 +1,18 @@
 # PRD: Fitur Lokalisasi Svelte 5 (Runes) untuk Portfolio
 
 ## 1. Ringkasan (Overview)
+
 Implementasi sistem lokalisasi (i18n) pada portfolio berbasis Svelte 5 menggunakan **Paraglide-JS**. Sistem ini akan mendukung bahasa Inggris (en) dan Indonesia (id) dengan pendekatan **Route-based Localization** yang dioptimalkan untuk performa statis di GitHub Pages.
 
 ## 2. Tujuan (Goals)
+
 - Memberikan pengalaman multibahasa bagi pengunjung portfolio.
 - Mempertahankan performa tinggi dan SEO (Search Engine Optimization).
 - Memanfaatkan fitur **Svelte 5 Runes** untuk reaktivitas bahasa yang efisien.
 - Type-safety penuh untuk setiap kunci terjemahan.
 
 ## 3. Keputusan Desain (Design Tree Decisions)
+
 - **Library**: [Paraglide-JS](https://inlang.com/m/gerre34r/library-inlang-paraglideJs) + [SvelteKit Adapter](https://inlang.com/m/3498634/library-inlang-paraglideJsAdapterSvelteKit).
 - **Strategi Routing**: **URL-based** menggunakan parameter slug (misal: `/id/about`, `/en/about`).
 - **Penyimpanan Pesan**: File JSON di direktori `messages/` (Standar Inlang).
@@ -18,12 +21,14 @@ Implementasi sistem lokalisasi (i18n) pada portfolio berbasis Svelte 5 menggunak
 ## 4. Spesifikasi Teknis
 
 ### A. Alur Kerja (Workflow)
+
 1. Inisialisasi Paraglide-JS di project.
 2. Konfigurasi `messages/en.json` dan `messages/id.json`.
 3. Integrasi dengan SvelteKit hooks untuk deteksi bahasa.
 4. Penggunaan fungsi `m.<key>()` yang diimpor dari runtime Paraglide untuk menampilkan teks.
 
 ### B. Struktur Direktori Baru
+
 ```
 project/
 ├── messages/
@@ -36,21 +41,25 @@ project/
 ```
 
 ### C. Integrasi Svelte 5 Runes
+
 - Reaktivitas bahasa ditangani secara internal oleh runtime Paraglide yang kompatibel dengan Svelte 5.
 - Fungsi terjemahan akan bersifat reaktif jika digunakan di dalam konteks komponen Svelte 5.
 
 ## 5. Rencana Implementasi (Task Breakdown)
+
 1. **Setup**: Instalasi `@inlang/paraglide-js-adapter-sveltekit`.
 2. **Konfigurasi**: Setup `inlang` project file dan mendefinisikan bahasa `en` serta `id`.
 3. **Migrasi**: Memindahkan teks statis dari komponen (seperti Navbar, Footer, Hero) ke file pesan.
 4. **Routing**: Membungkus routes utama dengan folder `[[lang]]` untuk mendukung prefix bahasa di URL.
-5. **UI**: Menambahkan komponen *Language Switcher* yang elegan.
+5. **UI**: Menambahkan komponen _Language Switcher_ yang elegan.
 
 ## 6. Verifikasi
+
 - Menjalankan `npm run build` untuk memastikan `adapter-static` merender versi `en` dan `id`.
 - Memastikan tidak ada error tipe (TypeScript) pada penggunaan kunci terjemahan.
 - Cek fungsionalitas tombol ganti bahasa.
 
 ## 7. Pertimbangan GitHub Pages
+
 - Menggunakan `fallback: '404.html'` di `svelte.config.js` (sudah ada).
 - Memastikan `base path` ditangani dengan benar oleh fungsi navigasi Paraglide.

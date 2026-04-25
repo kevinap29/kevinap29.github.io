@@ -1,7 +1,12 @@
 <script lang="ts">
-	import { Dialog as SheetPrimitive } from "bits-ui";
+	import { Dialog as SheetPrimitive } from 'bits-ui';
 
-	let { ref = $bindable(null), child: childProp, children, ...restProps }: SheetPrimitive.TriggerProps = $props();
+	let {
+		ref = $bindable(null),
+		child: childProp,
+		children,
+		...restProps
+	}: SheetPrimitive.TriggerProps = $props();
 </script>
 
 {#if childProp}

@@ -16,7 +16,7 @@ const getRoutesFromSitemap = async () => {
 	const routes = urlArray
 		.map((u) => new URL(u.loc))
 		.filter((url) => url.pathname.includes('resume'));
-	
+
 	// If running locally, point to localhost
 	return routes.map((url) => {
 		const localUrl = new URL(url.pathname, 'http://localhost:5173');
@@ -36,10 +36,10 @@ const generateCombinedPDF = async () => {
 
 	for (const route of routes) {
 		console.log(`⏳ Rendering: ${route}`);
-		await page.goto(route, { 
-            waitUntil: 'load',
-            timeout: 120000 // 2 minutes timeout 
-        });
+		await page.goto(route, {
+			waitUntil: 'load',
+			timeout: 120000 // 2 minutes timeout
+		});
 
 		// Remove dark class if present to ensure white background
 		await page.evaluate(() => {

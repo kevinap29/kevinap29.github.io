@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { toggleMode } from "mode-watcher";
-	import { Button } from "$lib/components/ui/button";
+	import { toggleMode } from 'mode-watcher';
+	import { Button } from '$lib/components/ui/button';
 	import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 	import { Menu, User, Sun, Moon } from '@lucide/svelte';
-	
+
 	import type { NavUrl } from '$lib/types/nav';
 
 	interface Props {
@@ -14,10 +14,11 @@
 	}
 
 	let { urls, onmenu, onprofile }: Props = $props();
-
 </script>
 
-<div class="flex justify-between items-center bg-background text-foreground h-16 px-4 sticky top-0 z-40 border-b">
+<div
+	class="flex justify-between items-center bg-background text-foreground h-16 px-4 sticky top-0 z-40 border-b"
+>
 	<div class="flex items-center gap-2">
 		<Button variant="ghost" size="icon" class="lg:hidden" onclick={onmenu} aria-label="Menu">
 			<Menu class="size-6" />
@@ -30,9 +31,9 @@
 	<div class="hidden lg:block">
 		<nav class="flex items-center gap-2">
 			{#each urls as url}
-				<Button 
-					variant={page.url.pathname === url.url ? "secondary" : "ghost"} 
-					class={page.url.pathname === url.url ? "" : "text-foreground/80 hover:text-foreground"}
+				<Button
+					variant={page.url.pathname === url.url ? 'secondary' : 'ghost'}
+					class={page.url.pathname === url.url ? '' : 'text-foreground/80 hover:text-foreground'}
 					href={url.url}
 				>
 					{#if url.icon}
@@ -52,4 +53,3 @@
 		</Button>
 	</div>
 </div>
-

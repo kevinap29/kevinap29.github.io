@@ -23,7 +23,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2025, 8, 18, 0, 0, 0),
 		type: 'Launch',
 		repo: 'hashtags-maui',
-		tags: ["C#",".NET MAUI","Mobile"]
+		tags: ['C#', '.NET MAUI', 'Mobile']
 	},
 	{
 		slug: 'api-validator',
@@ -31,7 +31,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2025, 8, 5, 0, 0, 0),
 		type: 'Launch',
 		repo: 'api-validator',
-		tags: ["TypeScript","Node.js","API"]
+		tags: ['TypeScript', 'Node.js', 'API']
 	},
 	{
 		slug: 'scraping-api',
@@ -39,7 +39,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2025, 7, 16, 0, 0, 0),
 		type: 'Case Study',
 		repo: 'scraping-api',
-		tags: ["TypeScript","Web Scraping","Puppeteer"]
+		tags: ['TypeScript', 'Web Scraping', 'Puppeteer']
 	},
 	{
 		slug: 'sveltekit-lib',
@@ -47,7 +47,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2025, 6, 27, 0, 0, 0),
 		type: 'Launch',
 		repo: 'sveltekit-lib',
-		tags: ["TypeScript","SvelteKit","Library"]
+		tags: ['TypeScript', 'SvelteKit', 'Library']
 	},
 	{
 		slug: 'http-request',
@@ -55,7 +55,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2025, 0, 25, 0, 0, 0),
 		type: 'Learning',
 		repo: 'http-request',
-		tags: ["TypeScript","HTTP","Networking"]
+		tags: ['TypeScript', 'HTTP', 'Networking']
 	},
 	{
 		slug: 'ollama-chatbot',
@@ -63,7 +63,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2025, 0, 6, 0, 0, 0),
 		type: 'Case Study',
 		repo: 'ollama-chatbot',
-		tags: ["Svelte","AI","Ollama"]
+		tags: ['Svelte', 'AI', 'Ollama']
 	},
 	{
 		slug: 'api-user-dot',
@@ -71,7 +71,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2024, 6, 5, 0, 0, 0),
 		type: 'Milestone',
 		repo: 'API_User_DOT',
-		tags: ["C#",".NET Core","REST API"]
+		tags: ['C#', '.NET Core', 'REST API']
 	},
 	{
 		slug: 'blazor-resume',
@@ -79,7 +79,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2024, 5, 17, 0, 0, 0),
 		type: 'Launch',
 		repo: 'BlazorResume',
-		tags: ["Blazor","SCSS","C#"]
+		tags: ['Blazor', 'SCSS', 'C#']
 	},
 	{
 		slug: 'sistem-keuangan',
@@ -87,7 +87,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2023, 3, 20, 0, 0, 0),
 		type: 'Case Study',
 		repo: 'sistem-keuangan',
-		tags: ["Svelte","Finance","Dashboard"]
+		tags: ['Svelte', 'Finance', 'Dashboard']
 	},
 	{
 		slug: 'mainapidev',
@@ -95,7 +95,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2022, 11, 21, 0, 0, 0),
 		type: 'Launch',
 		repo: 'mainapidev',
-		tags: ["TypeScript","API","SvelteKit"]
+		tags: ['TypeScript', 'API', 'SvelteKit']
 	},
 	{
 		slug: 'laravel-blog',
@@ -103,7 +103,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2021, 7, 5, 0, 0, 0),
 		type: 'Learning',
 		repo: 'laravelBlog',
-		tags: ["PHP","Laravel","MySQL"]
+		tags: ['PHP', 'Laravel', 'MySQL']
 	},
 	{
 		slug: 'tugasakhir-is',
@@ -111,7 +111,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2021, 0, 3, 0, 0, 0),
 		type: 'Milestone',
 		repo: 'tugasakhir-is',
-		tags: ["PHP","Academic","Information System"]
+		tags: ['PHP', 'Academic', 'Information System']
 	},
 	{
 		slug: 'api-php',
@@ -119,7 +119,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2020, 10, 30, 0, 0, 0),
 		type: 'Refactor',
 		repo: 'api',
-		tags: ["PHP","REST API","Backend"]
+		tags: ['PHP', 'REST API', 'Backend']
 	},
 	{
 		slug: 'ppdbv3',
@@ -127,7 +127,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2020, 5, 3, 0, 0, 0),
 		type: 'Case Study',
 		repo: 'ppdbv3',
-		tags: ["PHP","MySQL","Education"]
+		tags: ['PHP', 'MySQL', 'Education']
 	},
 	{
 		slug: 'undangan-kakak',
@@ -135,7 +135,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2022, 5, 28, 0, 0, 0),
 		type: 'Launch',
 		repo: 'undangan-kakak',
-		tags: ["Svelte","Frontend","Animation"]
+		tags: ['Svelte', 'Frontend', 'Animation']
 	},
 	{
 		slug: 'new-api-hashtags',
@@ -143,7 +143,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2023, 0, 13, 0, 0, 0),
 		type: 'Refactor',
 		repo: 'new-api-hashtags',
-		tags: ["TypeScript","API","Node.js"]
+		tags: ['TypeScript', 'API', 'Node.js']
 	},
 	{
 		slug: 'advent-svelte',
@@ -151,7 +151,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2024, 0, 5, 0, 0, 0),
 		type: 'Learning',
 		repo: 'advent-svelte',
-		tags: ["Svelte","Ecosystem","Challenges"]
+		tags: ['Svelte', 'Ecosystem', 'Challenges']
 	},
 	{
 		slug: 'api-nik-kk',
@@ -159,7 +159,7 @@ const initialJournals: JournalData[] = [
 		date: new Date(2024, 7, 9, 0, 0, 0),
 		type: 'Case Study',
 		repo: 'api_nik_kk',
-		tags: ["TypeScript","Data Validation","Indonesian Identity"]
+		tags: ['TypeScript', 'Data Validation', 'Indonesian Identity']
 	}
 ];
 

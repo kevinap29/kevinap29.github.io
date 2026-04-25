@@ -1,14 +1,14 @@
 <script lang="ts">
 	import Reveal from '$lib/components/Reveal.svelte';
 
-	let { 
-		title, 
-		description, 
-		delay = 250 
-	} = $props<{ 
-		title: string; 
-		description: string; 
-		delay?: number 
+	let {
+		title,
+		description,
+		delay = 250
+	} = $props<{
+		title: string;
+		description: string;
+		delay?: number;
 	}>();
 </script>
 

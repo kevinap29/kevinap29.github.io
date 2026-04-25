@@ -1,16 +1,16 @@
 <script lang="ts">
-	import { Input } from "$lib/components/ui/input";
-	import { Badge } from "$lib/components/ui/badge";
+	import { Input } from '$lib/components/ui/input';
+	import { Badge } from '$lib/components/ui/badge';
 	import { m } from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
-	import { cn } from "$lib/utils";
+	import { cn } from '$lib/utils';
 	import { Search } from '@lucide/svelte';
 
-	let { 
-		searchQuery = $bindable(), 
-		selectedTags = $bindable(), 
+	let {
+		searchQuery = $bindable(),
+		selectedTags = $bindable(),
 		visibilityFilter = $bindable(),
-		availableTags = [] 
+		availableTags = []
 	} = $props<{
 		searchQuery: string;
 		selectedTags: string[];
@@ -43,14 +43,18 @@
 			{#each ['all', 'public', 'private'] as option}
 				<button
 					class={cn(
-						"px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-none transition-all duration-200 grow md:grow-0 text-center whitespace-nowrap",
-						visibilityFilter === option 
-							? "bg-primary text-primary-foreground shadow-md" 
-							: "text-muted-foreground hover:text-foreground hover:bg-background/50"
+						'px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-none transition-all duration-200 grow md:grow-0 text-center whitespace-nowrap',
+						visibilityFilter === option
+							? 'bg-primary text-primary-foreground shadow-md'
+							: 'text-muted-foreground hover:text-foreground hover:bg-background/50'
 					)}
 					onclick={() => visibilityFilter = option as 'all' | 'public' | 'private'}
 				>
-					{option === 'all' ? m.visibility_all() : option === 'public' ? m.visibility_public() : m.visibility_private()}
+					{option === 'all'
+						? m.visibility_all()
+						: option === 'public'
+							? m.visibility_public()
+							: m.visibility_private()}
 				</button>
 			{/each}
 		</div>
@@ -62,8 +66,8 @@
 				{m.filter_by_tag({}, { locale: i18n.current })}
 			</h3>
 			{#if selectedTags.length > 0}
-				<button 
-					onclick={() => selectedTags = []}
+				<button
+					onclick={() => (selectedTags = [])}
 					class="text-[10px] font-black uppercase tracking-tighter text-primary hover:underline transition-all"
 				>
 					Reset
@@ -73,15 +77,15 @@
 		<div class="flex flex-wrap gap-2">
 			{#each availableTags as tag}
 				{@const isActive = selectedTags.includes(tag)}
-				<button 
+				<button
 					onclick={() => toggleTag(tag)}
 					class="transition-all duration-200 transform hover:scale-105 active:scale-95"
 				>
-					<Badge 
-						variant={isActive ? 'default' : 'outline'} 
+					<Badge
+						variant={isActive ? 'default' : 'outline'}
 						class={cn(
-							"px-3 py-1 text-[10px] font-bold uppercase tracking-wide cursor-pointer transition-colors",
-							isActive ? "shadow-md" : "hover:bg-primary/10 hover:border-primary/50"
+							'px-3 py-1 text-[10px] font-bold uppercase tracking-wide cursor-pointer transition-colors',
+							isActive ? 'shadow-md' : 'hover:bg-primary/10 hover:border-primary/50'
 						)}
 					>
 						{tag}

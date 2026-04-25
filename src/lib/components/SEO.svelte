@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/state';
 
-	let { 
-		title, 
-		description, 
-		image, 
+	let {
+		title,
+		description,
+		image,
 		keywords,
-		websiteName = "Kevin Agustiansyah",
-		type = "website"
+		websiteName = 'Kevin Agustiansyah',
+		type = 'website'
 	} = $props<{
 		title?: string;
 		description?: string;
