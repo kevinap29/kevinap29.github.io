@@ -1,14 +1,6 @@
 import { z } from "zod";
-import type { MessageKey } from "../types/messages";
 
-export const NameAndValueSchema = z.object({
-	name: z.string().min(1),
-	value: z.number().min(0).max(100),
-});
-
-export const ListOfNameAndValueSchema = z.array(NameAndValueSchema);
-
-export type NameAndValue = z.infer<typeof NameAndValueSchema>;
+export type MessageKey = keyof typeof import("../paraglide/messages").m;
 
 export const ProjectDataSchema = z.object({
 	url: z.string(),
@@ -30,3 +22,14 @@ export interface ProjectMetadata {
 	problem?: string;
 	[key: string]: unknown;
 }
+
+export const JournalDataSchema = z.object({
+	slug: z.string(),
+	titleKey: z.string() as z.ZodType<MessageKey>,
+	date: z.date(),
+	type: z.enum(['Launch', 'Milestone', 'Learning', 'Refactor', 'Case Study']),
+	repo: z.string().optional(),
+	tags: z.array(z.string())
+});
+
+export type JournalData = z.infer<typeof JournalDataSchema>;

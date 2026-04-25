@@ -12,6 +12,16 @@
   </url>
 
   <url>
+    <loc>https://kevinap29.github.io/contact</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://kevinap29.github.io/journal</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://kevinap29.github.io/project</loc>
     <priority>0.7</priority>
   </url>

@@ -4,6 +4,7 @@
 	import { m } from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
 	import { cn } from "$lib/utils";
+	import { Search } from '@lucide/svelte';
 
 	let { 
 		searchQuery = $bindable(), 
@@ -29,21 +30,7 @@
 <div class="space-y-6">
 	<div class="flex flex-col md:flex-row gap-4 items-center">
 		<div class="relative w-full">
-			<svg
-				class="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground"
-				xmlns="http://www.w3.org/2000/svg"
-				width="24"
-				height="24"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-			>
-				<circle cx="11" cy="11" r="8" />
-				<path d="m21 21-4.3-4.3" />
-			</svg>
+			<Search class="absolute left-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground" />
 			<Input
 				type="text"
 				placeholder={m.search_project({}, { locale: i18n.current })}
@@ -52,11 +39,11 @@
 			/>
 		</div>
 
-		<div class="flex p-1 bg-muted rounded-lg w-full md:w-auto shrink-0 border border-border/50">
+		<div class="flex p-1 bg-muted rounded-none w-full md:w-auto shrink-0 border border-border/50">
 			{#each ['all', 'public', 'private'] as option}
 				<button
 					class={cn(
-						"px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-md transition-all duration-200 grow md:grow-0 text-center whitespace-nowrap",
+						"px-4 py-1.5 text-xs font-bold uppercase tracking-wider rounded-none transition-all duration-200 grow md:grow-0 text-center whitespace-nowrap",
 						visibilityFilter === option 
 							? "bg-primary text-primary-foreground shadow-md" 
 							: "text-muted-foreground hover:text-foreground hover:bg-background/50"

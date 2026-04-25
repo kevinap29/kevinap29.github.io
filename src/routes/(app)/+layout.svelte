@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import { ModeWatcher } from "mode-watcher";
 	import * as Sheet from "$lib/components/ui/sheet";
 	
@@ -6,12 +7,15 @@
 	import PageHeader from '$lib/components/PageHeader.svelte';
 	import PageFooter from '$lib/components/PageFooter.svelte';
 	import MenuDrawer from '$lib/components/MenuDrawer.svelte';
+	import LoadingProgressBar from '$lib/components/LoadingProgressBar.svelte';
+	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
 	import type { NavUrl } from '$lib/types/nav';
-	import { House, CircleUser, Briefcase, FileText } from '@lucide/svelte';
+	import { House, CircleUser, Briefcase, FileText, Mail, Activity } from '@lucide/svelte';
 
 	import { m } from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
 	import { onMount } from 'svelte';
+	import { onNavigate } from '$app/navigation';
 
 	import type { Snippet } from 'svelte';
 
@@ -19,6 +23,19 @@
 
 	onMount(() => {
 		i18n.init();
+	});
+
+	onNavigate((navigation) => {
+		// @ts-ignore
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			// @ts-ignore
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
 	});
 
 	// Reactive nav labels with icons — updates automatically when language changes
@@ -29,7 +46,9 @@
 			{ url: `/`, title: m.nav_home(), icon: House },
 			{ url: `/about`, title: m.nav_about(), icon: CircleUser },
 			{ url: `/project`, title: m.nav_project(), icon: Briefcase },
-			{ url: `/resume`, title: m.nav_resume(), icon: FileText }
+			{ url: `/resume`, title: m.nav_resume(), icon: FileText },
+			{ url: `/journal`, title: m.nav_journal(), icon: Activity },
+			{ url: `/contact`, title: m.nav_contact(), icon: Mail }
 		];
 	});
 
@@ -42,6 +61,7 @@
 	}
 </script>
 
+<LoadingProgressBar />
 <ModeWatcher />
 
 <div class="flex min-h-screen flex-col bg-background">
@@ -74,9 +94,11 @@
 				/>
 			</div>
 			
-			<main class="flex-1 container mx-auto px-4 py-8">
-				{#key i18n.current}
-					{@render children()}
+			<main class="flex-1 container mx-auto px-4 py-8 overflow-x-hidden">
+				{#key page.url.pathname}
+					{#key i18n.current}
+						{@render children()}
+					{/key}
 				{/key}
 			</main>
 
@@ -84,5 +106,8 @@
 				<PageFooter />
 			</div>
 		</div>
+	</div>
+	<div class="no-print">
+		<ScrollToTop />
 	</div>
 </div>

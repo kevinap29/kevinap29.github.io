@@ -130,3 +130,7 @@
   .prose li { @apply mb-2; }
   .prose strong { @apply font-black; color: var(--foreground); }
 }
+
+.circular-avatar, .circular-avatar::after {
+	border-radius: 9999px !important;
+}
