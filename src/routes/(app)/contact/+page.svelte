@@ -20,7 +20,8 @@
 	let formState = $state({
 		name: '',
 		email: '',
-		message: ''
+		message: '',
+		botcheck: false
 	});
 
 	let status = $state<'idle' | 'sending' | 'success' | 'error'>('idle');
@@ -41,6 +42,7 @@
 					name: formState.name,
 					email: formState.email,
 					message: formState.message,
+					botcheck: formState.botcheck,
 					subject: `New Contact Form Message from ${formState.name}`,
 					from_name: 'Portfolio Contact Form'
 				})
@@ -49,7 +51,7 @@
 			const result = await response.json();
 			if (result.success) {
 				status = 'success';
-				formState = { name: '', email: '', message: '' };
+				formState = { name: '', email: '', message: '', botcheck: false };
 			} else {
 				status = 'error';
 			}
@@ -160,6 +162,12 @@
 							</div>
 						{:else}
 							<form onsubmit={handleSubmit} class="space-y-6">
+								<input
+									type="checkbox"
+									name="botcheck"
+									bind:checked={formState.botcheck}
+									style="display: none;"
+								/>
 								<div class="space-y-2">
 									<Label for="name" class="text-xs font-black uppercase tracking-widest"
 										>{m.form_name()}</Label
