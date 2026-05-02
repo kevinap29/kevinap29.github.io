@@ -6,6 +6,16 @@
 	import PageHero from '$lib/components/PageHero.svelte';
 	import TimelineItem from '$lib/components/TimelineItem.svelte';
 	import { GitHub } from '$lib/components/icons';
+	import type { JournalData } from '$lib/data/schema';
+
+	interface JournalEntry {
+		slug: string;
+		html: string;
+		metadata: {
+			title?: string;
+			[key: string]: unknown;
+		};
+	}
 
 	let { data } = $props();
 	const journalsInfo = $derived(data.journalsInfo);
@@ -13,14 +23,20 @@
 	const websiteName = $derived(data.websiteName);
 	const imageLocation = $derived(data.imageLocation);
 
-	const journalMap = $derived(new Map(localizedJournals.map((j) => [j.slug, j])));
+	const journalMap = $derived(
+		new Map<string, JournalEntry>(localizedJournals.map((j) => [j.slug, j as JournalEntry]))
+	);
 
 	function getJournalContent(slug: string) {
 		return journalMap.get(slug)?.html || '<p>Content missing.</p>';
 	}
 
-	function getTitle(slug: string) {
-		return journalMap.get(slug)?.metadata?.title || slug;
+	function getTitle(journal: JournalData) {
+		const entry = journalMap.get(journal.slug);
+		if (entry?.metadata?.title) return entry.metadata.title;
+
+		const translated = i18n.t(journal.titleKey);
+		return translated !== journal.titleKey ? translated : journal.slug;
 	}
 </script>
 
@@ -39,7 +55,7 @@
 
 	<section class="relative">
 		{#if journalsInfo.length === 0}
-			<Reveal delay={500} y={20}>
+			<Reveal delay={200} y={20}>
 				<div
 					class="text-center py-20 text-muted-foreground bg-muted/20 border border-dashed p-8 rounded-none"
 				>
@@ -56,7 +72,7 @@
 					<TimelineItem
 						{journal}
 						index={i}
-						title={getTitle(journal.slug)}
+						title={getTitle(journal)}
 						htmlContent={getJournalContent(journal.slug)}
 					/>
 				{/each}

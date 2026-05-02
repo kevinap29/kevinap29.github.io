@@ -95,14 +95,14 @@
 <div
 	class="max-w-[21cm] mx-auto bg-white text-black p-[0.6cm] sm:p-[0.8cm] shadow-2xl print:shadow-none print:p-0 print:h-[29.7cm] print:w-[21cm] flex flex-col font-sans overflow-hidden min-h-screen sm:min-h-0"
 >
-	<Reveal delay={250} y={40}>
+	<Reveal delay={100} y={40}>
 		<!-- Header Section -->
 		<header
 			class="flex flex-col sm:grid sm:grid-cols-3 gap-4 sm:gap-6 items-start sm:items-end border-b-4 border-black pb-4 mb-6"
 		>
 			<div class="sm:col-span-2 space-y-1 w-full">
 				<h1
-					class="text-3xl sm:text-4xl font-black uppercase tracking-tighter leading-none italic wrap-break-word"
+					class="text-3xl sm:text-4xl font-black uppercase tracking-tighter leading-none wrap-break-word"
 				>
 					{name}
 				</h1>
@@ -135,7 +135,7 @@
 	</Reveal>
 
 	<!-- Summary -->
-	<Reveal delay={500} y={20}>
+	<Reveal delay={200} y={20}>
 		<section class="mb-8">
 			<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-2">
 				<h2 class="text-lg font-black uppercase tracking-widest bg-black text-white px-3 py-0.5">
@@ -160,7 +160,7 @@
 	<div class="flex flex-col sm:grid sm:grid-cols-3 gap-8 sm:gap-10 flex-1 overflow-hidden">
 		<!-- Left Column: Skills & Education -->
 		<aside class="flex flex-col space-y-8">
-			<Reveal delay={750} y={20}>
+			<Reveal delay={300} y={20}>
 				<section class="space-y-4">
 					<h2
 						class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2"
@@ -177,7 +177,7 @@
 				</section>
 			</Reveal>
 
-			<Reveal delay={1000} y={20}>
+			<Reveal delay={400} y={20}>
 				<section class="space-y-4">
 					<h2
 						class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2"
@@ -194,7 +194,7 @@
 				</section>
 			</Reveal>
 
-			<Reveal delay={1250} y={20}>
+			<Reveal delay={500} y={20}>
 				<section class="space-y-4">
 					<h2
 						class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2"
@@ -219,7 +219,7 @@
 
 		<!-- Right Column: Experience & Projects -->
 		<main class="sm:col-span-2 space-y-8">
-			<Reveal delay={1500} y={20}>
+			<Reveal delay={600} y={20}>
 				<section class="space-y-6">
 					<h2
 						class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2"
@@ -255,7 +255,7 @@
 				</section>
 			</Reveal>
 
-			<Reveal delay={1750} y={20}>
+			<Reveal delay={700} y={20}>
 				<section class="space-y-6">
 					<h2
 						class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2"

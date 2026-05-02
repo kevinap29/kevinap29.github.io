@@ -7,7 +7,10 @@ export const prerender = true;
 
 export const load: PageServerLoad = async () => {
 	const languages = ['en', 'id'];
-	const localizedJournals: Record<string, { slug: string; html: string; metadata: Record<string, unknown> }[]> = {
+	const localizedJournals: Record<
+		string,
+		{ slug: string; html: string; metadata: Record<string, unknown> }[]
+	> = {
 		en: [],
 		id: []
 	};

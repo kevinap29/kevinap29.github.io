@@ -37,7 +37,7 @@
 />
 
 <div class="max-w-5xl mx-auto px-4 py-8 space-y-8">
-	<Reveal delay={250} y={10}>
+	<Reveal delay={100} y={10}>
 		<!-- Breadcrumb -->
 		<Breadcrumb.Root>
 			<Breadcrumb.List>
@@ -56,7 +56,7 @@
 		</Breadcrumb.Root>
 	</Reveal>
 
-	<Reveal delay={500} y={40}>
+	<Reveal delay={200} y={40}>
 		<!-- Hero Section -->
 		<section class="grid grid-cols-1 lg:grid-cols-3 gap-12 pt-4">
 			<div class="lg:col-span-2 space-y-6">
@@ -173,7 +173,7 @@
 
 	<Separator />
 
-	<Reveal delay={750} y={20}>
+	<Reveal delay={300} y={20}>
 		<!-- Content Section -->
 		<section class="grid grid-cols-1 lg:grid-cols-3 gap-12">
 			<div

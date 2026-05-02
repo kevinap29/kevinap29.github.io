@@ -21,10 +21,10 @@
 />
 
 <div class="max-w-4xl mx-auto px-4 py-12 space-y-16">
-	<Reveal delay={250} y={40}>
+	<Reveal delay={100} y={40}>
 		<section class="text-center space-y-6">
 			<div class="space-y-2">
-				<h2 class="text-lg font-medium text-primary tracking-wide uppercase">
+				<h2 class="text-3xl font-medium text-primary tracking-wide uppercase">
 					{m.hello_name({}, { locale: i18n.current })}
 				</h2>
 				<h1 class="text-4xl font-extrabold tracking-tight lg:text-6xl">Kevin Agustiansyah Putra</h1>
@@ -38,7 +38,7 @@
 	</Reveal>
 
 	<section class="py-12 space-y-8">
-		<Reveal delay={500}>
+		<Reveal delay={200}>
 			<div class="text-center space-y-2">
 				<h2 class="text-3xl font-black tracking-tighter sm:text-5xl uppercase">
 					{m.section_technology()}
@@ -51,7 +51,7 @@
 
 		<BentoGrid>
 			{#each technologySkills as skill, i}
-				<Reveal delay={500 + i * 100} y={20} class={cn('h-full', skill.span)}>
+				<Reveal delay={200 + i * 100} y={20} class={cn('h-full', skill.span)}>
 					<BentoCard
 						title={skill.title}
 						description={skill.description()}
@@ -65,7 +65,7 @@
 	</section>
 
 	<section class="py-12 space-y-8">
-		<Reveal delay={750}>
+		<Reveal delay={300}>
 			<div class="text-center space-y-2">
 				<h2 class="text-3xl font-black tracking-tighter sm:text-5xl uppercase">
 					{m.section_tools()}
@@ -78,7 +78,7 @@
 
 		<BentoGrid class="auto-rows-[10rem]">
 			{#each toolSkills as skill, i}
-				<Reveal delay={750 + i * 100} y={20} class={cn('h-full', skill.span)}>
+				<Reveal delay={300 + i * 100} y={20} class={cn('h-full', skill.span)}>
 					<BentoCard
 						title={skill.title}
 						description={skill.description()}

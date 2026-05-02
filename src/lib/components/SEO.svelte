@@ -20,6 +20,7 @@
 
 	const fullTitle = $derived(title ? `${title} | ${websiteName}` : websiteName);
 	const imageUrl = $derived(image ? (image.startsWith('http') ? image : `${base}${image}`) : null);
+	const canonicalUrl = $derived(page.url.href);
 </script>
 
 <svelte:head>
@@ -27,14 +28,30 @@
 	{#if description}
 		<meta name="description" content={description} />
 		<meta property="og:description" content={description} />
+		<meta name="twitter:description" content={description} />
 	{/if}
 	{#if keywords}
 		<meta name="keywords" content={keywords} />
 	{/if}
+
+	<!-- Canonical & Hreflang -->
+	<link rel="canonical" href={canonicalUrl} />
+	<link rel="alternate" hreflang="en" href={canonicalUrl.replace('/id/', '/').replace('/id', '')} />
+	<link rel="alternate" hreflang="id" href={canonicalUrl.includes('/id') ? canonicalUrl : canonicalUrl.replace(page.url.origin + base, page.url.origin + base + '/id')} />
+	<link rel="alternate" hreflang="x-default" href={canonicalUrl.replace('/id/', '/').replace('/id', '')} />
+
+	<!-- Open Graph -->
 	<meta property="og:title" content={fullTitle} />
+	<meta property="og:url" content={canonicalUrl} />
+	<meta property="og:type" content={type} />
 	{#if imageUrl}
 		<meta property="og:image" content={imageUrl} />
 	{/if}
-	<meta property="og:url" content={page.url.href} />
-	<meta property="og:type" content={type} />
+
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content={fullTitle} />
+	{#if imageUrl}
+		<meta name="twitter:image" content={imageUrl} />
+	{/if}
 </svelte:head>

@@ -73,7 +73,7 @@
 		description={m.project_intro({}, { locale: i18n.current })}
 	/>
 
-	<Reveal delay={500} y={20}>
+	<Reveal delay={200} y={20}>
 		<section class="max-w-4xl mx-auto">
 			<ProjectFilter bind:searchQuery bind:selectedTags bind:visibilityFilter {availableTags} />
 		</section>
@@ -86,7 +86,7 @@
 				in:fade={{ duration: 200 }}
 				out:fade={{ duration: 100 }}
 			>
-				<Reveal delay={750 + i * 100} y={20}>
+				<Reveal delay={300 + i * 100} y={20}>
 					<Card.Root
 						class="overflow-hidden flex flex-col group h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-primary/5"
 					>

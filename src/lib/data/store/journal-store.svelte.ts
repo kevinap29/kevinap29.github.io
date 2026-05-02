@@ -160,6 +160,14 @@ const initialJournals: JournalData[] = [
 		type: 'Case Study',
 		repo: 'api_nik_kk',
 		tags: ['TypeScript', 'Data Validation', 'Indonesian Identity']
+	},
+	{
+		slug: 'launch-portofolio-nurulfitri',
+		titleKey: 'journal_nurulfitri_title',
+		date: new Date(2026, 3, 28, 0, 0, 0),
+		type: 'Launch',
+		repo: 'kevinap29/portofolio-nurulfitri',
+		tags: ['SvelteKit', 'Portfolio', 'Frontend']
 	}
 ];
 

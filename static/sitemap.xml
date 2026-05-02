@@ -1,38 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <!-- Main Pages -->
+    <url><loc>https://kevinap29.github.io/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+    <url><loc>https://kevinap29.github.io/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://kevinap29.github.io/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://kevinap29.github.io/journal</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://kevinap29.github.io/project</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://kevinap29.github.io/resume</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url>
-    <loc>https://kevinap29.github.io/.</loc>
-    <priority>0.7</priority>
-  </url>
+    <!-- Indonesian Main Pages -->
+    <url><loc>https://kevinap29.github.io/id</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+    <url><loc>https://kevinap29.github.io/id/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://kevinap29.github.io/id/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://kevinap29.github.io/id/journal</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://kevinap29.github.io/id/resume</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
-  <url>
-    <loc>https://kevinap29.github.io/about</loc>
-    <priority>0.7</priority>
-  </url>
+    <!-- Projects (English) -->
+    <url><loc>https://kevinap29.github.io/project/website-company-profile</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/top-hashtags-api</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/sistem-erp-pt-ciptapapan-dinamika</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/string-formatter</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/microservices-pt-ciptapapan-dinamika</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/hangfire-cron-jobs-pt-ciptapapan-dinamika</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/web-portofolio</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/decode-nik-kk-api</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/sky-scrapper-api</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/top-hashtags-app</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/all-in-one-validator-api</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/mainapidev</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/project/portfolio-nurul-fitri</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
-  <url>
-    <loc>https://kevinap29.github.io/contact</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://kevinap29.github.io/journal</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://kevinap29.github.io/project</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://kevinap29.github.io/project/[slug]</loc>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://kevinap29.github.io/resume</loc>
-    <priority>0.7</priority>
-  </url>
+    <!-- Projects (Indonesian) -->
+    <url><loc>https://kevinap29.github.io/id/project/website-company-profile</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/top-hashtags-api</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/sistem-erp-pt-ciptapapan-dinamika</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/string-formatter</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/microservices-pt-ciptapapan-dinamika</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/hangfire-cron-jobs-pt-ciptapapan-dinamika</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/web-portofolio</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/decode-nik-kk-api</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/sky-scrapper-api</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/top-hashtags-app</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/all-in-one-validator-api</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/mainapidev</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+    <url><loc>https://kevinap29.github.io/id/project/portfolio-nurul-fitri</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 </urlset>

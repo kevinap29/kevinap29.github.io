@@ -10,7 +10,7 @@
 </script>
 
 <div class="max-w-3xl mx-auto px-4 py-20 flex flex-col items-center justify-center min-h-[70vh]">
-	<Reveal delay={250} y={40} class="w-full">
+	<Reveal delay={100} y={40} class="w-full">
 		<Card.Root
 			class="rounded-none border-primary/10 shadow-2xl shadow-primary/5 overflow-hidden w-full text-center p-8 sm:p-16 relative"
 		>

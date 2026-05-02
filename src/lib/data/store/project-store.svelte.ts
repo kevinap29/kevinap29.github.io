@@ -30,7 +30,7 @@ const initialProjects: ProjectData[] = [
 		dateCreated: new Date(2022, 10, 10, 0, 0, 0),
 		dateFinished: 'Sekarang',
 		type: 'private',
-		tags: ['.NET', 'C#', 'SQL Server', 'Bootstrap']
+		tags: ['.NET', 'C#', 'SQL Server', 'Power BI', 'Bootstrap']
 	},
 	{
 		url: `https://string-formatter.vercel.app`,
@@ -121,6 +121,16 @@ const initialProjects: ProjectData[] = [
 		dateFinished: 'Sekarang',
 		type: 'public',
 		tags: ['SvelteKit', 'Svelte 5', 'TypeScript', 'Tailwind CSS', 'Shadcn Svelte', 'Paraglide JS']
+	},
+	{
+		url: `https://nurulfitri.vercel.app/`,
+		image: `/img/portofolio-nurulfitri.png`,
+		name: `Portfolio Nurul Fitri`,
+		descKey: 'project_nurulfitri_desc',
+		dateCreated: new Date(2026, 3, 28, 0, 0, 0),
+		dateFinished: 'Sekarang',
+		type: 'public',
+		tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Paraglide JS']
 	}
 ];
 

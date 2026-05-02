@@ -4,7 +4,7 @@
 	let {
 		title,
 		description,
-		delay = 250
+		delay = 100
 	} = $props<{
 		title: string;
 		description: string;
@@ -14,11 +14,11 @@
 
 <Reveal {delay} y={40}>
 	<section class="text-center space-y-4">
-		<h1 class="text-4xl font-black tracking-tighter lg:text-6xl uppercase italic">
+		<h1 class="text-4xl font-black tracking-tighter lg:text-6xl uppercase">
 			{title}
 		</h1>
 		{#if description}
-			<p class="text-xl text-muted-foreground font-medium max-w-2xl mx-auto italic">
+			<p class="text-xl text-muted-foreground font-medium max-w-2xl mx-auto">
 				"{description}"
 			</p>
 		{/if}

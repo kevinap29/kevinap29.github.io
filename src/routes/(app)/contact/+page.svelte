@@ -72,7 +72,7 @@
 	<div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
 		<!-- Contact Info Cards -->
 		<div class="lg:col-span-2 space-y-6">
-			<Reveal delay={500} x={-20}>
+			<Reveal delay={200} x={-20}>
 				<Card.Root
 					class="rounded-none border-primary/5 bg-muted/20 hover:bg-muted/30 transition-colors"
 				>
@@ -94,7 +94,7 @@
 				</Card.Root>
 			</Reveal>
 
-			<Reveal delay={600} x={-20}>
+			<Reveal delay={300} x={-20}>
 				<Card.Root
 					class="rounded-none border-primary/5 bg-muted/20 hover:bg-muted/30 transition-colors"
 				>
@@ -114,7 +114,7 @@
 				</Card.Root>
 			</Reveal>
 
-			<Reveal delay={700} x={-20}>
+			<Reveal delay={400} x={-20}>
 				<Card.Root
 					class="rounded-none border-primary/5 bg-muted/20 hover:bg-muted/30 transition-colors"
 				>
@@ -139,7 +139,7 @@
 
 		<!-- Contact Form -->
 		<div class="lg:col-span-3">
-			<Reveal delay={500} x={20}>
+			<Reveal delay={200} x={20}>
 				<Card.Root
 					class="rounded-none border-primary/10 shadow-2xl shadow-primary/5 overflow-hidden"
 				>

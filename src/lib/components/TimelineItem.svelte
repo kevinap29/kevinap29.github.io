@@ -41,7 +41,7 @@
 	const TypeIcon = $derived(getTypeIcon(journal.type));
 </script>
 
-<Reveal delay={250 + index * 50} x={-20}>
+<Reveal delay={200 + index * 100} x={-20}>
 	<div class="relative pl-12 md:pl-20 group">
 		<!-- Timeline Dot -->
 		<div

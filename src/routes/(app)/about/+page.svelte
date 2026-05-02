@@ -28,7 +28,7 @@
 
 	<div class="grid gap-8">
 		<!-- AI Section -->
-		<Reveal delay={400} y={20}>
+		<Reveal delay={200} y={20}>
 			<section class="p-8 border-2 border-primary/20 bg-primary/5 relative overflow-hidden group">
 				<div
 					class="absolute -right-4 -top-4 size-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-colors duration-500"
@@ -48,7 +48,7 @@
 		</Reveal>
 
 		<!-- The Beginning -->
-		<Reveal delay={600} y={20}>
+		<Reveal delay={300} y={20}>
 			<section
 				class="p-8 border bg-card text-card-foreground shadow-sm space-y-6 relative group overflow-hidden"
 			>
@@ -72,7 +72,7 @@
 		</Reveal>
 
 		<!-- College -->
-		<Reveal delay={800} y={20}>
+		<Reveal delay={400} y={20}>
 			<section
 				class="p-8 border bg-card text-card-foreground shadow-sm space-y-6 relative group overflow-hidden"
 			>
@@ -96,7 +96,7 @@
 		</Reveal>
 
 		<!-- Work Experience -->
-		<Reveal delay={1000} y={20}>
+		<Reveal delay={500} y={20}>
 			<section
 				class="p-8 border bg-card text-card-foreground shadow-sm space-y-6 relative group overflow-hidden"
 			>
