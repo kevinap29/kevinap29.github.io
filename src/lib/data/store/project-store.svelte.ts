@@ -145,3 +145,15 @@ export const projectsData = {
 		return projectsWithSlugs;
 	}
 };
+
+const featuredProjectSlugs = [
+	'portfolio-nurul-fitri',
+	'mainapidev',
+	'top-hashtags-app',
+	'website-company-profile',
+	'web-portofolio'
+] as const;
+
+export const featuredProjects = featuredProjectSlugs
+	.map((slug) => projectsWithSlugs.find((project) => project.slug === slug))
+	.filter((project): project is ProjectData => project !== undefined);

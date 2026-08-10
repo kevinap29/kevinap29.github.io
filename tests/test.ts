@@ -17,4 +17,11 @@ test('home page communicates the developer value proposition and primary journey
 		'href',
 		'/contact'
 	);
+
+	await expect(page.getByRole('heading', { name: 'Proyek unggulan' })).toBeVisible();
+	await expect(page.getByRole('link', { name: 'Lihat semua proyek' })).toHaveAttribute(
+		'href',
+		'/project'
+	);
+	await expect(page.locator('a[href^="/project/"]')).toHaveCount(5);
 });
