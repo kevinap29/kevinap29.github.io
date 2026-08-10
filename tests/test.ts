@@ -1,6 +1,20 @@
 import { expect, test } from '@playwright/test';
 
-test('index page has expected h1', async ({ page }) => {
+test('home page communicates the developer value proposition and primary journeys', async ({
+	page
+}) => {
 	await page.goto('/');
-	await expect(page.getByRole('heading', { name: 'Welcome to SvelteKit' })).toBeVisible();
+
+	await expect(
+		page.getByText('Mengubah kebutuhan bisnis menjadi aplikasi yang skalabel dan mudah digunakan.')
+	).toBeVisible();
+
+	await expect(page.getByRole('link', { name: 'Lihat proyek unggulan' })).toHaveAttribute(
+		'href',
+		'/project'
+	);
+	await expect(page.getByRole('link', { name: 'Mari bekerja sama' })).toHaveAttribute(
+		'href',
+		'/contact'
+	);
 });

@@ -6,6 +6,8 @@
 	import BentoGrid from '$lib/components/BentoGrid.svelte';
 	import BentoCard from '$lib/components/BentoCard.svelte';
 	import Reveal from '$lib/components/Reveal.svelte';
+	import { Button } from '$lib/components/ui/button';
+	import { ArrowRight, BriefcaseBusiness } from '@lucide/svelte';
 	import { technologySkills, toolSkills } from '$lib/data/store/skills-store.svelte';
 
 	let { data } = $props();
@@ -30,10 +32,23 @@
 				<h1 class="text-4xl font-extrabold tracking-tight lg:text-6xl">Kevin Agustiansyah Putra</h1>
 			</div>
 			<p class="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+				{m.hero_value_proposition({}, { locale: i18n.current })}
+			</p>
+			<p class="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto">
 				{m.hero_description({}, { locale: i18n.current })} <br />
 				<span class="font-bold text-foreground">{m.hero_tools({}, { locale: i18n.current })}</span>
 				{m.hero_tools_suffix({}, { locale: i18n.current })}
 			</p>
+			<div class="flex flex-col justify-center gap-3 pt-2 sm:flex-row">
+				<Button href="/project" size="lg" class="font-bold">
+					<BriefcaseBusiness />
+					{m.hero_primary_cta({}, { locale: i18n.current })}
+					<ArrowRight />
+				</Button>
+				<Button href="/contact" variant="outline" size="lg" class="font-bold">
+					{m.hero_secondary_cta({}, { locale: i18n.current })}
+				</Button>
+			</div>
 		</section>
 	</Reveal>
 
