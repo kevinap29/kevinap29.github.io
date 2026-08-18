@@ -1,14 +1,3 @@
----
-title: Top Hashtags API
-problem: Developers and social media tool creators lacked an affordable and reliable way to fetch real-time trending Instagram hashtags.
-solution: Built a high-performance REST API using Node.js, capable of serving thousands of requests daily via the RapidAPI marketplace.
-tech_stack:
-  - Node.js
-  - Javascript
-  - Express
-  - RapidAPI
----
-
 # The Challenge
 
 Fetching real-time data from social media platforms often involves dealing with complex rate limits, data parsing issues, and the need for high availability. The goal was to abstract this complexity into a simple, single-endpoint solution.

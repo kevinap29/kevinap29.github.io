@@ -1,16 +1,3 @@
----
-title: Portfolio Nurul Fitri
-problem: Nurul Fitri needed a professional and modern digital portfolio to showcase her expertise in Marketing Administration and Retail Operations to potential employers and partners.
-solution: Developed a high-performance portfolio website using SvelteKit and Svelte 5, featuring a clean aesthetic, multi-language support, and a responsive layout.
-tech_stack:
-  - SvelteKit
-  - Svelte 5
-  - Tailwind CSS
-  - TypeScript
-  - Paraglide JS
-  - Vercel
----
-
 # The Challenge
 
 As this was a special project for **my wife**, the pressure was on to deliver a truly exceptional digital experience. Marketing administration roles require a high level of organization and attention to detail. The challenge was to create a digital presence that reflects these qualities—professional, efficient, and visually appealing—while ensuring the site remains fast and accessible across all devices.

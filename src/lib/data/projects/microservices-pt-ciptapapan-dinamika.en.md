@@ -1,15 +1,3 @@
----
-title: Microservices PT. Ciptapapan Dinamika
-problem: As the ERP system grew, the monolithic architecture started to hit performance bottlenecks and became difficult to scale independently.
-solution: Refactored critical business logic into a modern microservices architecture using .NET, RabbitMQ for messaging, and Docker for containerization.
-tech_stack:
-  - .NET
-  - C#
-  - Microservices
-  - RabbitMQ
-  - Docker
----
-
 # The Challenge
 
 Decoupling a large enterprise system without interrupting daily operations is a significant technical hurdle. We needed a way for different services to communicate reliably and handle high traffic bursts.

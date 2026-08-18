@@ -1,15 +1,3 @@
----
-title: Microservices PT. Ciptapapan Dinamika
-problem: Seiring pertumbuhan sistem ERP, arsitektur monolitik mulai mengalami hambatan performa dan menjadi sulit untuk diskalakan secara independen.
-solution: Melakukan refaktor logika bisnis kritis ke dalam arsitektur microservices modern menggunakan .NET, RabbitMQ untuk pengiriman pesan, dan Docker untuk kontainerisasi.
-tech_stack:
-  - .NET
-  - C#
-  - Microservices
-  - RabbitMQ
-  - Docker
----
-
 # Tantangan
 
 Memisahkan sistem perusahaan yang besar tanpa mengganggu operasi harian adalah tantangan teknis yang signifikan. Kami membutuhkan cara agar layanan yang berbeda dapat berkomunikasi dengan andal dan menangani lonjakan lalu lintas yang tinggi.

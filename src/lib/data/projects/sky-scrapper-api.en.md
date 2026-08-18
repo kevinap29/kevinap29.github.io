@@ -1,14 +1,3 @@
----
-title: Sky Scrapper API
-problem: Accessing structured data from complex web pages often requires building and maintaining fragile scrapers that break easily when the UI changes.
-solution: Developed a robust web scraping API using Node.js that abstracts the scraping complexity and returns clean, structured JSON data.
-tech_stack:
-  - Node.js
-  - Javascript
-  - Web Scraping
-  - RapidAPI
----
-
 # The Challenge
 
 Web scraping is a constant battle against bot detection and changing DOM structures. I needed to build a solution that was resilient and could handle dynamic content effectively.

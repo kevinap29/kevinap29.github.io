@@ -1,9 +1,8 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 import { projectsData } from '$lib/data/store/project-store.svelte';
-import { type ProjectMetadata } from '$lib/data/schema';
-import matter from 'gray-matter';
 import { marked } from 'marked';
+import DOMPurify from 'isomorphic-dompurify';
 
 export const load: PageServerLoad = async ({ params }) => {
 	const project = projectsData.all.find((p) => p.slug === params.slug);
@@ -13,7 +12,7 @@ export const load: PageServerLoad = async ({ params }) => {
 	}
 
 	const languages = ['en', 'id'];
-	const localizedData: Record<string, { content: string; metadata: ProjectMetadata }> = {};
+	const localizedData: Record<string, { content: string }> = {};
 
 	try {
 		const modules = import.meta.glob('/src/lib/data/projects/*.md', {
@@ -31,11 +30,10 @@ export const load: PageServerLoad = async ({ params }) => {
 				(lang === 'en' ? modules[fallbackPath] : null)) as string;
 
 			if (rawContent) {
-				const { data, content } = matter(rawContent);
-				const html = await marked.parse(content);
+				const html = await marked.parse(rawContent);
+				const cleanHtml = DOMPurify.sanitize(html);
 				localizedData[lang] = {
-					content: html,
-					metadata: data as ProjectMetadata
+					content: cleanHtml
 				};
 			}
 		}

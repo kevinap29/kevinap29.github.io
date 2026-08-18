@@ -1,14 +1,3 @@
----
-title: Website Company Profile
-problem: PT. GJE needed a modern, professional, and high-performance digital presence to showcase their diverse energy services and establish trust with international partners.
-solution: Developed a robust, responsive company profile using Laravel, featuring dynamic content management and a sleek UI built with Bootstrap.
-tech_stack:
-  - PHP
-  - Laravel
-  - Bootstrap
-  - MySQL
----
-
 # The Challenge
 
 The energy sector requires a balance between professional corporate identity and accessible technical information. PT. GJE's previous presence was limited, making it difficult for potential partners to understand the full scope of their energy solutions and project history.

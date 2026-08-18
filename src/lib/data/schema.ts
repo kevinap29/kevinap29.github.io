@@ -17,11 +17,6 @@ export const ProjectDataSchema = z.object({
 export const ListOfProjectDataSchema = z.array(ProjectDataSchema);
 
 export type ProjectData = z.infer<typeof ProjectDataSchema>;
-export interface ProjectMetadata {
-	tech_stack?: string[];
-	problem?: string;
-	[key: string]: unknown;
-}
 
 export const JournalDataSchema = z.object({
 	slug: z.string(),

@@ -1,14 +1,3 @@
----
-title: Decode NIK & KK API
-problem: Mengekstrak data yang bermakna dari Nomor Induk Kependudukan (NIK) dan Kartu Keluarga (KK) adalah kebutuhan umum untuk proses KYC (Know Your Customer) tetapi sering dilakukan secara manual dan rawan kesalahan.
-solution: Mengembangkan API berbasis algoritma di Node.js yang secara instan menerjemahkan string NIK dan KK menjadi informasi berguna seperti tanggal lahir, jenis kelamin, dan wilayah.
-tech_stack:
-  - Node.js
-  - Javascript
-  - API
-  - RapidAPI
----
-
 # Tantangan
 
 Logika di balik pembuatan NIK dan KK melibatkan kode wilayah tertentu dan offset tanggal. Tantangannya adalah mengimplementasikan algoritma decoding yang presisi dan bekerja secara andal di seluruh provinsi di Indonesia.

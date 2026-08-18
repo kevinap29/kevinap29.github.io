@@ -1,14 +1,3 @@
----
-title: Website Company Profile
-problem: PT. GJE membutuhkan kehadiran digital yang modern, profesional, dan berkinerja tinggi untuk menampilkan beragam layanan energi mereka dan membangun kepercayaan dengan mitra internasional.
-solution: Mengembangkan profil perusahaan yang kuat dan responsif menggunakan Laravel, menampilkan manajemen konten dinamis dan UI yang ramping yang dibangun dengan Bootstrap.
-tech_stack:
-  - PHP
-  - Laravel
-  - Bootstrap
-  - MySQL
----
-
 # Tantangan
 
 Sektor energi membutuhkan keseimbangan antara identitas korporat yang profesional dan informasi teknis yang mudah diakses. Kehadiran PT. GJE sebelumnya terbatas, sehingga sulit bagi mitra potensial untuk memahami cakupan penuh dari solusi energi dan riwayat proyek mereka.

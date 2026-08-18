@@ -2,6 +2,7 @@ import type { PageServerLoad } from './$types';
 import { journalsData } from '$lib/data/store/journal-store.svelte';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import DOMPurify from 'isomorphic-dompurify';
 
 export const prerender = true;
 
@@ -33,9 +34,10 @@ export const load: PageServerLoad = async () => {
 				if (rawContent) {
 					const { data, content } = matter(rawContent);
 					const html = await marked.parse(content);
+					const cleanHtml = DOMPurify.sanitize(html);
 					localizedJournals[lang].push({
 						slug: journal.slug,
-						html,
+						html: cleanHtml,
 						metadata: data
 					});
 				}

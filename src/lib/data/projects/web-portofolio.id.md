@@ -1,15 +1,3 @@
----
-title: Web Portofolio
-problem: Saya membutuhkan platform profesional berkinerja tinggi untuk memamerkan perjalanan pengembangan, proyek, dan keterampilan saya kepada calon klien dan pemberi kerja.
-solution: Membangun portofolio mutakhir menggunakan Svelte 5 (Runes), Tailwind CSS, dan TypeScript, yang dioptimalkan untuk SEO dan kecepatan.
-tech_stack:
-  - SvelteKit
-  - Svelte 5
-  - Tailwind CSS
-  - TypeScript
-  - Paraglide JS
----
-
 # Tantangan
 
 Portofolio seorang pengembang harus menjadi bukti keterampilan teknis mereka. Saya ingin membangun sesuatu yang bukan sekadar halaman statis, tetapi sebuah pameran teknologi web modern seperti manajemen state reaktif dan internasionalisasi.

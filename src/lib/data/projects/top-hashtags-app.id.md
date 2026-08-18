@@ -1,14 +1,3 @@
----
-title: Top Hashtags App
-problem: Mencari hashtag Instagram yang sedang tren sering kali merupakan proses manual yang memakan waktu dan menghasilkan keterlibatan yang rendah jika tag yang digunakan salah.
-solution: Membangun aplikasi seluler berperforma tinggi menggunakan MAUI Hybrid Blazor yang menyediakan rekomendasi hashtag real-time sesuai kebutuhan.
-tech_stack:
-  - MAUI Hybrid Blazor
-  - MudBlazor
-  - .NET 8
-  - RapidAPI
----
-
 # Tantangan
 
 Algoritma Instagram terus berubah, dan apa yang berhasil kemarin mungkin tidak berhasil hari ini. Influencer dan manajer media sosial membutuhkan alat yang portabel (mobile-first) dan berbasis data untuk tetap unggul.

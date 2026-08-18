@@ -24,11 +24,46 @@
 		botcheck: false
 	});
 
+	let formRenderedAt = $state(Date.now());
+	let lastSubmittedAt = $state(0);
+	let validationError = $state<string | null>(null);
+
 	let status = $state<'idle' | 'sending' | 'success' | 'error'>('idle');
 
 	async function handleSubmit(e: SubmitEvent) {
 		e.preventDefault();
+		validationError = null;
+
+		// Anti-bot check 1: Filled honeypot
+		if (formState.botcheck) {
+			status = 'error';
+			validationError = 'Spam detected.';
+			return;
+		}
+
+		// Anti-bot check 2: Submitted too quickly (< 2 seconds after page load)
+		if (Date.now() - formRenderedAt < 2000) {
+			status = 'error';
+			validationError = 'Please wait a moment before submitting.';
+			return;
+		}
+
+		// Anti-abuse check 3: Rate limit (1 submission per 30 seconds)
+		if (Date.now() - lastSubmittedAt < 30000) {
+			status = 'error';
+			validationError = 'Please wait 30 seconds between messages.';
+			return;
+		}
+
+		// Anti-abuse check 4: Payload length caps
+		if (formState.name.trim().length > 100 || formState.message.trim().length > 2000) {
+			status = 'error';
+			validationError = 'Name or message exceeds maximum length.';
+			return;
+		}
+
 		status = 'sending';
+		lastSubmittedAt = Date.now();
 
 		try {
 			const response = await fetch('https://api.web3forms.com/submit', {
@@ -212,7 +247,7 @@
 								{#if status === 'error'}
 									<div class="flex items-center gap-2 text-destructive text-sm font-bold" in:fade>
 										<AlertCircle class="size-4" />
-										{m.form_error()}
+										{validationError || m.form_error()}
 									</div>
 								{/if}
 

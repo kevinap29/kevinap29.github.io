@@ -65,6 +65,7 @@
 		"fast-xml-parser": "^5.7.1",
 		"gray-matter": "^4.0.3",
 		"highlight.js": "11.9.0",
+		"isomorphic-dompurify": "^3.22.0",
 		"marked": "^18.0.2",
 		"mode-watcher": "^1.1.0",
 		"pdf-lib": "^1.17.1",

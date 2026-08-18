@@ -7,7 +7,6 @@
 	import { Separator } from '$lib/components/ui/separator';
 	import * as Breadcrumb from '$lib/components/ui/breadcrumb';
 	import { ChevronLeft, ExternalLink, Calendar, Tag } from '@lucide/svelte';
-	import type { ProjectMetadata } from '$lib/data/schema';
 	import { base } from '$app/paths';
 	import Reveal from '$lib/components/Reveal.svelte';
 	import SEO from '$lib/components/SEO.svelte';
@@ -17,11 +16,9 @@
 
 	// Reactive content based on current language
 	const currentData = $derived(
-		data.localizedData[i18n.current] ||
-			data.localizedData['en'] || { content: '', metadata: {} as ProjectMetadata }
+		data.localizedData[i18n.current] || data.localizedData['en'] || { content: '' }
 	);
 	const content = $derived(currentData.content);
-	const metadata = $derived(currentData.metadata);
 
 	const formatDate = (date: Date) =>
 		date.toLocaleDateString(i18n.current === 'id' ? 'id-ID' : 'en-US', {
@@ -30,11 +27,7 @@
 		});
 </script>
 
-<SEO
-	title={`${project.name} | Case Study`}
-	description={metadata?.problem || project.name}
-	image={project.image}
-/>
+<SEO title={`${project.name} | Case Study`} description={project.name} image={project.image} />
 
 <div class="max-w-5xl mx-auto px-4 py-8 space-y-8">
 	<Reveal delay={100} y={10}>
@@ -151,22 +144,6 @@
 						</Button>
 					</div>
 				</div>
-
-				{#if metadata?.tech_stack}
-					<div class="space-y-4 px-2">
-						<h3 class="text-xs font-black uppercase tracking-widest text-muted-foreground">
-							Main Technologies
-						</h3>
-						<ul class="space-y-2">
-							{#each metadata.tech_stack as tech}
-								<li class="flex items-center gap-2 text-sm font-bold">
-									<span class="size-1.5 rounded-none bg-primary"></span>
-									{tech}
-								</li>
-							{/each}
-						</ul>
-					</div>
-				{/if}
 			</div>
 		</section>
 	</Reveal>
@@ -191,19 +168,6 @@
 						</p>
 					</div>
 				{/if}
-			</div>
-
-			<div class="hidden lg:block space-y-6">
-				{#each metadata?.problem ? [metadata.problem] : [] as problem}
-					<div class="p-6 rounded-none bg-primary/5 border border-primary/10 space-y-3">
-						<h4 class="text-[10px] font-black uppercase tracking-widest text-primary">
-							The Challenge
-						</h4>
-						<p class="text-sm font-medium leading-relaxed italic text-foreground/80">
-							"{problem}"
-						</p>
-					</div>
-				{/each}
 			</div>
 		</section>
 	</Reveal>

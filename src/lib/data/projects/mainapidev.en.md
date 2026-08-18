@@ -1,16 +1,3 @@
----
-title: '@mainapidev'
-problem: The need for a centralized, modern platform to provide high-performance APIs and innovative software solutions for developers and businesses.
-solution: Developed a robust platform using SvelteKit and TypeScript, focusing on speed, scalability, and an intuitive developer experience.
-tech_stack:
-  - SvelteKit
-  - Svelte 5
-  - TypeScript
-  - Tailwind CSS
-  - Shadcn Svelte
-  - Vercel
----
-
 # The Challenge
 
 Modern API development requires more than just functional endpoints; it demands high availability, clear documentation, and a seamless developer experience. The challenge was to build a platform that could handle high-performance requirements while maintaining a clean, modern interface.

@@ -1,16 +1,3 @@
----
-title: Portfolio Nurul Fitri
-problem: Nurul Fitri membutuhkan portofolio digital profesional dan modern untuk menampilkan keahliannya dalam Administrasi Pemasaran dan Operasi Ritel kepada calon pemberi kerja dan mitra.
-solution: Mengembangkan website portofolio berperforma tinggi menggunakan SvelteKit dan Svelte 5, menampilkan estetika bersih, dukungan multibahasa, dan tata letak responsif.
-tech_stack:
-  - SvelteKit
-  - Svelte 5
-  - Tailwind CSS
-  - TypeScript
-  - Paraglide JS
-  - Vercel
----
-
 # Tantangan
 
 Sebagai proyek spesial untuk **istri saya**, ada motivasi lebih untuk memberikan pengalaman digital yang benar-benar luar biasa. Peran administrasi pemasaran membutuhkan tingkat organisasi dan perhatian terhadap detail yang tinggi. Tantangannya adalah menciptakan kehadiran digital yang mencerminkan kualitas-kualitas tersebut—profesional, efisien, dan menarik secara visual—sambil memastikan situs tetap cepat dan dapat diakses di semua perangkat.

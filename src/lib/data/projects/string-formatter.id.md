@@ -1,14 +1,3 @@
----
-title: String Formatter
-problem: Pengembang sering kali membutuhkan alat yang cepat dan andal untuk memformat string mentah, JSON, atau cuplikan kode tanpa risiko privasi dari alat online yang tidak terpercaya.
-solution: Membuat aplikasi web sisi klien yang cepat menggunakan SvelteKit dan Tailwind CSS untuk manipulasi string instan dan aman.
-tech_stack:
-  - SvelteKit
-  - Tailwind CSS
-  - TypeScript
-  - Javascript
----
-
 # Tantangan
 
 Banyak pemformat online yang ada dipenuhi dengan iklan, lambat dimuat, atau mengirimkan data pengguna ke server. Tujuannya adalah untuk menciptakan utilitas "privacy-first" yang berjalan sepenuhnya di browser.

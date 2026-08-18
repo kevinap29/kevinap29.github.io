@@ -37,8 +37,18 @@
 	<!-- Canonical & Hreflang -->
 	<link rel="canonical" href={canonicalUrl} />
 	<link rel="alternate" hreflang="en" href={canonicalUrl.replace('/id/', '/').replace('/id', '')} />
-	<link rel="alternate" hreflang="id" href={canonicalUrl.includes('/id') ? canonicalUrl : canonicalUrl.replace(page.url.origin + base, page.url.origin + base + '/id')} />
-	<link rel="alternate" hreflang="x-default" href={canonicalUrl.replace('/id/', '/').replace('/id', '')} />
+	<link
+		rel="alternate"
+		hreflang="id"
+		href={canonicalUrl.includes('/id')
+			? canonicalUrl
+			: canonicalUrl.replace(page.url.origin + base, page.url.origin + base + '/id')}
+	/>
+	<link
+		rel="alternate"
+		hreflang="x-default"
+		href={canonicalUrl.replace('/id/', '/').replace('/id', '')}
+	/>
 
 	<!-- Open Graph -->
 	<meta property="og:title" content={fullTitle} />

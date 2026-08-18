@@ -1,14 +1,3 @@
----
-title: Top Hashtags API
-problem: Pengembang dan pembuat alat media sosial kekurangan cara yang terjangkau dan andal untuk mengambil hashtag Instagram yang sedang tren secara real-time.
-solution: Membangun REST API berperforma tinggi menggunakan Node.js, yang mampu melayani ribuan permintaan setiap hari melalui marketplace RapidAPI.
-tech_stack:
-  - Node.js
-  - Javascript
-  - Express
-  - RapidAPI
----
-
 # Tantangan
 
 Mengambil data real-time dari platform media sosial sering kali melibatkan penanganan batas kecepatan (rate limits) yang kompleks, masalah penguraian data, dan kebutuhan akan ketersediaan tinggi. Tujuannya adalah untuk mengabstraksi kompleksitas ini menjadi solusi satu endpoint yang sederhana.
