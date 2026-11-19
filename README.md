@@ -146,7 +146,7 @@ Website portofolio pribadi berbasis **SvelteKit 2** dan **Svelte 5 Runes** yang 
 
 ## CI/CD & Deployment
 
-- **CI Quality Gate** ([.github/workflows/ci.yml](.github/workflows/ci.yml)): berjalan pada `push` dan `pull_request` ke `main` — menjalankan `paraglide:compile`, `check`, `lint`, dan `test:unit`.
+- **CI Quality Gate** ([.github/workflows/ci.yml](.github/workflows/ci.yml)): berjalan pada `push` dan `pull_request` ke `main` — menyuntikkan `PUBLIC_WEB3FORMS_ACCESS_KEY` (dengan fallback placeholder `ci-placeholder-key`) untuk typegen `svelte-kit sync`, lalu menjalankan `paraglide:compile`, `check`, `lint`, dan `test:unit`.
 - **GitHub Pages Deploy** ([.github/workflows/deploy.yml](.github/workflows/deploy.yml)): berjalan pada `push` ke `main` — menyuntikkan `PUBLIC_WEB3FORMS_ACCESS_KEY` dari GitHub Secrets, menjalankan `npm run build`, dan mengunggah `build/` ke GitHub Pages.
 
 ### Status Verifikasi Terakhir (2026-11-20)
