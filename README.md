@@ -44,8 +44,8 @@ Website portofolio pribadi berbasis **SvelteKit 2** dan **Svelte 5 Runes** yang 
     │   ├── data/
     │   │   ├── schema.ts         # Skema Zod: ProjectDataSchema & JournalDataSchema
     │   │   ├── store/            # Store statis: project-store.svelte.ts, journal-store.svelte.ts, skills-store.svelte.ts
-    │   │   ├── projects/         # Konten studi kasus Markdown: [slug].{en,id}.md (26 file)
-    │   │   └── journals/         # Konten timeline jurnal Markdown: [slug].{en,id}.md (42 file)
+    │   │   ├── projects/         # Konten studi kasus Markdown: [slug].{en,id}.md (28 file)
+    │   │   └── journals/         # Konten timeline jurnal Markdown: [slug].{en,id}.md (44 file)
     │   └── paraglide/            # Hasil kompilasi otomatis Paraglide-JS
     └── routes/
         ├── +layout.server.ts     # Prerender = true, trailingSlash = 'always', data profil global
@@ -53,11 +53,11 @@ Website portofolio pribadi berbasis **SvelteKit 2** dan **Svelte 5 Runes** yang 
         ├── +error.svelte         # Halaman error 404/500 kustom
         └── (app)/                # Route group utama dengan Sidebar, Header, Footer, & Drawers
             ├── +layout.svelte    # App shell, ModeWatcher, View Transitions, ScrollToTop, ProgressBar
-            ├── +page.svelte      # Home: Hero CTA, 5 Featured Projects, Bento Grid Tech & Tools
+            ├── +page.svelte      # Home: Hero CTA, 6 Featured Projects, Bento Grid Tech & Tools
             ├── about/            # Halaman cerita perjalanan & kolaborasi AI
             ├── contact/          # Halaman kontak & form Web3Forms dengan anti-bot client-side
-            ├── journal/          # Timeline kronologis 21 aktivitas/milestone developer
-            ├── project/          # Direktori 13 proyek dengan search, tag filter, & visibility filter
+            ├── journal/          # Timeline kronologis 22 aktivitas/milestone developer
+            ├── project/          # Direktori 14 proyek dengan search, tag filter, & visibility filter
             ├── project/[slug]/   # Halaman detail studi kasus proyek (Markdown SSG)
             └── resume/           # Halaman CV format A4 print-ready
 ```
@@ -80,13 +80,13 @@ Website portofolio pribadi berbasis **SvelteKit 2** dan **Svelte 5 Runes** yang 
 
 ### 3. Project Showcase, Filter & Case Studies
 
-- **Daftar Proyek:** [src/lib/data/store/project-store.svelte.ts](src/lib/data/store/project-store.svelte.ts) menyimpan 13 proyek (`public` dan `private`) tervalidasi skema Zod ([src/lib/data/schema.ts](src/lib/data/schema.ts)), plus 5 proyek unggulan (`featuredProjects`) untuk halaman Home.
+- **Daftar Proyek:** [src/lib/data/store/project-store.svelte.ts](src/lib/data/store/project-store.svelte.ts) menyimpan 14 proyek (`public` dan `private`) tervalidasi skema Zod ([src/lib/data/schema.ts](src/lib/data/schema.ts)), plus 6 proyek unggulan (`featuredProjects`) untuk halaman Home.
 - **Filter Interaktif:** [src/routes/(app)/project/+page.svelte](<src/routes/(app)/project/+page.svelte>) dan [ProjectFilter.svelte](src/lib/components/ProjectFilter.svelte) menyediakan pencarian teks (nama & deskripsi terlokalisasi), filter multi-tag (logika OR), dan filter visibilitas (`all` / `public` / `private`).
 - **Case Studies:** [src/routes/(app)/project/[slug]/+page.server.ts](<src/routes/(app)/project/%5Bslug%5D/+page.server.ts>) memuat seluruh file `/src/lib/data/projects/*.md` via `import.meta.glob(..., { query: '?raw', eager: true })`, mengonversi Markdown ke HTML menggunakan `marked`, dan membersihkannya dengan `DOMPurify.sanitize()` (`isomorphic-dompurify`).
 
 ### 4. Developer Journal (Timeline)
 
-- [src/lib/data/store/journal-store.svelte.ts](src/lib/data/store/journal-store.svelte.ts) berisi 21 entri dengan tipe (`Launch`, `Milestone`, `Learning`, `Refactor`, `Case Study`), tanggal, repo, dan tag.
+- [src/lib/data/store/journal-store.svelte.ts](src/lib/data/store/journal-store.svelte.ts) berisi 22 entri dengan tipe (`Launch`, `Milestone`, `Learning`, `Refactor`, `Case Study`), tanggal, repo, dan tag.
 - [src/routes/(app)/journal/+page.server.ts](<src/routes/(app)/journal/+page.server.ts>) membaca `/src/lib/data/journals/*.md`, memisahkan frontmatter via `gray-matter`, mengonversi konten via `marked`, lalu menyaring HTML lewat `DOMPurify.sanitize()`.
 
 ### 5. Resume Print-Ready & Contact Form
@@ -156,7 +156,7 @@ Website portofolio pribadi berbasis **SvelteKit 2** dan **Svelte 5 Runes** yang 
 - `npm run lint`: **PASS** (`prettier@3.10.1` + `eslint@9.39.5` flat config & `eslint-plugin-svelte@3.24.1`)
 - `npm run test:unit`: **PASS** (`vitest@5.1.1` — 1 file, `4 passed` di [src/index.test.ts](src/index.test.ts))
 - `npm run test:integration`: **PASS** (`playwright test` — `2 passed` dalam `52.6s` mencakup [tests/test.ts](tests/test.ts) dan [tests/scroll-to-top.test.ts](tests/scroll-to-top.test.ts))
-- `npm run build`: **PASS** (`vite@8.3.8` dalam `25.99s`, `generate:sitemap` 19 URL, dan `@sveltejs/adapter-static`)
+- `npm run build`: **PASS** (`vite@8.3.8`, `generate:sitemap` 20 URL, dan `@sveltejs/adapter-static`)
 
 ---
 

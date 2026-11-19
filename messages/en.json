@@ -164,5 +164,7 @@
 	"error_try_again": "Try Again",
 	"project_gallery_title": "Project Gallery",
 	"project_prev": "Previous Project",
-	"project_next": "Next Project"
+	"project_next": "Next Project",
+	"project_diskonin_desc": "A cross-platform curated deal discovery and smart shopping utility platform (Web & Android) built with .NET 10 Blazor, MAUI Blazor Hybrid, SQLite WAL, and a Python ingestion engine.",
+	"journal_diskonin_title": "Launching Diskonin: Cross-Platform Deal Discovery with .NET 10 & MAUI Blazor Hybrid"
 }

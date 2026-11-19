@@ -139,6 +139,16 @@ const initialProjects: ProjectData[] = [
 		dateFinished: 'Sekarang',
 		type: 'public',
 		tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Paraglide JS']
+	},
+	{
+		url: `https://diskonin.mainapidev.web.id`,
+		image: `/img/diskonin.png`,
+		name: `Diskonin`,
+		descKey: 'project_diskonin_desc',
+		dateCreated: new Date(2026, 10, 3, 0, 0, 0),
+		dateFinished: 'Sekarang',
+		type: 'public',
+		tags: ['.NET 10', 'C#', 'MAUI Hybrid Blazor', 'SQLite', 'Tailwind CSS', 'Python']
 	}
 ];
 
@@ -155,6 +165,7 @@ export const projectsData = {
 };
 
 const featuredProjectSlugs = [
+	'diskonin',
 	'portfolio-nurul-fitri',
 	'mainapidev',
 	'top-hashtags-app',

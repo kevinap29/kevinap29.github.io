@@ -168,6 +168,14 @@ const initialJournals: JournalData[] = [
 		type: 'Launch',
 		repo: 'kevinap29/portofolio-nurulfitri',
 		tags: ['SvelteKit', 'Portfolio', 'Frontend']
+	},
+	{
+		slug: 'launch-diskonin',
+		titleKey: 'journal_diskonin_title',
+		date: new Date(2026, 10, 11, 0, 0, 0),
+		type: 'Launch',
+		repo: 'diskonin',
+		tags: ['.NET 10', 'MAUI Blazor', 'SQLite', 'Python']
 	}
 ];
 
