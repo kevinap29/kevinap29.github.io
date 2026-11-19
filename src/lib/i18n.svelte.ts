@@ -37,28 +37,38 @@ function getStoredLanguage(): AvailableLanguageTag {
 export const i18n = (() => {
 	let current = $state<AvailableLanguageTag>(DEFAULT_LANG);
 
+	function syncHtmlLang(tag: AvailableLanguageTag) {
+		if (typeof document !== 'undefined') {
+			document.documentElement.lang = tag;
+		}
+	}
+
 	function init() {
 		const preferred = getStoredLanguage();
 		current = preferred;
-		setLocale(preferred);
+		setLocale(preferred, { reload: false });
+		syncHtmlLang(preferred);
 	}
 
 	function switchTo(tag: AvailableLanguageTag) {
 		current = tag;
-		setLocale(tag);
+		setLocale(tag, { reload: false });
+		syncHtmlLang(tag);
 		if (typeof window !== 'undefined') {
 			localStorage.setItem(STORAGE_KEY, tag);
 		}
 	}
 
 	function t(key: string) {
-		// Create a strong dependency on the current language rune.
-		// This ensures Svelte's reactivity system tracks this call.
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const _ = current;
+		const locale = current;
 		const message = (m as unknown as Record<string, unknown>)[key];
 		if (typeof message === 'function') {
-			return (message as () => string)();
+			return (
+				message as (
+					params?: Record<string, unknown>,
+					options?: { locale: AvailableLanguageTag }
+				) => string
+			)({}, { locale });
 		}
 		return key;
 	}

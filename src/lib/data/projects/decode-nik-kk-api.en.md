@@ -1,14 +1,3 @@
----
-title: Decode NIK & KK API
-problem: Extracting meaningful data from Indonesian ID numbers (NIK) and Family Cards (KK) is a common requirement for KYC (Know Your Customer) processes but is often done manually and error-prone.
-solution: Developed an algorithm-based API in Node.js that instantly decodes NIK and KK strings into useful information like birth date, gender, and region.
-tech_stack:
-  - Node.js
-  - Javascript
-  - API
-  - RapidAPI
----
-
 # The Challenge
 
 The logic behind NIK and KK generation involves specific regional codes and date offsets. The challenge was to implement a precise decoding algorithm that works reliably across all Indonesian provinces.

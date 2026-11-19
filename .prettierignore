@@ -2,3 +2,12 @@
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+
+# Auto-generated Paraglide / Inlang i18n output
+src/lib/paraglide/
+project.inlang/
+
+# Agent planning files
+.gemini/
+
+

@@ -3,6 +3,7 @@
 	import { m } from '$lib/paraglide/messages.js';
 	import { i18n } from '$lib/i18n.svelte';
 	import { page } from '$app/state';
+	import { base } from '$app/paths';
 	import { Mail, MessageCircle } from '@lucide/svelte';
 	import { GitHub, LinkedIn } from '$lib/components/icons';
 
@@ -19,7 +20,11 @@
 		<Avatar.Root
 			class="size-32 border-2 border-primary shadow-lg transition-transform hover:scale-105 rounded-full overflow-hidden"
 		>
-			<Avatar.Image src={imageLocation} alt={websiteName} class="rounded-full object-cover" />
+			<Avatar.Image
+				src={`${base}${imageLocation}`}
+				alt={websiteName}
+				class="rounded-full object-cover"
+			/>
 			<Avatar.Fallback class="rounded-full">KA</Avatar.Fallback>
 		</Avatar.Root>
 		<div class="text-center space-y-1">

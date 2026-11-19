@@ -8,6 +8,11 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [vitePreprocess()],
 
+	onwarn: (warning, handler) => {
+		if (warning.code === 'custom_element_props_identifier') return;
+		handler(warning);
+	},
+
 	vitePlugin: {
 		inspector: true
 	},
@@ -19,7 +24,8 @@ const config = {
 			fallback: '404.html'
 		}),
 		paths: {
-			base: process.env.BASE_PATH || ''
+			base: process.env.BASE_PATH || '',
+			relative: false
 		},
 		alias: {
 			$routes: 'src/routes'

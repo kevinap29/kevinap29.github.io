@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
 	import { toggleMode } from 'mode-watcher';
+	import { isActiveRoute } from '$lib/utils';
 	import { Button } from '$lib/components/ui/button';
 	import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
 	import { Menu, User, Sun, Moon } from '@lucide/svelte';
@@ -31,9 +32,10 @@
 	<div class="hidden lg:block">
 		<nav class="flex items-center gap-2">
 			{#each urls as url}
+				{@const isActive = isActiveRoute(page.url.pathname, url.url)}
 				<Button
-					variant={page.url.pathname === url.url ? 'secondary' : 'ghost'}
-					class={page.url.pathname === url.url ? '' : 'text-foreground/80 hover:text-foreground'}
+					variant={isActive ? 'secondary' : 'ghost'}
+					class={isActive ? '' : 'text-foreground/80 hover:text-foreground'}
 					href={url.url}
 				>
 					{#if url.icon}

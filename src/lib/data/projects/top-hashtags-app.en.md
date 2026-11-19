@@ -1,14 +1,3 @@
----
-title: Top Hashtags App
-problem: Finding trending hashtags for Instagram is often a manual, time-consuming process that results in low engagement if the wrong tags are used.
-solution: Built a high-performance mobile application using MAUI Hybrid Blazor that provides real-time, niche-specific hashtag recommendations.
-tech_stack:
-  - MAUI Hybrid Blazor
-  - MudBlazor
-  - .NET 8
-  - RapidAPI
----
-
 # The Challenge
 
 The Instagram algorithm changes constantly, and what worked yesterday might not work today. Influencers and social media managers needed a tool that was both portable (mobile-first) and data-driven to stay ahead of the curve.

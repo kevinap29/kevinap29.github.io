@@ -100,7 +100,8 @@ const initialProjects: ProjectData[] = [
 		dateCreated: new Date(2025, 9, 18, 0, 0, 0),
 		dateFinished: 'Sekarang',
 		type: 'public',
-		tags: ['MAUI Hybrid Blazor', 'MudBlazor', 'Android']
+		tags: ['MAUI Hybrid Blazor', 'MudBlazor', 'Android'],
+		gallery: ['/img/tophashtags-app.png', '/img/tophashtags-rapidapi.png']
 	},
 	{
 		url: `https://rapidapi.com/kevinagustiansyah298-RSbcaTc-IDi/api/all-in-one-validator-api`,
@@ -120,7 +121,14 @@ const initialProjects: ProjectData[] = [
 		dateCreated: new Date(2025, 6, 26, 0, 0, 0),
 		dateFinished: 'Sekarang',
 		type: 'public',
-		tags: ['SvelteKit', 'Svelte 5', 'TypeScript', 'Tailwind CSS', 'Shadcn Svelte', 'Paraglide JS']
+		tags: ['SvelteKit', 'Svelte 5', 'TypeScript', 'Tailwind CSS', 'Shadcn Svelte', 'Paraglide JS'],
+		gallery: [
+			'/img/mainapidev.png',
+			'/img/tophashtags-rapidapi.png',
+			'/img/decode-nik-kk.png',
+			'/img/skyscrapper-rapidapi.png',
+			'/img/allinone-validator.png'
+		]
 	},
 	{
 		url: `https://nurulfitri.vercel.app/`,
@@ -145,3 +153,15 @@ export const projectsData = {
 		return projectsWithSlugs;
 	}
 };
+
+const featuredProjectSlugs = [
+	'portfolio-nurul-fitri',
+	'mainapidev',
+	'top-hashtags-app',
+	'website-company-profile',
+	'web-portofolio'
+] as const;
+
+export const featuredProjects = featuredProjectSlugs
+	.map((slug) => projectsWithSlugs.find((project) => project.slug === slug))
+	.filter((project): project is ProjectData => project !== undefined);

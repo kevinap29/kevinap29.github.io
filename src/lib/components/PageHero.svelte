@@ -5,11 +5,11 @@
 		title,
 		description,
 		delay = 100
-	} = $props<{
+	}: {
 		title: string;
 		description: string;
 		delay?: number;
-	}>();
+	} = $props();
 </script>
 
 <Reveal {delay} y={40}>

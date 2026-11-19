@@ -1,15 +1,3 @@
----
-title: Web Portofolio
-problem: I needed a professional, high-performance platform to showcase my development journey, projects, and skills to potential clients and employers.
-solution: Built a cutting-edge portfolio using Svelte 5 (Runes), Tailwind CSS, and TypeScript, optimized for SEO and speed.
-tech_stack:
-  - SvelteKit
-  - Svelte 5
-  - Tailwind CSS
-  - TypeScript
-  - Paraglide JS
----
-
 # The Challenge
 
 A developer's portfolio should be a testament to their technical skills. I wanted to build something that wasn't just a static page, but a showcase of modern web technologies like reactive state management and internationalization.

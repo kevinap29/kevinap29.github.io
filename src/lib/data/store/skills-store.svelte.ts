@@ -1,4 +1,5 @@
 import { m } from '$lib/paraglide/messages';
+import { i18n } from '$lib/i18n.svelte';
 import {
 	Server,
 	Database,
@@ -26,7 +27,7 @@ export interface SkillItem {
 export const technologySkills: SkillItem[] = [
 	{
 		title: 'Node.JS',
-		description: () => m.tech_desc_node(),
+		description: () => m.tech_desc_node({}, { locale: i18n.current }),
 		value: 90,
 		icon: Server,
 		span: 'md:col-span-2 md:row-span-2',
@@ -34,7 +35,7 @@ export const technologySkills: SkillItem[] = [
 	},
 	{
 		title: 'SvelteKit',
-		description: () => m.tech_desc_sveltekit(),
+		description: () => m.tech_desc_sveltekit({}, { locale: i18n.current }),
 		value: 85,
 		icon: Layout,
 		span: 'md:col-span-2 md:row-span-1',
@@ -42,7 +43,7 @@ export const technologySkills: SkillItem[] = [
 	},
 	{
 		title: 'TypeScript',
-		description: () => m.tech_desc_typescript(),
+		description: () => m.tech_desc_typescript({}, { locale: i18n.current }),
 		value: 85,
 		icon: FileCode,
 		span: 'md:col-span-1 md:row-span-1',
@@ -50,7 +51,7 @@ export const technologySkills: SkillItem[] = [
 	},
 	{
 		title: '.NET / C#',
-		description: () => m.tech_desc_dotnet(),
+		description: () => m.tech_desc_dotnet({}, { locale: i18n.current }),
 		value: 85,
 		icon: Cpu,
 		span: 'md:col-span-1 md:row-span-1',
@@ -58,7 +59,7 @@ export const technologySkills: SkillItem[] = [
 	},
 	{
 		title: 'Tailwind CSS',
-		description: () => m.tech_desc_tailwind(),
+		description: () => m.tech_desc_tailwind({}, { locale: i18n.current }),
 		value: 90,
 		icon: Palette,
 		span: 'md:col-span-2 md:row-span-1',
@@ -66,7 +67,7 @@ export const technologySkills: SkillItem[] = [
 	},
 	{
 		title: 'SQL Databases',
-		description: () => m.tech_desc_sql(),
+		description: () => m.tech_desc_sql({}, { locale: i18n.current }),
 		value: 80,
 		icon: Database,
 		span: 'md:col-span-1 md:row-span-1'
@@ -76,32 +77,32 @@ export const technologySkills: SkillItem[] = [
 export const toolSkills: SkillItem[] = [
 	{
 		title: 'Git & GitHub',
-		description: () => m.tech_desc_git(),
+		description: () => m.tech_desc_git({}, { locale: i18n.current }),
 		value: 90,
 		icon: GitBranch,
 		span: 'md:col-span-2 md:row-span-1'
 	},
 	{
 		title: 'Vercel',
-		description: () => m.tech_desc_vercel(),
+		description: () => m.tech_desc_vercel({}, { locale: i18n.current }),
 		value: 80,
 		icon: Cloud
 	},
 	{
 		title: 'REST API',
-		description: () => m.tech_desc_rest(),
+		description: () => m.tech_desc_rest({}, { locale: i18n.current }),
 		value: 85,
 		icon: Globe
 	},
 	{
 		title: 'EF Core / Linq',
-		description: () => m.tech_desc_efcore(),
+		description: () => m.tech_desc_efcore({}, { locale: i18n.current }),
 		value: 80,
 		icon: Layers
 	},
 	{
 		title: 'Hangfire',
-		description: () => m.tech_desc_hangfire(),
+		description: () => m.tech_desc_hangfire({}, { locale: i18n.current }),
 		value: 75,
 		icon: Zap
 	}

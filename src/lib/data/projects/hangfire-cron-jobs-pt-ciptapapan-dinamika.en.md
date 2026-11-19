@@ -1,14 +1,3 @@
----
-title: Hangfire (Cron Jobs) PT. Ciptapapan Dinamika
-problem: Repetitive tasks like automated reporting, email notifications, and data synchronization were being performed manually or via unreliable scripts.
-solution: Implemented a robust background processing system using Hangfire and .NET, ensuring reliable execution of hundreds of scheduled tasks.
-tech_stack:
-  - .NET
-  - C#
-  - Hangfire
-  - SQL Server
----
-
 # The Challenge
 
 Background tasks need to be resilient to server restarts and failures. We needed a system that provided clear visibility into task status and allowed for easy retries and monitoring.

@@ -1,14 +1,3 @@
----
-title: All In One Validator API
-problem: Developers need multiple validation tools (Email, Phone, URL, etc.) which often leads to using many different libraries or disjointed API services.
-solution: Created a comprehensive, single-endpoint validation API in Node.js that handles multiple data types with enterprise-grade accuracy.
-tech_stack:
-  - Node.js
-  - Javascript
-  - API
-  - RapidAPI
----
-
 # The Challenge
 
 Building a "one-stop-shop" for validation requires deep knowledge of various data formats and international standards (like E.164 for phone numbers). The goal was to consolidate these into one fast service.

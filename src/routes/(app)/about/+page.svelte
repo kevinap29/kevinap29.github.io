@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { m } from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
 
@@ -65,7 +66,11 @@
 					class="prose prose-stone dark:prose-invert max-w-none prose-p:leading-relaxed prose-p:text-muted-foreground"
 				>
 					<p>
-						{@html m.about_start_content({}, { locale: i18n.current })}
+						{m.about_start_before_link({}, { locale: i18n.current })}<a
+							class="text-primary font-bold hover:underline"
+							href={`${base}/project/website-company-profile`}
+							>{m.about_start_link({}, { locale: i18n.current })}</a
+						>{m.about_start_after_link({}, { locale: i18n.current })}
 					</p>
 				</div>
 			</section>
@@ -89,7 +94,17 @@
 					class="prose prose-stone dark:prose-invert max-w-none prose-p:leading-relaxed prose-p:text-muted-foreground"
 				>
 					<p>
-						{@html m.about_college_content({}, { locale: i18n.current })}
+						{m.about_college_before_rapidapi({}, { locale: i18n.current })}<a
+							class="text-primary font-bold hover:underline"
+							href="https://www.rapidapi.com/"
+							target="_blank"
+							rel="noopener noreferrer"
+							>{m.about_college_rapidapi_link({}, { locale: i18n.current })}</a
+						>{m.about_college_between_links({}, { locale: i18n.current })}<a
+							class="text-primary font-bold hover:underline"
+							href={`${base}/project/top-hashtags-api`}
+							>{m.about_college_project_link({}, { locale: i18n.current })}</a
+						>{m.about_college_after_links({}, { locale: i18n.current })}
 					</p>
 				</div>
 			</section>
@@ -117,7 +132,7 @@
 							class="absolute left-[-9px] top-1 size-4 bg-primary border-4 border-background"
 						></div>
 						<p>
-							{@html m.about_work_p1({}, { locale: i18n.current })}
+							{m.about_work_p1({}, { locale: i18n.current })}
 						</p>
 					</div>
 
@@ -126,7 +141,7 @@
 							class="absolute left-[-9px] top-1 size-4 bg-primary border-4 border-background"
 						></div>
 						<p>
-							{@html m.about_work_p2({}, { locale: i18n.current })}
+							{m.about_work_p2({}, { locale: i18n.current })}
 						</p>
 					</div>
 
@@ -135,7 +150,15 @@
 							class="absolute left-[-9px] top-1 size-4 bg-primary border-4 border-background"
 						></div>
 						<p>
-							{@html m.about_work_p3({}, { locale: i18n.current })}
+							{m.about_work_p3_before_erp({}, { locale: i18n.current })}<a
+								class="text-primary font-bold hover:underline"
+								href={`${base}/project/sistem-erp-pt-ciptapapan-dinamika`}
+								>{m.about_work_p3_erp_link({}, { locale: i18n.current })}</a
+							>{m.about_work_p3_between_links({}, { locale: i18n.current })}<a
+								class="text-primary font-bold hover:underline"
+								href={`${base}/project/microservices-pt-ciptapapan-dinamika`}
+								>{m.about_work_p3_microservices_link({}, { locale: i18n.current })}</a
+							>{m.about_work_p3_after_links({}, { locale: i18n.current })}
 						</p>
 					</div>
 				</div>

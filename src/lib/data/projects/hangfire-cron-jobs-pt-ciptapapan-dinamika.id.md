@@ -1,14 +1,3 @@
----
-title: Hangfire (Cron Jobs) PT. Ciptapapan Dinamika
-problem: Tugas berulang seperti pelaporan otomatis, notifikasi email, dan sinkronisasi data dilakukan secara manual atau melalui skrip yang tidak andal.
-solution: Mengimplementasikan sistem pemrosesan latar belakang yang kuat menggunakan Hangfire dan .NET, memastikan eksekusi ratusan tugas terjadwal yang andal.
-tech_stack:
-  - .NET
-  - C#
-  - Hangfire
-  - SQL Server
----
-
 # Tantangan
 
 Tugas latar belakang harus tangguh terhadap restart server dan kegagalan. Kami membutuhkan sistem yang memberikan visibilitas jelas ke status tugas dan memungkinkan percobaan ulang serta pemantauan yang mudah.

@@ -1,16 +1,3 @@
----
-title: '@mainapidev'
-problem: Kebutuhan akan platform modern dan terpusat untuk menyediakan API berperforma tinggi dan solusi perangkat lunak inovatif bagi pengembang dan bisnis.
-solution: Mengembangkan platform yang tangguh menggunakan SvelteKit dan TypeScript, dengan fokus pada kecepatan, skalabilitas, dan pengalaman pengembang yang intuitif.
-tech_stack:
-  - SvelteKit
-  - Svelte 5
-  - TypeScript
-  - Tailwind CSS
-  - Shadcn Svelte
-  - Vercel
----
-
 # Tantangan
 
 Pengembangan API modern memerlukan lebih dari sekadar endpoint fungsional; ia menuntut ketersediaan tinggi, dokumentasi yang jelas, dan pengalaman pengembang yang lancar. Tantangannya adalah membangun platform yang dapat menangani persyaratan performa tinggi sambil mempertahankan antarmuka yang bersih dan modern.

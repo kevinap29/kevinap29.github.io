@@ -9,7 +9,11 @@
 	import type { MessageFunction } from '$lib/types/messages';
 	import { fade } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
+	import { onMount } from 'svelte';
+	import { SvelteURLSearchParams } from 'svelte/reactivity';
+	import { replaceState } from '$app/navigation';
 	import { base } from '$app/paths';
+	import { page } from '$app/state';
 	import SEO from '$lib/components/SEO.svelte';
 	import Reveal from '$lib/components/Reveal.svelte';
 	import PageHero from '$lib/components/PageHero.svelte';
@@ -23,9 +27,44 @@
 	let searchQuery = $state('');
 	let selectedTags = $state<string[]>([]);
 	let visibilityFilter = $state<'all' | 'public' | 'private'>('all');
+	let filterInitialized = $state(false);
 
 	// Derived Data
 	const availableTags = $derived([...new Set(projectsData.all.flatMap((p) => p.tags))].sort());
+
+	onMount(() => {
+		const params = new SvelteURLSearchParams(window.location.search);
+		const q = params.get('q');
+		const tagsParam = params.get('tags');
+		const typeParam = params.get('type');
+
+		if (q) searchQuery = q;
+		if (tagsParam) {
+			selectedTags = tagsParam
+				.split(',')
+				.map((t) => t.trim())
+				.filter((t) => availableTags.includes(t));
+		}
+		if (typeParam === 'all' || typeParam === 'public' || typeParam === 'private') {
+			visibilityFilter = typeParam;
+		}
+		filterInitialized = true;
+	});
+
+	$effect(() => {
+		if (!filterInitialized) return;
+		const params = new SvelteURLSearchParams();
+		if (searchQuery.trim()) params.set('q', searchQuery.trim());
+		if (selectedTags.length > 0) params.set('tags', selectedTags.join(','));
+		if (visibilityFilter !== 'all') params.set('type', visibilityFilter);
+
+		const qs = params.toString();
+		const nextUrl = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
+		const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+		if (nextUrl !== currentUrl) {
+			replaceState(nextUrl, page.state);
+		}
+	});
 
 	const filteredProjects = $derived(
 		projectsData.all
@@ -62,7 +101,7 @@
 <SEO
 	title={m.nav_project({}, { locale: i18n.current })}
 	description={m.project_intro({}, { locale: i18n.current })}
-	keywords={`Kevin,Agustiansyah,Putra,project`}
+	keywords="Kevin,Agustiansyah,Putra,project"
 	image={imageLocation}
 	{websiteName}
 />
@@ -128,7 +167,10 @@
 						</Card.Header>
 						<Card.Content class="grow space-y-4">
 							<div class="text-sm leading-relaxed text-muted-foreground font-medium">
-								{@html (m as unknown as Record<string, MessageFunction>)[project.descKey]({}, { locale: i18n.current })}
+								{(m as unknown as Record<string, MessageFunction>)[project.descKey](
+									{},
+									{ locale: i18n.current }
+								)}
 							</div>
 							<div class="flex flex-wrap gap-1.5">
 								{#each project.tags as tag}
@@ -143,7 +185,7 @@
 						</Card.Content>
 						<Card.Footer class="flex flex-col gap-2 pt-4 border-t bg-muted/20">
 							<Button
-								href="/project/{project.slug}"
+								href={`${base}/project/${project.slug}`}
 								class="w-full font-black uppercase tracking-widest text-xs shadow-sm hover:shadow-md transition-all"
 							>
 								{m.project_case_study_btn({}, { locale: i18n.current })}
@@ -157,7 +199,9 @@
 				<div class="inline-flex p-4 rounded-none bg-muted">
 					<Search class="size-8 text-muted-foreground" />
 				</div>
-				<h3 class="text-xl font-black uppercase tracking-widest">{m.no_project_found()}</h3>
+				<h3 class="text-xl font-black uppercase tracking-widest">
+					{m.no_project_found({}, { locale: i18n.current })}
+				</h3>
 				<p class="text-muted-foreground font-medium">
 					{m.no_project_desc({}, { locale: i18n.current })}
 				</p>

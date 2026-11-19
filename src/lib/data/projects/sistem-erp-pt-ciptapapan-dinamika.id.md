@@ -1,14 +1,3 @@
----
-title: Sistem ERP PT. Ciptapapan Dinamika
-problem: Mengelola sumber daya perusahaan yang kompleks di berbagai departemen tidak efisien karena proses manual yang terfragmentasi dan spreadsheet lama.
-solution: Merancang dan mengimplementasikan sistem ERP komprehensif menggunakan .NET dan SQL Server, memusatkan operasi dari pengadaan hingga akuntansi.
-tech_stack:
-  - .NET
-  - C#
-  - SQL Server
-  - Bootstrap
----
-
 # Tantangan
 
 PT. Ciptapapan Dinamika membutuhkan sistem terpusat yang dapat menangani volume data transaksional yang besar sambil tetap ramah pengguna bagi staf dengan berbagai latar belakang teknis. Konsistensi data dan pelaporan real-time sangatlah penting.

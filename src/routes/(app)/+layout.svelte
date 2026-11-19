@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { base } from '$app/paths';
 	import { ModeWatcher } from 'mode-watcher';
 	import * as Sheet from '$lib/components/ui/sheet';
 
@@ -20,16 +21,10 @@
 
 	let { children }: { children: Snippet } = $props();
 
-	$effect(() => {
-		i18n.init();
-	});
-
 	onNavigate((navigation) => {
-		// @ts-ignore
 		if (!document.startViewTransition) return;
 
 		return new Promise((resolve) => {
-			// @ts-ignore
 			document.startViewTransition(async () => {
 				resolve();
 				await navigation.complete;
@@ -39,15 +34,21 @@
 
 	// Reactive nav labels with icons — updates automatically when language changes
 	let navUrls = $derived.by<NavUrl[]>(() => {
-		// Use i18n.current to ensure this derived state updates on language change
-		const currentLang = i18n.current;
 		return [
-			{ url: `/`, title: m.nav_home(), icon: House },
-			{ url: `/about`, title: m.nav_about(), icon: CircleUser },
-			{ url: `/project`, title: m.nav_project(), icon: Briefcase },
-			{ url: `/resume`, title: m.nav_resume(), icon: FileText },
-			{ url: `/journal`, title: m.nav_journal(), icon: Activity },
-			{ url: `/contact`, title: m.nav_contact(), icon: Mail }
+			{ url: `${base}/`, title: m.nav_home({}, { locale: i18n.current }), icon: House },
+			{ url: `${base}/about`, title: m.nav_about({}, { locale: i18n.current }), icon: CircleUser },
+			{
+				url: `${base}/project`,
+				title: m.nav_project({}, { locale: i18n.current }),
+				icon: Briefcase
+			},
+			{ url: `${base}/resume`, title: m.nav_resume({}, { locale: i18n.current }), icon: FileText },
+			{
+				url: `${base}/journal`,
+				title: m.nav_journal({}, { locale: i18n.current }),
+				icon: Activity
+			},
+			{ url: `${base}/contact`, title: m.nav_contact({}, { locale: i18n.current }), icon: Mail }
 		];
 	});
 
@@ -95,9 +96,7 @@
 
 			<main class="flex-1 container mx-auto px-4 py-8 overflow-x-hidden">
 				{#key page.url.pathname}
-					{#key i18n.current}
-						{@render children()}
-					{/key}
+					{@render children()}
 				{/key}
 			</main>
 

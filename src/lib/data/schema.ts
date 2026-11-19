@@ -11,17 +11,13 @@ export const ProjectDataSchema = z.object({
 	dateFinished: z.union([z.date(), z.literal('Sekarang')]),
 	type: z.enum(['public', 'private']),
 	tags: z.array(z.string()),
-	slug: z.string().optional()
+	slug: z.string().optional(),
+	gallery: z.array(z.string()).optional()
 });
 
 export const ListOfProjectDataSchema = z.array(ProjectDataSchema);
 
 export type ProjectData = z.infer<typeof ProjectDataSchema>;
-export interface ProjectMetadata {
-	tech_stack?: string[];
-	problem?: string;
-	[key: string]: unknown;
-}
 
 export const JournalDataSchema = z.object({
 	slug: z.string(),

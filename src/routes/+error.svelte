@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { base } from '$app/paths';
+	import { m } from '$lib/paraglide/messages';
+	import { i18n } from '$lib/i18n.svelte';
 	import * as Card from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button';
 	import { House, RotateCcw } from '@lucide/svelte';
 	import Reveal from '$lib/components/Reveal.svelte';
 
 	const status = $derived(page.status);
-	const message = $derived(page.error?.message || 'Something went wrong');
+	const message = $derived(page.error?.message || m.form_error({}, { locale: i18n.current }));
 </script>
 
 <div class="max-w-3xl mx-auto px-4 py-20 flex flex-col items-center justify-center min-h-[70vh]">
@@ -33,23 +36,23 @@
 					<h2
 						class="relative z-10 text-3xl sm:text-5xl font-black uppercase tracking-tight text-foreground bg-background/50 backdrop-blur-sm px-6 py-2 border-y border-primary/10"
 					>
-						{status === 404 ? 'Page Not Found' : 'An Error Occurred'}
+						{status === 404
+							? m.error_not_found_title({}, { locale: i18n.current })
+							: m.error_generic_title({}, { locale: i18n.current })}
 					</h2>
 				</div>
 
 				<p class="text-muted-foreground text-base sm:text-lg max-w-md mx-auto mb-10 font-medium">
-					{status === 404
-						? "The page you're looking for doesn't exist or has been moved."
-						: message}
+					{status === 404 ? m.error_not_found_desc({}, { locale: i18n.current }) : message}
 				</p>
 
 				<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
 					<Button
-						href="/"
+						href={`${base}/`}
 						class="rounded-none h-12 px-8 font-black uppercase tracking-widest text-xs shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all w-full sm:w-auto"
 					>
 						<House class="mr-2 size-4" />
-						Back to Home
+						{m.error_back_home({}, { locale: i18n.current })}
 					</Button>
 					<Button
 						variant="outline"
@@ -57,7 +60,7 @@
 						onclick={() => window.location.reload()}
 					>
 						<RotateCcw class="mr-2 size-4" />
-						Try Again
+						{m.error_try_again({}, { locale: i18n.current })}
 					</Button>
 				</div>
 			</div>

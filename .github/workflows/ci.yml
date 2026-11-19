@@ -1,0 +1,39 @@
+name: CI Quality Gate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality-gate:
+    name: Typecheck, Lint & Unit Tests
+    runs-on: ubuntu-latest
+    env:
+      PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_ACCESS_KEY || 'ci-placeholder-key' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile translations
+        run: npm run paraglide:compile
+
+      - name: Run Svelte check
+        run: npm run check
+
+      - name: Run Linter & Formatter check
+        run: npm run lint
+
+      - name: Run Unit Tests
+        run: npm run test:unit

@@ -1,14 +1,3 @@
----
-title: String Formatter
-problem: Developers often need quick, reliable tools to format raw strings, JSON, or code snippets without the privacy risks of untrusted online tools.
-solution: Created a fast, client-side web application using SvelteKit and Tailwind CSS for instant, secure string manipulation.
-tech_stack:
-  - SvelteKit
-  - Tailwind CSS
-  - TypeScript
-  - Javascript
----
-
 # The Challenge
 
 Many existing online formatters are cluttered with ads, slow to load, or send user data to servers. The goal was to create a "privacy-first" utility that runs entirely in the browser.

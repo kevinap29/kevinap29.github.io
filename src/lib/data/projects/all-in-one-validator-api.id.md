@@ -1,14 +1,3 @@
----
-title: All In One Validator API
-problem: Pengembang membutuhkan banyak alat validasi (Email, Telepon, URL, dll.) yang sering kali menyebabkan penggunaan banyak pustaka yang berbeda atau layanan API yang terpisah-pisah.
-solution: Membuat API validasi komprehensif dalam Node.js yang menangani berbagai jenis data dengan akurasi tingkat perusahaan dalam satu endpoint.
-tech_stack:
-  - Node.js
-  - Javascript
-  - API
-  - RapidAPI
----
-
 # Tantangan
 
 Membangun "one-stop-shop" untuk validasi memerlukan pengetahuan mendalam tentang berbagai format data dan standar internasional (seperti E.164 untuk nomor telepon). Tujuannya adalah untuk menggabungkan ini menjadi satu layanan cepat.
