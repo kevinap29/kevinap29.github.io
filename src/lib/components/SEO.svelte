@@ -9,18 +9,26 @@
 		keywords,
 		websiteName = 'Kevin Agustiansyah',
 		type = 'website'
-	} = $props<{
+	}: {
 		title?: string;
 		description?: string;
 		image?: string;
 		keywords?: string;
 		websiteName?: string;
 		type?: string;
-	}>();
+	} = $props();
 
+	const SITE_URL = 'https://kevinap29.github.io';
+	const normalizedBase = $derived(base.startsWith('/') ? base : '');
 	const fullTitle = $derived(title ? `${title} | ${websiteName}` : websiteName);
-	const imageUrl = $derived(image ? (image.startsWith('http') ? image : `${base}${image}`) : null);
-	const canonicalUrl = $derived(page.url.href);
+	const imageUrl = $derived(
+		image
+			? image.startsWith('http')
+				? image
+				: `${SITE_URL}${normalizedBase}${image.startsWith('/') ? image : `/${image}`}`
+			: null
+	);
+	const canonicalUrl = $derived(`${SITE_URL}${page.url.pathname}`);
 </script>
 
 <svelte:head>
@@ -34,21 +42,8 @@
 		<meta name="keywords" content={keywords} />
 	{/if}
 
-	<!-- Canonical & Hreflang -->
+	<!-- Canonical -->
 	<link rel="canonical" href={canonicalUrl} />
-	<link rel="alternate" hreflang="en" href={canonicalUrl.replace('/id/', '/').replace('/id', '')} />
-	<link
-		rel="alternate"
-		hreflang="id"
-		href={canonicalUrl.includes('/id')
-			? canonicalUrl
-			: canonicalUrl.replace(page.url.origin + base, page.url.origin + base + '/id')}
-	/>
-	<link
-		rel="alternate"
-		hreflang="x-default"
-		href={canonicalUrl.replace('/id/', '/').replace('/id', '')}
-	/>
 
 	<!-- Open Graph -->
 	<meta property="og:title" content={fullTitle} />

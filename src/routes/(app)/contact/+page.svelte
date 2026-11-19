@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { page } from '$app/state';
 	import { m } from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
 	import { fade } from 'svelte/transition';
@@ -26,44 +25,58 @@
 
 	let formRenderedAt = $state(Date.now());
 	let lastSubmittedAt = $state(0);
-	let validationError = $state<string | null>(null);
+	let validationErrorKey = $state<'spam' | 'too_fast' | 'rate_limit' | 'max_length' | null>(null);
+
+	const validationError = $derived.by(() => {
+		switch (validationErrorKey) {
+			case 'spam':
+				return m.contact_err_spam({}, { locale: i18n.current });
+			case 'too_fast':
+				return m.contact_err_too_fast({}, { locale: i18n.current });
+			case 'rate_limit':
+				return m.contact_err_rate_limit({}, { locale: i18n.current });
+			case 'max_length':
+				return m.contact_err_max_length({}, { locale: i18n.current });
+			default:
+				return null;
+		}
+	});
 
 	let status = $state<'idle' | 'sending' | 'success' | 'error'>('idle');
 
 	async function handleSubmit(e: SubmitEvent) {
 		e.preventDefault();
-		validationError = null;
+		validationErrorKey = null;
 
 		// Anti-bot check 1: Filled honeypot
 		if (formState.botcheck) {
 			status = 'error';
-			validationError = 'Spam detected.';
+			validationErrorKey = 'spam';
 			return;
 		}
 
 		// Anti-bot check 2: Submitted too quickly (< 2 seconds after page load)
 		if (Date.now() - formRenderedAt < 2000) {
 			status = 'error';
-			validationError = 'Please wait a moment before submitting.';
+			validationErrorKey = 'too_fast';
 			return;
 		}
 
 		// Anti-abuse check 3: Rate limit (1 submission per 30 seconds)
 		if (Date.now() - lastSubmittedAt < 30000) {
 			status = 'error';
-			validationError = 'Please wait 30 seconds between messages.';
+			validationErrorKey = 'rate_limit';
 			return;
 		}
 
 		// Anti-abuse check 4: Payload length caps
 		if (formState.name.trim().length > 100 || formState.message.trim().length > 2000) {
 			status = 'error';
-			validationError = 'Name or message exceeds maximum length.';
+			validationErrorKey = 'max_length';
 			return;
 		}
 
 		status = 'sending';
-		lastSubmittedAt = Date.now();
 
 		try {
 			const response = await fetch('https://api.web3forms.com/submit', {
@@ -85,24 +98,28 @@
 
 			const result = await response.json();
 			if (result.success) {
+				lastSubmittedAt = Date.now();
 				status = 'success';
 				formState = { name: '', email: '', message: '', botcheck: false };
 			} else {
 				status = 'error';
 			}
-		} catch (err) {
+		} catch {
 			status = 'error';
 		}
 	}
 </script>
 
 <svelte:head>
-	<title>{m.nav_contact()} | {websiteName}</title>
-	<meta name="description" content={m.contact_subtitle()} />
+	<title>{m.nav_contact({}, { locale: i18n.current })} | {websiteName}</title>
+	<meta name="description" content={m.contact_subtitle({}, { locale: i18n.current })} />
 </svelte:head>
 
 <div class="max-w-5xl mx-auto px-4 py-12 space-y-16">
-	<PageHero title={m.nav_contact()} description={m.contact_subtitle()} />
+	<PageHero
+		title={m.nav_contact({}, { locale: i18n.current })}
+		description={m.contact_subtitle({}, { locale: i18n.current })}
+	/>
 
 	<div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
 		<!-- Contact Info Cards -->
@@ -119,7 +136,7 @@
 						</div>
 						<div>
 							<Card.Title class="text-xs font-black uppercase tracking-widest text-muted-foreground"
-								>Email</Card.Title
+								>{m.contact_info_email({}, { locale: i18n.current })}</Card.Title
 							>
 							<Card.Description class="text-lg font-bold text-foreground break-all"
 								>{email}</Card.Description
@@ -141,7 +158,7 @@
 						</div>
 						<div>
 							<Card.Title class="text-xs font-black uppercase tracking-widest text-muted-foreground"
-								>Phone</Card.Title
+								>{m.contact_info_phone({}, { locale: i18n.current })}</Card.Title
 							>
 							<Card.Description class="text-lg font-bold text-foreground">{phone}</Card.Description>
 						</div>
@@ -161,7 +178,7 @@
 						</div>
 						<div>
 							<Card.Title class="text-xs font-black uppercase tracking-widest text-muted-foreground"
-								>Location</Card.Title
+								>{m.contact_info_location({}, { locale: i18n.current })}</Card.Title
 							>
 							<Card.Description class="text-lg font-bold text-foreground"
 								>Jakarta/Palembang, Indonesia</Card.Description
@@ -186,13 +203,15 @@
 								>
 									<CheckCircle2 class="size-12" />
 								</div>
-								<h2 class="text-2xl font-black uppercase tracking-tight">{m.form_success()}</h2>
+								<h2 class="text-2xl font-black uppercase tracking-tight">
+									{m.form_success({}, { locale: i18n.current })}
+								</h2>
 								<Button
 									variant="outline"
 									onclick={() => (status = 'idle')}
 									class="rounded-none font-bold uppercase tracking-widest text-xs"
 								>
-									{m.form_reset()}
+									{m.form_reset({}, { locale: i18n.current })}
 								</Button>
 							</div>
 						{:else}
@@ -205,12 +224,12 @@
 								/>
 								<div class="space-y-2">
 									<Label for="name" class="text-xs font-black uppercase tracking-widest"
-										>{m.form_name()}</Label
+										>{m.form_name({}, { locale: i18n.current })}</Label
 									>
 									<Input
 										id="name"
 										bind:value={formState.name}
-										placeholder={m.form_name_placeholder()}
+										placeholder={m.form_name_placeholder({}, { locale: i18n.current })}
 										required
 										class="rounded-none border-muted-foreground/20 focus-visible:ring-primary"
 									/>
@@ -218,13 +237,13 @@
 
 								<div class="space-y-2">
 									<Label for="email" class="text-xs font-black uppercase tracking-widest"
-										>{m.form_email()}</Label
+										>{m.form_email({}, { locale: i18n.current })}</Label
 									>
 									<Input
 										id="email"
 										type="email"
 										bind:value={formState.email}
-										placeholder={m.form_email_placeholder()}
+										placeholder={m.form_email_placeholder({}, { locale: i18n.current })}
 										required
 										class="rounded-none border-muted-foreground/20 focus-visible:ring-primary"
 									/>
@@ -232,12 +251,12 @@
 
 								<div class="space-y-2">
 									<Label for="message" class="text-xs font-black uppercase tracking-widest"
-										>{m.form_message()}</Label
+										>{m.form_message({}, { locale: i18n.current })}</Label
 									>
 									<Textarea
 										id="message"
 										bind:value={formState.message}
-										placeholder={m.form_message_placeholder()}
+										placeholder={m.form_message_placeholder({}, { locale: i18n.current })}
 										required
 										rows={5}
 										class="rounded-none border-muted-foreground/20 focus-visible:ring-primary resize-none"
@@ -247,7 +266,7 @@
 								{#if status === 'error'}
 									<div class="flex items-center gap-2 text-destructive text-sm font-bold" in:fade>
 										<AlertCircle class="size-4" />
-										{validationError || m.form_error()}
+										{validationError || m.form_error({}, { locale: i18n.current })}
 									</div>
 								{/if}
 
@@ -260,10 +279,10 @@
 										<div class="animate-spin mr-2">
 											<Send class="size-4" />
 										</div>
-										{m.form_sending()}
+										{m.form_sending({}, { locale: i18n.current })}
 									{:else}
 										<Send class="mr-2 size-4" />
-										{m.form_send()}
+										{m.form_send({}, { locale: i18n.current })}
 									{/if}
 								</Button>
 							</form>

@@ -7,12 +7,17 @@
 	import { i18n } from '$lib/i18n.svelte';
 	import type { JournalData } from '$lib/data/schema';
 
-	let { journal, index, title, htmlContent } = $props<{
+	let {
+		journal,
+		index,
+		title,
+		htmlContent
+	}: {
 		journal: JournalData;
 		index: number;
 		title: string;
 		htmlContent: string;
-	}>();
+	} = $props();
 
 	const getTypeIcon = (type: string) => {
 		switch (type) {
@@ -62,12 +67,26 @@
 							<span>{journal.type}</span>
 							{#if journal.repo}
 								<span class="text-muted-foreground/50 mx-1">•</span>
-								<div
-									class="text-muted-foreground transition-colors underline-offset-4 flex items-center gap-1"
-								>
-									<GitHub class="size-3" />
-									{journal.repo.split('/')[1] || journal.repo}
-								</div>
+								{#if journal.repo.startsWith('kevinap29/') || journal.repo.startsWith('http://') || journal.repo.startsWith('https://')}
+									<a
+										href={journal.repo.startsWith('http://') || journal.repo.startsWith('https://')
+											? journal.repo
+											: `https://github.com/${journal.repo}`}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="text-muted-foreground hover:text-primary transition-colors hover:underline underline-offset-4 flex items-center gap-1"
+									>
+										<GitHub class="size-3" />
+										{journal.repo.split('/')[1] || journal.repo}
+									</a>
+								{:else}
+									<div
+										class="text-muted-foreground transition-colors underline-offset-4 flex items-center gap-1"
+									>
+										<GitHub class="size-3" />
+										{journal.repo.split('/')[1] || journal.repo}
+									</div>
+								{/if}
 							{/if}
 						</div>
 						<h3 class="font-black text-2xl tracking-tight">
@@ -86,6 +105,7 @@
 				<div
 					class="prose prose-sm md:prose-base dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-primary hover:prose-a:text-primary/80 prose-p:leading-relaxed prose-img:rounded-xl prose-img:border prose-pre:bg-muted/50 prose-pre:border prose-pre:rounded-none"
 				>
+					<!-- eslint-disable-next-line svelte/no-at-html-tags -- Markdown HTML is sanitized via DOMPurify in +page.server.ts -->
 					{@html htmlContent}
 				</div>
 			</Card.Content>

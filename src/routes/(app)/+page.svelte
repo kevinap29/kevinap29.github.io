@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { cn } from '$lib/utils';
+	import { base } from '$app/paths';
 	import { m } from '$lib/paraglide/messages';
 	import { i18n } from '$lib/i18n.svelte';
 	import SEO from '$lib/components/SEO.svelte';
@@ -43,12 +44,12 @@
 				{m.hero_tools_suffix({}, { locale: i18n.current })}
 			</p>
 			<div class="flex flex-col justify-center gap-3 pt-2 sm:flex-row">
-				<Button href="/project" size="lg" class="font-bold">
+				<Button href={`${base}/project`} size="lg" class="font-bold">
 					<BriefcaseBusiness />
 					{m.hero_primary_cta({}, { locale: i18n.current })}
 					<ArrowRight />
 				</Button>
-				<Button href="/contact" variant="outline" size="lg" class="font-bold">
+				<Button href={`${base}/contact`} variant="outline" size="lg" class="font-bold">
 					{m.hero_secondary_cta({}, { locale: i18n.current })}
 				</Button>
 			</div>
@@ -66,7 +67,7 @@
 						{m.featured_projects_subtitle({}, { locale: i18n.current })}
 					</p>
 				</div>
-				<Button href="/project" variant="outline" class="w-fit font-bold">
+				<Button href={`${base}/project`} variant="outline" class="w-fit font-bold">
 					{m.featured_projects_view_all({}, { locale: i18n.current })}
 					<ArrowRight />
 				</Button>
@@ -77,12 +78,16 @@
 			{#each featuredProjects as project, i (project.slug)}
 				<Reveal delay={250 + i * 75} y={20} class="h-full">
 					<article class="flex h-full flex-col overflow-hidden border border-primary/10 bg-card">
-						<img src={project.image} alt={project.name} class="aspect-video w-full object-cover" />
+						<img
+							src={`${base}${project.image}`}
+							alt={project.name}
+							class="aspect-video w-full object-cover"
+						/>
 						<div class="flex grow flex-col space-y-4 p-5">
 							<div class="space-y-2">
 								<h3 class="text-xl font-black tracking-tight">{project.name}</h3>
 								<p class="text-sm leading-relaxed text-muted-foreground">
-									{@html (m as unknown as Record<string, MessageFunction>)[project.descKey](
+									{(m as unknown as Record<string, MessageFunction>)[project.descKey](
 										{},
 										{ locale: i18n.current }
 									)}
@@ -95,7 +100,7 @@
 									</Badge>
 								{/each}
 							</div>
-							<Button href="/project/{project.slug}" class="mt-auto w-full font-bold">
+							<Button href={`${base}/project/${project.slug}`} class="mt-auto w-full font-bold">
 								{m.project_case_study_btn({}, { locale: i18n.current })}
 								<ArrowRight />
 							</Button>
@@ -110,10 +115,10 @@
 		<Reveal delay={200}>
 			<div class="text-center space-y-2">
 				<h2 class="text-3xl font-black tracking-tighter sm:text-5xl uppercase">
-					{m.section_technology()}
+					{m.section_technology({}, { locale: i18n.current })}
 				</h2>
 				<p class="text-muted-foreground font-bold uppercase tracking-widest text-xs">
-					{m.section_tech_subtitle()}
+					{m.section_tech_subtitle({}, { locale: i18n.current })}
 				</p>
 			</div>
 		</Reveal>
@@ -137,10 +142,10 @@
 		<Reveal delay={300}>
 			<div class="text-center space-y-2">
 				<h2 class="text-3xl font-black tracking-tighter sm:text-5xl uppercase">
-					{m.section_tools()}
+					{m.section_tools({}, { locale: i18n.current })}
 				</h2>
 				<p class="text-muted-foreground font-bold uppercase tracking-widest text-xs">
-					{m.section_tools_subtitle()}
+					{m.section_tools_subtitle({}, { locale: i18n.current })}
 				</p>
 			</div>
 		</Reveal>

@@ -11,12 +11,12 @@
 		selectedTags = $bindable(),
 		visibilityFilter = $bindable(),
 		availableTags = []
-	} = $props<{
+	}: {
 		searchQuery: string;
 		selectedTags: string[];
 		visibilityFilter: 'all' | 'public' | 'private';
 		availableTags: string[];
-	}>();
+	} = $props();
 
 	function toggleTag(tag: string) {
 		if (selectedTags.includes(tag)) {
@@ -48,13 +48,13 @@
 							? 'bg-primary text-primary-foreground shadow-md'
 							: 'text-muted-foreground hover:text-foreground hover:bg-background/50'
 					)}
-					onclick={() => visibilityFilter = option as 'all' | 'public' | 'private'}
+					onclick={() => (visibilityFilter = option as 'all' | 'public' | 'private')}
 				>
 					{option === 'all'
-						? m.visibility_all()
+						? m.visibility_all({}, { locale: i18n.current })
 						: option === 'public'
-							? m.visibility_public()
-							: m.visibility_private()}
+							? m.visibility_public({}, { locale: i18n.current })
+							: m.visibility_private({}, { locale: i18n.current })}
 				</button>
 			{/each}
 		</div>
@@ -70,7 +70,7 @@
 					onclick={() => (selectedTags = [])}
 					class="text-[10px] font-black uppercase tracking-tighter text-primary hover:underline transition-all"
 				>
-					Reset
+					{m.filter_reset({}, { locale: i18n.current })}
 				</button>
 			{/if}
 		</div>

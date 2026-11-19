@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { i18n } from '$lib/i18n.svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	interface Props extends HTMLAttributes<SVGElement> {

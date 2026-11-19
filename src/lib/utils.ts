@@ -18,3 +18,12 @@ export function generateSlug(text: string) {
 		.replace(/[\s_-]+/g, '-')
 		.replace(/^-+|-+$/g, '');
 }
+
+export function normalizePath(path: string): string {
+	if (!path || path === '/') return '/';
+	return path.endsWith('/') ? path.slice(0, -1) : path;
+}
+
+export function isActiveRoute(currentPathname: string, targetPath: string): boolean {
+	return normalizePath(currentPathname) === normalizePath(targetPath);
+}

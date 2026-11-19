@@ -83,7 +83,7 @@
 <svelte:head>
 	<title>{m.nav_resume({}, { locale: i18n.current })} | {websiteName}</title>
 	<meta name="description" content={m.resume_profile({}, { locale: i18n.current })} />
-	<meta name="keywords" content={`Kevin,Agustiansyah,Putra,resume`} />
+	<meta name="keywords" content="Kevin,Agustiansyah,Putra,resume" />
 	<meta
 		property="og:title"
 		content={`${m.nav_resume({}, { locale: i18n.current })} | ${websiteName}`}
@@ -139,7 +139,7 @@
 		<section class="mb-8">
 			<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-2">
 				<h2 class="text-lg font-black uppercase tracking-widest bg-black text-white px-3 py-0.5">
-					{m.resume_profile({ locale: i18n.current })}
+					{m.resume_profile({}, { locale: i18n.current })}
 				</h2>
 				<Button
 					onclick={printResume}
@@ -148,11 +148,11 @@
 					class="no-print flex items-center gap-2"
 				>
 					<FileDown class="size-4" />
-					{m.resume_generate_pdf({ locale: i18n.current })}
+					{m.resume_generate_pdf({}, { locale: i18n.current })}
 				</Button>
 			</div>
 			<p class="text-[12px] leading-relaxed font-medium text-gray-700">
-				{m.resume_summary({ locale: i18n.current })}
+				{m.resume_summary({}, { locale: i18n.current })}
 			</p>
 		</section>
 	</Reveal>
@@ -165,7 +165,7 @@
 					<h2
 						class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2"
 					>
-						{m.resume_tech_stack({ locale: i18n.current })}
+						{m.resume_tech_stack({}, { locale: i18n.current })}
 					</h2>
 					<div class="flex flex-wrap gap-1">
 						{#each keahlian as skill}
@@ -182,7 +182,7 @@
 					<h2
 						class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2"
 					>
-						{m.resume_infrastructure({ locale: i18n.current })}
+						{m.resume_infrastructure({}, { locale: i18n.current })}
 					</h2>
 					<div class="flex flex-wrap gap-1">
 						{#each alat as tool}
@@ -199,7 +199,7 @@
 					<h2
 						class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2"
 					>
-						{m.resume_education({ locale: i18n.current })}
+						{m.resume_education({}, { locale: i18n.current })}
 					</h2>
 					{#each education as edu}
 						<div class="space-y-1 relative pl-3 border-l border-gray-200">
@@ -224,7 +224,7 @@
 					<h2
 						class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2"
 					>
-						{m.resume_experience({ locale: i18n.current })}
+						{m.resume_experience({}, { locale: i18n.current })}
 					</h2>
 					<div class="space-y-6">
 						{#each experience as exp}
@@ -260,7 +260,7 @@
 					<h2
 						class="text-xs font-black uppercase tracking-[0.3em] text-primary border-l-4 border-primary pl-2"
 					>
-						{m.resume_projects({ locale: i18n.current })}
+						{m.resume_projects({}, { locale: i18n.current })}
 					</h2>
 					<div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
 						{#each projectsData.all
@@ -279,7 +279,10 @@
 									{/if}
 								</div>
 								<p class="text-[10px] leading-snug text-gray-500 line-clamp-3">
-									{@html (m as unknown as Record<string, MessageFunction>)[project.descKey]({}, { locale: i18n.current }).replace(/<span class="font-bold">/g, '<span class="font-black text-black">')}
+									{(m as unknown as Record<string, MessageFunction>)[project.descKey](
+										{},
+										{ locale: i18n.current }
+									)}
 								</p>
 							</div>
 						{/each}

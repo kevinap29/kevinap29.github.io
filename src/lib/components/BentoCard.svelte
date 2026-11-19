@@ -8,15 +8,13 @@
 		description,
 		icon: Icon,
 		value,
-		span = 'col-span-1 row-span-1',
 		children
 	}: {
 		class?: string;
 		title: string;
 		description?: string;
-		icon?: Component<any>;
+		icon?: Component<{ class?: string }>;
 		value?: number;
-		span?: string;
 		children?: Snippet;
 	} = $props();
 </script>

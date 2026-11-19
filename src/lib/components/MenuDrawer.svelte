@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { isActiveRoute } from '$lib/utils';
 	import { Button } from '$lib/components/ui/button';
 	import type { NavUrl } from '$lib/types/nav';
 
@@ -14,7 +15,7 @@
 <nav class="flex flex-col gap-4 p-8 items-center">
 	{#each urls as url}
 		<Button
-			variant={page.url.href === url.url ? 'secondary' : 'ghost'}
+			variant={isActiveRoute(page.url.pathname, url.url) ? 'secondary' : 'ghost'}
 			href={url.url}
 			class="w-full text-lg justify-start gap-4 px-6"
 			{onclick}
