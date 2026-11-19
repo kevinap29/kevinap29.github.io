@@ -170,6 +170,14 @@ const initialJournals: JournalData[] = [
 		tags: ['SvelteKit', 'Portfolio', 'Frontend']
 	},
 	{
+		slug: 'launch-sveltestart-ai',
+		titleKey: 'journal_sveltestart_ai_title',
+		date: new Date(2026, 10, 1, 0, 0, 0),
+		type: 'Launch',
+		repo: 'Mainapidev/sveltestart-ai',
+		tags: ['SvelteKit', 'Svelte 5', 'AI SaaS', 'Drizzle ORM']
+	},
+	{
 		slug: 'launch-diskonin',
 		titleKey: 'journal_diskonin_title',
 		date: new Date(2026, 10, 11, 0, 0, 0),
