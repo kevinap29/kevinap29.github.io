@@ -36,6 +36,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://kevinap29.github.io/project/antigravity-custom-agents/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://kevinap29.github.io/project/decode-nik-kk-api/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
