@@ -149,7 +149,28 @@ const initialProjects: ProjectData[] = [
 		dateFinished: 'Sekarang',
 		type: 'public',
 		tags: ['AI Agents', 'SDLC', 'Antigravity', 'PowerShell', 'Bash', '.NET Core', 'SvelteKit'],
-		slug: 'antigravity-custom-agents'
+  },
+  {
+		slug: 'antigravity-custom-agents',
+		url: `https://diskonin.mainapidev.web.id`,
+		image: `/img/diskonin.png`,
+		name: `Diskonin`,
+		descKey: 'project_diskonin_desc',
+		dateCreated: new Date(2026, 10, 3, 0, 0, 0),
+		dateFinished: 'Sekarang',
+		type: 'public',
+		tags: ['.NET 10', 'C#', 'MAUI Hybrid Blazor', 'SQLite', 'Tailwind CSS', 'Python']
+	},
+	{
+		url: `https://sveltstart-ai.mainapidev.web.id`,
+		image: `/img/sveltestart-ai.png`,
+		name: `SveltStart AI`,
+		slug: 'sveltestart-ai',
+		descKey: 'project_sveltestart_ai_desc',
+		dateCreated: new Date(2026, 9, 31, 0, 0, 0),
+		dateFinished: 'Sekarang',
+		type: 'public',
+		tags: ['SvelteKit', 'Svelte 5', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Drizzle ORM', 'AI']
 	}
 ];
 
@@ -166,10 +187,11 @@ export const projectsData = {
 };
 
 const featuredProjectSlugs = [
+	'diskonin',
+	'sveltestart-ai',
 	'portfolio-nurul-fitri',
 	'mainapidev',
 	'top-hashtags-app',
-	'website-company-profile',
 	'web-portofolio'
 ] as const;
 

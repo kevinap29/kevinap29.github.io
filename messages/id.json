@@ -166,5 +166,9 @@
 	"error_try_again": "Coba Lagi",
 	"project_gallery_title": "Galeri Projek",
 	"project_prev": "Projek Sebelumnya",
-	"project_next": "Projek Selanjutnya"
+	"project_next": "Projek Selanjutnya",
+	"project_diskonin_desc": "Platform kurasi promo dan utilitas belanja cerdas lintas platform (Web & Android) berbasis .NET 10 Blazor, MAUI Blazor Hybrid, SQLite WAL, serta mesin ingesti Python.",
+	"journal_diskonin_title": "Meluncurkan Diskonin: Platform Kurasi Promo Lintas Platform dengan .NET 10 & MAUI Blazor Hybrid",
+	"project_sveltestart_ai_desc": "Boilerplate komersial AI SaaS berbasis SvelteKit & Svelte 5 Runes dengan fitur streaming AI multi-provider (OpenAI, Anthropic, OpenRouter), Better Auth, PostgreSQL + Drizzle ORM, serta pembayaran Polar.sh.",
+	"journal_sveltestart_ai_title": "Meluncurkan SveltStart AI: Boilerplate AI SaaS Produksi Berbasis Svelte 5 Runes"
 }
