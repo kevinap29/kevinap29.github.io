@@ -148,9 +148,9 @@ const initialProjects: ProjectData[] = [
 		dateCreated: new Date(2026, 10, 23, 0, 0, 0),
 		dateFinished: 'Sekarang',
 		type: 'public',
-		tags: ['AI Agents', 'SDLC', 'Antigravity', 'PowerShell', 'Bash', '.NET Core', 'SvelteKit'],
-  },
-  {
+		tags: ['AI Agents', 'SDLC', 'Antigravity', 'PowerShell', 'Bash', '.NET Core', 'SvelteKit']
+	},
+	{
 		slug: 'antigravity-custom-agents',
 		url: `https://diskonin.mainapidev.web.id`,
 		image: `/img/diskonin.png`,
