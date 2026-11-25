@@ -141,6 +141,16 @@ const initialProjects: ProjectData[] = [
 		tags: ['SvelteKit', 'TypeScript', 'Tailwind CSS', 'Paraglide JS']
 	},
 	{
+		url: `https://github.com/kevinap29/antigravity-custom-agents`,
+		image: `/img/antigravity-custom-agents.png`,
+		name: `Antigravity Custom Agents`,
+		descKey: 'project_antigravity_agents_desc',
+		dateCreated: new Date(2026, 10, 23, 0, 0, 0),
+		dateFinished: 'Sekarang',
+		type: 'public',
+		tags: ['AI Agents', 'SDLC', 'Antigravity', 'PowerShell', 'Bash', '.NET Core', 'SvelteKit']
+	},
+	{
 		url: `https://diskonin.mainapidev.web.id`,
 		image: `/img/diskonin.png`,
 		name: `Diskonin`,

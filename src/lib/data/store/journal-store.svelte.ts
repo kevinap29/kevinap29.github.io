@@ -170,6 +170,14 @@ const initialJournals: JournalData[] = [
 		tags: ['SvelteKit', 'Portfolio', 'Frontend']
 	},
 	{
+		slug: 'antigravity-custom-agents',
+		titleKey: 'journal_title_antigravity_agents',
+		date: new Date(2026, 10, 23, 0, 0, 0),
+		type: 'Launch',
+		repo: 'kevinap29/antigravity-custom-agents',
+		tags: ['AI Agents', 'Antigravity', 'SDLC', 'Open Source']
+	},
+	{
 		slug: 'launch-sveltestart-ai',
 		titleKey: 'journal_sveltestart_ai_title',
 		date: new Date(2026, 10, 1, 0, 0, 0),
