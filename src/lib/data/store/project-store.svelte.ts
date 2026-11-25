@@ -151,7 +151,6 @@ const initialProjects: ProjectData[] = [
 		tags: ['AI Agents', 'SDLC', 'Antigravity', 'PowerShell', 'Bash', '.NET Core', 'SvelteKit']
 	},
 	{
-		slug: 'antigravity-custom-agents',
 		url: `https://diskonin.mainapidev.web.id`,
 		image: `/img/diskonin.png`,
 		name: `Diskonin`,
